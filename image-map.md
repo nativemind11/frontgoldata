@@ -25,9 +25,11 @@ To swap a photo: replace the four files of that asset (same name) — no code ch
 | `privacy_data_governance` | 1920×1440 | `trust` (16/9) | Team reviewing anonymized records and access permissions for data governance. |
 | `service_digital_systems` | 1920×1080 | `services-hero` (16/9), `about-mission` (3/4), `presence` (21/9), `join` (4/3), `ds-video` (16/10) | Operations team reviewing a dependable workflow system for multilingual data delivery. |
 | `case_visual_annotation` | 1920×1080 | `ds-image` (16/10), `case-visual` (16/9) | Computer vision specialist reviewing anonymized street-scene frames with object annotations. |
-| `delivery_handoff` | 1920×1280 | `rfp` (16/9) | Client and delivery team reviewing a structured AI dataset handoff package. |
+| `delivery_handoff` | 1920×1280 | `rfp` (16/9), `receive` (4/3, home "What you receive") | Client and delivery team reviewing a structured AI dataset handoff package. |
 | `contact_brief_session` | 1920×1440 | `contact-globe` (1/1), `quote` (4/3) | Client and consultant discussing the first brief for an AI data project. |
 
 `service_data_evaluation_crop` is a different crop of `service_model_evaluation`, so Data Evaluation and AI Model Evaluation do not show the same frame.
 
 Evidence captions: the voice-collection photo carries "Representative workflow — not a verified client result" and the visual-annotation photo "Illustrative concept — not a client result" as real HTML text (`ev.cap.*` in the i18n files), never baked into the image.
+
+`service_data_evaluation_crop` is 1689 px wide at source; its largest file is shipped as `-1920.webp` so the 640/1280/1920 `srcset` resolves with no 404.

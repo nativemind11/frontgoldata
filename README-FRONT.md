@@ -180,3 +180,12 @@ Confirm all terms on each provider's own page — they change.
 - Real photos, evidence labels (Verified / Representative workflow / Demo illustration), service briefs, 3 case studies, expanded quote form (use case, dialects, deadline, quality target, privacy, tools, consent), language availability + pilot request, pausable motion.
 - Run `003_brief_fields.sql` in Supabase before deploying the new front end (the quote form now sends those fields).
 - Client voices, standards and numbers stay sample placeholders until the client approves evidence.
+
+## Production mode (`CFG.demo = false`)
+
+`demo` is **false**: no placeholder metrics, certificates, testimonials, team or sample datasets are rendered.
+The home page shows a "What you receive" panel instead of client voices. The three case studies are built in and
+always labelled (Representative workflow / Illustrative concept) — they are not gated by `demo`.
+Set `demo: true` only for local design review. Real proof goes in `CFG.stats / testimonials / certs / team`
+only with written approval and evidence. After any content change run `node tools/prerender.js` and
+`node tools/check-i18n.js`.

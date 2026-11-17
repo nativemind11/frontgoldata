@@ -100,8 +100,10 @@
   });
 
   /* ---------- proof helpers (NO-FAKE-PROOF) ---------- */
-  GD.proof = (key, sample) => {
+  GD.proof = (key, sample, always) => {
     if (Array.isArray(CFG[key]) && CFG[key].length) return { items: CFG[key], demo: false };
+    /* `always` = built-in content that is labelled by its own evidence state (e.g. the three representative cases), so it ships in production too. */
+    if (always && sample && sample.length) return { items: sample, demo: false, builtin: true };
     if (CFG.demo && sample && sample.length) return { items: sample, demo: true };
     return null;
   };

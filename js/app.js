@@ -36,7 +36,7 @@
   GD.ICON = ICON;
 
   /* ---------- markup helpers ---------- */
-  const cases = () => GD.proof("cases", K.SAMPLE_CASES);
+  const cases = () => GD.proof("cases", K.SAMPLE_CASES, true);
   const btn = (label, href, v = "primary", extra = "") => `<a class="btn btn--${v} magnetic" href="${href}" ${extra}><span class="btn__label">${esc(label)}</span><span class="btn__icon" aria-hidden="true">${ICON.arrow}</span></a>`;
   const waBtn = (label = t("cta.wa")) => (GD.digits ? `<a class="btn btn--wa magnetic" href="${GD.waLink()}" target="_blank" rel="noopener"><span class="btn__label">${esc(label)}</span><span class="sr-only"> ${esc(t("a11y.newTab"))}</span></a>` : "");
   const faqItems = (list, id) => list.map(([q, a], i) => `
@@ -229,7 +229,18 @@
           </div>
           ${CFG.rating ? `<p class="body-soft" style="margin-block-start:2rem">${esc(t("home.rated", { v: CFG.rating.value, src: "" }))}${live(CFG.rating.url) ? `<a class="link-arrow" href="${esc(CFG.rating.url)}" target="_blank" rel="noopener">${esc(CFG.rating.source)}</a>` : esc(CFG.rating.source)}</p>` : ""}
         </div>
-      </section>` : ""}
+      </section>` : `
+      <section class="section" ${world("ambient", "ink", "0,0,9")} aria-labelledby="rc-title">
+        <div class="container grid split">
+          <div>
+            <p class="eyebrow" data-reveal>${esc(t("home.rc.eyebrow"))}</p>
+            <h2 id="rc-title" class="display-2" data-split>${lines([t("home.rc.t1"), t("home.rc.t2")])}</h2>
+            <p class="body-soft" data-reveal>${esc(t("home.rc.lead"))}</p>
+            <div data-reveal style="margin-block-start:1.5rem">${slot("receive", "slot--frame")}</div>
+          </div>
+          <div class="rows rows--values" data-reveal>${T2("rc", K.RECEIVE).map(([ti, d], i) => `<div class="row"><span class="row__n">0${i + 1}</span><span class="row__t">${esc(ti)}</span><span class="row__d">${esc(d)}</span></div>`).join("")}</div>
+        </div>
+      </section>`}
 
       ${ce ? `
       <section class="section section--tight" ${world("ambient", "deep", "0,0,8")} aria-labelledby="ce-title">
@@ -486,7 +497,7 @@
             <p class="eyebrow" data-reveal>${esc(t("cs.eyebrow"))}</p>
             <h1 class="display" data-split>${lines([t("cs.t1"), t("cs.t2")])}</h1>
             <p class="lead" data-reveal>${esc(t("cs.lead"))}</p>
-            ${c.demo ? `<p class="notice" data-reveal style="margin-block-start:2rem">${ribbon(true)} ${esc(t("cs.sampleNotice"))}</p>` : ""}
+            ${c.builtin ? `<p class="notice" data-reveal style="margin-block-start:2rem">${esc(t("cs.sampleNotice"))}</p>` : (c.demo ? `<p class="notice" data-reveal style="margin-block-start:2rem">${ribbon(true)} ${esc(t("cs.sampleNotice"))}</p>` : "")}
           </div>
         </div>
       </section>
@@ -775,7 +786,7 @@
     const steps = $$(".step", sec);
     const set = (idx) => steps.forEach((st, i) => { st.classList.toggle("is-active", i === idx); st.classList.toggle("is-done", i < idx); });
     set(0);
-    ScrollTrigger.create({ trigger: sec, start: "top top", end: "bottom bottom", onUpdate: (s) => set(Math.min(2, Math.floor(s.progress * 3.05))) });
+    ScrollTrigger.create({ trigger: sec, start: "top top", end: "bottom bottom", onUpdate: (s) => set(Math.min(steps.length - 1, Math.floor(s.progress * (steps.length + 0.05)))) });
   }
 
   function chapterCounter(root) {

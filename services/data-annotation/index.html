@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Data Annotation — GOLDATA</title>
-  <meta name="description" content="Text, audio, image and video annotated by trained specialists who understand the language and the culture behind the content." />
+  <meta name="description" content="Turn raw inputs into structured labels for text, image, speech and video. Start with a task schema, examples and rules for ambiguous items; use a pilot batch to align contributors before scaling." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#070B18" />
   <link rel="canonical" id="canonical" href="https://nativemind11.github.io/frontgoldata/services/data-annotation/" />
@@ -35,10 +35,19 @@
   <meta property="og:url" content="https://nativemind11.github.io/frontgoldata/" />
   <meta property="og:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
   <meta name="twitter:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
+  <link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/" data-static-hreflang />
+  <link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/?lang=ar" data-static-hreflang />
+  <link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/?lang=fr" data-static-hreflang />
+  <link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/?lang=es" data-static-hreflang />
+  <link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/?lang=de" data-static-hreflang />
+  <link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/" data-static-hreflang />
+  <meta property="og:url" content="https://nativemind11.github.io/frontgoldata/" />
+  <meta property="og:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
+  <meta name="twitter:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GOLDATA" />
   <meta property="og:title" content="Data Annotation — GOLDATA" />
-  <meta property="og:description" content="Text, audio, image and video annotated by trained specialists who understand the language and the culture behind the content." />
+  <meta property="og:description" content="Turn raw inputs into structured labels for text, image, speech and video. Start with a task schema, examples and rules for ambiguous items; use a pilot batch to align contributors before scaling." />
   <!-- After deploy, add ABSOLUTE image URLs (social networks ignore relative paths). A brand-only
        card ships as images/og.png; replace with images/og.webp when you have the final art:
   <meta property="og:image" content="https://USER.github.io/REPO/images/og.png" />
@@ -55,7 +64,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="stylesheet" href="../../css/style.css" />
   <script type="application/ld+json" id="ld-org">{"@context":"https://schema.org","@type":"Organization","name":"GOLDATA","url":"https://nativemind11.github.io/frontgoldata/","description":"Human expertise in every language, turned into the data that trains better AI.","email":"nativemind.contact@gmail.com","telephone":"+201558126147","sameAs":[]}</script>
-  <script type="application/ld+json" id="ld-page">{"@context":"https://schema.org","@type":"Service","name":"Data Annotation","description":"Text, audio, image and video annotated by trained specialists who understand the language and the culture behind the content.","serviceType":"Data Annotation","provider":{"@type":"Organization","name":"GOLDATA","url":"https://nativemind11.github.io/frontgoldata/"},"areaServed":"Worldwide"}</script>
+  <script type="application/ld+json" id="ld-page">{"@context":"https://schema.org","@type":"Service","name":"Data Annotation","description":"Turn raw inputs into structured labels for text, image, speech and video. Start with a task schema, examples and rules for ambiguous items; use a pilot batch to align contributors before scaling.","serviceType":"Data Annotation","provider":{"@type":"Organization","name":"GOLDATA","url":"https://nativemind11.github.io/frontgoldata/"},"areaServed":"Worldwide"}</script>
 </head>
 <body data-tone="ink">
   <a class="skip-link" href="#view" onclick="event.preventDefault();document.getElementById('view').focus()">Skip to content</a>
@@ -84,7 +93,7 @@
   <header class="nav" id="nav"></header>
   <div class="menu" id="menu" hidden></div>
 
-  <main id="view" class="view" tabindex="-1"><!--prerender:start--><div class="container prerendered"><h1>Precise labels. Every pixel, every phoneme.</h1><p>Text, audio, image and video annotated by trained specialists who understand the language and the culture behind the content.</p><h2>What we do</h2><p>Good labels come from people who understand what they are looking at. Our annotators are trained on your guidelines, calibrated against gold examples and reviewed in layers, so the hundredth thousand label is as careful as the first.</p><ul><li>Text: entities, intent, sentiment</li><li>Audio: segments &amp; events</li><li>Image: boxes, polygons, keypoints</li><li>Video: tracking &amp; temporal events</li></ul><h2>Sub-services</h2><h3>Text annotation</h3><p>Named entities, intent, sentiment, toxicity, relations and classification.</p><h3>Audio annotation</h3><p>Segmentation, sound events, emotion, speaker attributes and phonetic labels.</p><h3>Image annotation</h3><p>Bounding boxes, polygons, semantic masks, keypoints and attributes.</p><h3>Video annotation</h3><p>Object tracking, action recognition and frame-accurate event tagging.</p><h3>Guideline design</h3><p>We help write or refine guidelines with edge cases and examples.</p><h3>Tool flexibility</h3><p>Work in your tool, an open-source tool, or one we configure for the project.</p><h2>Deliverables</h2><ul><li>Labels in COCO, YOLO, Pascal VOC, JSONL or custom schema</li><li>Guideline document with edge-case log</li><li>Agreement &amp; accuracy metrics</li><li>Reviewer notes on ambiguous items</li></ul><h2>FAQ</h2><h3>Can you work inside our annotation tool?</h3><p>Yes. We regularly work in client platforms and in common open-source tools, and adapt our QA layer to fit.</p><h3>How do you handle ambiguous items?</h3><p>Annotators flag them, leads resolve them, and the decision is added to the guideline so it never repeats.</p><h3>Can we start with a small batch?</h3><p>Yes. A pilot batch is the best way to align guidelines, quality targets and throughput.</p></div><!--prerender:end--></main>
+  <main id="view" class="view" tabindex="-1"><!--prerender:start--><div class="container prerendered"><h1>Labels built on clear rules.</h1><p>Turn raw inputs into structured labels for text, image, speech and video. Start with a task schema, examples and rules for ambiguous items; use a pilot batch to align contributors before scaling.</p><h2>What we do</h2><p>Good labels come from people who understand what they are looking at. Our annotators are trained on your guidelines, calibrated against gold examples and reviewed in layers, so the hundredth thousand label is as careful as the first.</p><ul><li>Text: entities, intent, sentiment</li><li>Audio: segments &amp; events</li><li>Image: boxes, polygons, keypoints</li><li>Video: tracking &amp; temporal events</li></ul><h2>Sub-services</h2><h3>Text annotation</h3><p>Named entities, intent, sentiment, toxicity, relations and classification.</p><h3>Audio annotation</h3><p>Segmentation, sound events, emotion, speaker attributes and phonetic labels.</p><h3>Image annotation</h3><p>Bounding boxes, polygons, semantic masks, keypoints and attributes.</p><h3>Video annotation</h3><p>Object tracking, action recognition and frame-accurate event tagging.</p><h3>Guideline design</h3><p>We help write or refine guidelines with edge cases and examples.</p><h3>Tool flexibility</h3><p>Work in your tool, an open-source tool, or one we configure for the project.</p><h2>Deliverables</h2><ul><li>Labels in COCO, YOLO, Pascal VOC, JSONL or custom schema</li><li>Guideline document with edge-case log</li><li>Agreement &amp; accuracy metrics</li><li>Reviewer notes on ambiguous items</li></ul><h2>FAQ</h2><h3>Can you work inside our annotation tool?</h3><p>Yes. We regularly work in client platforms and in common open-source tools, and adapt our QA layer to fit.</p><h3>How do you handle ambiguous items?</h3><p>Annotators flag them, leads resolve them, and the decision is added to the guideline so it never repeats.</p><h3>Can we start with a small batch?</h3><p>Yes. A pilot batch is the best way to align guidelines, quality targets and throughput.</p></div><!--prerender:end--></main>
   <footer id="footer" class="footer"></footer>
 
   <div class="sticky" id="sticky" aria-hidden="true"></div>

@@ -225,7 +225,7 @@ body[data-tone="light"] .nav::before { background: linear-gradient(to bottom, rg
 .flow { position: relative; block-size: 360vh; }
 .flow__sticky { position: sticky; inset-block-start: 0; block-size: 100vh; block-size: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding-block: clamp(6rem, 14vh, 9rem) clamp(2rem, 6vh, 4rem); }
 .flow__head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--s-6); flex-wrap: wrap; }
-.flow__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.75rem, 1.5vw, 1.25rem); }
+.flow__steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(0.75rem, 1.5vw, 1.25rem); }
 .step { padding: var(--s-5) var(--s-5) var(--s-6); border-block-start: 1px solid var(--line); opacity: 0.38; transition: opacity var(--t-med) var(--ease-out), border-color var(--t-med) var(--ease-out); position: relative; }
 .step::before { content: ""; position: absolute; inset-block-start: -1px; inset-inline-start: 0; block-size: 1px; inline-size: 0; background: var(--teal); transition: inline-size var(--t-slow) var(--ease-out); }
 .step.is-active { opacity: 1; }
@@ -434,6 +434,7 @@ html.no-webgl .slot.is-empty { background: radial-gradient(70% 70% at 60% 40%, r
 .reduced [data-reveal], .reduced [data-clip] { opacity: 1 !important; transform: none !important; clip-path: none !important; }
 
 /* ---------- responsive ---------- */
+@media (max-width: 1100px) and (min-width: 901px) { .flow__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: var(--s-4); } }
 @media (max-width: 1100px) {
   .cards, .stats, .certs, .team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .detail-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

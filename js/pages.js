@@ -359,7 +359,7 @@
   function resItems() {
     const cs = GD.cases();
     const arts = K.ARTICLES.map((a) => ({ kind: "article", slug: a.slug, href: `#/resources/${a.slug}`, title: a.title, summary: a.summary, tags: a.tags, slot: a.slot, min: minutes(artText(a)), date: a.date }));
-    const cases = cs ? cs.items.map((c) => ({ kind: "case", slug: c.slug, href: `#/case-studies/${c.slug}`, title: c.title, summary: c.summary, tags: c.cats || [c.tag], slot: c.slot, min: minutes(caseText(c)), demo: cs.demo })) : [];
+    const cases = cs ? cs.items.map((c) => ({ kind: "case", slug: c.slug, href: `#/case-studies/${c.slug}`, title: c.title, summary: c.summary, tags: c.cats || [c.tag], slot: c.slot, min: minutes(caseText(c)), demo: cs.demo || (c.evidence || "verified") !== "verified" })) : [];
     return arts.concat(cases);
   }
   GD.resItems = resItems;

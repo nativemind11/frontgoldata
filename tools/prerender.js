@@ -31,7 +31,7 @@ const LANGS = (CFG.i18n && CFG.i18n.available) || ["en"];
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const t = (k, v = {}) => String(EN[k] || k).replace(/\{(\w+)\}/g, (m, x) => (v[x] != null ? v[x] : m));
 const P = (s) => `<p>${esc(s)}</p>`, H2 = (s) => `<h2>${esc(s)}</h2>`, UL = (a) => `<ul>${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
-const cases = Array.isArray(CFG.cases) && CFG.cases.length ? CFG.cases : CFG.demo ? K.SAMPLE_CASES : [];
+const cases = Array.isArray(CFG.cases) && CFG.cases.length ? CFG.cases : K.SAMPLE_CASES;
 const org = { "@context": "https://schema.org", "@type": "Organization", name: CFG.brand, url: SITE, description: CFG.story, email: CFG.email, telephone: CFG.phone, sameAs: Object.values(CFG.socials || {}).filter((u) => u && u !== "#") };
 
 /* ---------- route table: [path, title, description, bodyHtml, jsonld?] ---------- */

@@ -38,8 +38,9 @@ window.CFG = {
      Empty = mailto fallback (newsletter + contributor forms then open email). */
   apiBase: "",
 
-  /* DEMO MODE — true shows clearly ribboned SAMPLE content. false hides every empty block. */
-  demo: true,
+  /* DEMO MODE — false (production): every empty proof block is hidden (no placeholder metrics, certificates, quotes or team).
+     true is for local design review only and shows clearly ribboned SAMPLE content. */
+  demo: false,
 
   /* Real proof. Leave null until you have it. Shapes:
      stats:        [{ value: "40+", label: "Languages delivered" }]   (numbers count up)
@@ -228,6 +229,7 @@ window.CFG = {
     "contact-globe": { asset: "contact_brief_session", ar: "1/1", w: 1920, h: 1440 },
     "trust": { asset: "privacy_data_governance", ar: "16/9", w: 1920, h: 1440 },
     "rfp": { asset: "delivery_handoff", ar: "16/9", w: 1920, h: 1280 },
+    "receive": { asset: "delivery_handoff", ar: "4/3", w: 1920, h: 1280, pos: "50% 50%" },
     "resources": { asset: "team_quality_review", ar: "16/9", w: 1920, h: 1080 },
     "presence": { asset: "service_digital_systems", ar: "21/9", w: 1920, h: 1080, pos: "50% 45%" },
     "languages": { asset: "case_localization_review", ar: "21/9", w: 1920, h: 1280, pos: "50% 55%" },
