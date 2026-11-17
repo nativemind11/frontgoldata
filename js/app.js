@@ -883,6 +883,8 @@
     /* Observe the slot wrapper (it always has a box); the <img> inside is hidden until it has loaded, and a hidden element never intersects. */
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { const im = e.target.querySelector("img[data-slot]"); if (im) load(im); io.unobserve(e.target); } }), { rootMargin: "600px 0px" });
     imgs.forEach((i) => io.observe(i.closest(".slot") || i)); cleanups.push(() => io.disconnect());
+    /* Safety net: if the observer never fires (some browsers/extensions), load any remaining photos once the page has settled. */
+    const t0 = setTimeout(() => imgs.forEach(load), 2500); cleanups.push(() => clearTimeout(t0));
   }
 
   function magnetic(root) {

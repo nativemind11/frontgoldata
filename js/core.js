@@ -66,7 +66,7 @@
     }
   }
   /* Dictionaries other than English load on demand (js/i18n/<lang>.js). */
-  const loadDict = (l) => (l === "en" || I18N[l] ? Promise.resolve() : GD.loadScript(`${GD.base}js/i18n/${l}.js`));
+  const loadDict = (l) => (l === "en" || I18N[l] ? Promise.resolve() : GD.loadScript(`${GD.base}js/i18n/${l}.js?v=20261118`));
   async function setLang(l) {
     if (!AVAIL.includes(l) || l === lang) return;
     try { await loadDict(l); } catch (e) { return; }
