@@ -64,7 +64,12 @@ const indexPath = path.join(ROOT, "index.html");
 const tpl = fs.readFileSync(indexPath, "utf8");
 const setMeta = (html, { title, desc, canon, depth, route, ld, body }) => {
   const up = "../".repeat(depth);
+  // Idempotent: drop tags a previous run generated so they are not stacked on every run.
   let h = html
+    .replace(/[ \t]*<link rel="alternate" hreflang="[^"]*"[^>]*data-static-hreflang \/>\r?\n?/g, "")
+    .replace(/[ \t]*<meta property="og:url" content="[^"]*" \/>\r?\n?/g, "")
+    .replace(/[ \t]*<meta property="og:image" content="https:\/\/(?!USER\.)[^"]*" \/>\r?\n?/g, "")
+    .replace(/[ \t]*<meta name="twitter:image" content="https:\/\/(?!USER\.)[^"]*" \/>\r?\n?/g, "")
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(desc)}$2`)
     .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`)
