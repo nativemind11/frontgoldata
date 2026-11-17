@@ -26,10 +26,10 @@ front/
   js/i18n/ar|fr|es|de.js MACHINE DRAFTS — need native review (see js/i18n/REVIEW.md)
   tools/prerender.js    generates per-route static pages + sitemap.xml + robots.txt (Node, no deps)
   tools/check-i18n.js   checks every dictionary against en.js
-  images/               drop your images here (see image-prompts.md). og.png + logo-mark.svg ship.
+  images/               the 20 supplied photos as responsive webp sets (see image-map.md). og.png + logo-mark.svg ship.
   favicon.svg, favicon-32.png, apple-touch-icon.png, icon-192/512.png, site.webmanifest
   sitemap.xml, robots.txt  (regenerate with tools/prerender.js after setting CFG.siteUrl)
-  image-prompts.md      shot list for all 44 image slots
+  image-map.md          which photo feeds which slot, with alt text
   .nojekyll             tells GitHub Pages to serve files as-is
 ```
 
@@ -86,7 +86,7 @@ python3 -m http.server 5500     # open http://localhost:5500
 | `analytics` | Privacy-first script `{ src, attrs }` (e.g. Umami / GoatCounter free tier) | Off. Even when set, loads only after the visitor opts in |
 | `i18n` | `default` + `available` languages | — |
 | `imageFormats` | Formats uploaded for every slot, e.g. `["avif","webp"]` | — |
-| `images` | Per-slot `alt`, `ar` (aspect ratio), `w`/`h` | — |
+| `assets` / `images` | `assets`: per-photo `alt`, `w`/`h`. `images`: slot → `asset`, `ar` (aspect ratio), optional `pos` | — |
 | `showSlotLabels` | Small dashed "Image slot" tag on empty frames | Set `false` before launch |
 
 **No fake proof:** never put certifications, client names, logos, people or numbers in
@@ -94,10 +94,10 @@ these fields unless they are true and you may publish them.
 
 ## Images
 
-Each slot loads `images/<slot>.<format>` lazily with width/height set (no layout shift),
+Each slot loads `images/<asset>.webp` with a 640/1280/1920 `srcset`, lazily, with width/height set (no layout shift),
 a blur-up placeholder, clip-path reveal and gentle parallax. Missing files keep the
 placeholder/3D scene — a 404 per missing image in the console is expected.
-All 44 slots, prompts, alt text and sizes: **image-prompts.md**.
+Slot → photo map and alt text: **image-map.md**.
 `images/og.png` (1200×630) is a brand-only social card generated from the logo — replace it when you have final art.
 
 ## Translations
@@ -174,3 +174,9 @@ other than English load only when chosen. Minifying is optional (e.g. free `esbu
 - **Google Maps embed:** keyless `output=embed` iframe; Google may change this.
 
 Confirm all terms on each provider's own page — they change.
+
+
+## Production upgrade (this release)
+- Real photos, evidence labels (Verified / Representative workflow / Demo illustration), service briefs, 3 case studies, expanded quote form (use case, dialects, deadline, quality target, privacy, tools, consent), language availability + pilot request, pausable motion.
+- Run `003_brief_fields.sql` in Supabase before deploying the new front end (the quote form now sends those fields).
+- Client voices, standards and numbers stay sample placeholders until the client approves evidence.

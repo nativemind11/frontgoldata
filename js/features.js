@@ -155,7 +155,7 @@
 
     const val = () => {
       const fd = new FormData(f), get = (k) => String(fd.get(k) || "").trim();
-      return { kind: get("kind") || "quote", services: fd.getAll("services"), languages: Array.from(sel), data_types: fd.getAll("data_types"), volume: get("volume"), timeline: get("timeline"), nda: fd.get("nda") === "yes", notes: get("notes"), name: get("name"), email: get("email"), company: get("company"), phone: get("phone"), website: get("website"), planner: JSON.parse(f.dataset.preQ || "{}") };
+      return { kind: get("kind") || "quote", services: fd.getAll("services"), languages: Array.from(sel), data_types: fd.getAll("data_types"), volume: get("volume"), timeline: get("timeline"), nda: fd.get("nda") === "yes", notes: get("notes"), use_case: get("use_case"), language_notes: get("language_notes"), deadline: get("deadline"), quality_target: get("quality_target"), privacy_constraints: get("privacy_constraints"), existing_tools: get("existing_tools"), consent: fd.get("consent") === "yes", name: get("name"), email: get("email"), company: get("company"), phone: get("phone"), website: get("website"), planner: JSON.parse(f.dataset.preQ || "{}") };
     };
     const setErr = (name, msg) => { const e2 = $(`[data-err="${name}"]`, f); if (e2) e2.textContent = msg || ""; };
     const fieldErr = (input, msg) => { input.setAttribute("aria-invalid", String(!!msg)); const e2 = input.parentElement.querySelector(".err"); if (e2) e2.textContent = msg || ""; return !msg; };
@@ -163,10 +163,13 @@
       const v = val();
       if (i === 0) { const ok = v.services.length > 0; setErr("services", ok ? "" : t("err.pick")); if (!ok) $("input[name=services]", f).focus(); return ok; }
       if (i === 1) { const ok = v.languages.length > 0; setErr("languages", ok ? "" : t("err.pick")); if (!ok) msInput.focus(); return ok; }
+      if (i === 2) { const ok = fieldErr(f.elements.use_case, v.use_case.length >= 3 ? "" : t("err.usecase")); if (!ok) f.elements.use_case.focus(); return ok; }
       if (i === 3) {
+        const cOk = v.consent; setErr("consent", cOk ? "" : t("err.consent"));
         const a = fieldErr(f.elements.name, v.name.length >= 2 ? "" : t("err.name")), b = fieldErr(f.elements.email, GD.RX.email.test(v.email) ? "" : t("err.email")), c = fieldErr(f.elements.phone, !v.phone || GD.RX.phone.test(v.phone) ? "" : t("err.phone"));
         if (!a) f.elements.name.focus(); else if (!b) f.elements.email.focus(); else if (!c) f.elements.phone.focus();
-        return a && b && c;
+        if (a && b && c && !cOk) f.elements.consent.focus();
+        return a && b && c && cOk;
       }
       return true;
     };
@@ -175,10 +178,11 @@
       const rows = [
         [0, t("q.typeLabel"), t(`q.type.${v.kind}`)],
         [0, t("q.services"), GD.fmtList(v.services.map((s) => label(S.find((x) => x.slug === s))))],
-        [1, t("q.languages"), GD.fmtList(v.languages.map((c) => byCode[c].name))],
+        [1, t("q.languages"), GD.fmtList(v.languages.map((c) => byCode[c].name))], [1, t("q.dialects"), v.language_notes || none],
+        [2, t("q.usecase"), v.use_case],
         [2, t("q.type"), v.data_types.length ? GD.fmtList(v.data_types.map((m) => t(`mod.${m}`))) : none],
-        [2, t("q.volume"), v.volume || none], [2, t("q.timeline"), tl], [2, t("q.nda"), v.nda ? t("q.yes") : t("q.no")], [2, t("q.notes"), v.notes || none],
-        [3, t("q.name"), v.name], [3, t("f.email"), v.email], [3, t("f.company"), v.company || none], [3, t("f.mobile"), v.phone || none],
+        [2, t("q.volume"), v.volume || none], [2, t("q.timeline"), tl], [2, t("q.deadline"), v.deadline || none], [2, t("q.quality"), v.quality_target || none], [2, t("q.privacy"), v.privacy_constraints || none], [2, t("q.tools"), v.existing_tools || none], [2, t("q.nda"), v.nda ? t("q.yes") : t("q.no")], [2, t("q.notes"), v.notes || none],
+        [3, t("q.name"), v.name], [3, t("f.email"), v.email], [3, t("f.company"), v.company || none], [3, t("f.mobile"), v.phone || none], [3, t("q.consent.short"), v.consent ? t("q.yes") : t("q.no")],
       ];
       $("[data-review]", f).innerHTML = rows.map(([s, k, x]) => `<div><dt>${esc(k)}</dt><dd>${esc(x)}</dd><button type="button" class="linklike" data-edit="${s}">${esc(t("q.edit"))}<span class="sr-only"> ${esc(k)}</span></button></div>`).join("");
     };
@@ -204,7 +208,7 @@
       if (v.website) return finish(GD.refId("GD"), false);
       if (!GD.apiUrl(v.kind)) {
         const ref = GD.refId(v.kind === "pilot" ? "GD-P" : "GD-Q");
-        GD.mailto(`${v.kind === "pilot" ? "Pilot" : "Quote"} request ${ref} — ${v.name}`, [`Reference: ${ref}`, `Type: ${v.kind}`, `Services: ${v.services.join(", ")}`, `Languages: ${v.languages.join(", ")}`, `Data types: ${v.data_types.join(", ") || "-"}`, `Volume: ${v.volume || "-"}`, `Timeline: ${v.timeline || "-"}`, `NDA first: ${v.nda ? "yes" : "no"}`, `Planner: ${JSON.stringify(v.planner)}`, "", `Name: ${v.name}`, `Email: ${v.email}`, `Company: ${v.company || "-"}`, `Mobile: ${v.phone || "-"}`, "", v.notes]);
+        GD.mailto(`${v.kind === "pilot" ? "Pilot" : "Quote"} request ${ref} — ${v.name}`, [`Reference: ${ref}`, `Type: ${v.kind}`, `Services: ${v.services.join(", ")}`, `Languages: ${v.languages.join(", ")}`, `Data types: ${v.data_types.join(", ") || "-"}`, `Volume: ${v.volume || "-"}`, `Timeline: ${v.timeline || "-"}`, `Deadline: ${v.deadline || "-"}`, `Use case: ${v.use_case}`, `Dialects/locale notes: ${v.language_notes || "-"}`, `Quality target: ${v.quality_target || "-"}`, `Privacy constraints: ${v.privacy_constraints || "-"}`, `Existing tools: ${v.existing_tools || "-"}`, `Consent to be contacted: ${v.consent ? "yes" : "no"}`, `NDA first: ${v.nda ? "yes" : "no"}`, `Planner: ${JSON.stringify(v.planner)}`, "", `Name: ${v.name}`, `Email: ${v.email}`, `Company: ${v.company || "-"}`, `Mobile: ${v.phone || "-"}`, "", v.notes]);
         return finish(ref, true);
       }
       submit.setAttribute("aria-busy", "true"); GD.announce(t("st.sending"));
@@ -222,7 +226,7 @@
     let region = "all", need = "";
     const apply = () => {
       const q = norm(input.value).trim(); let n = 0;
-      cards.forEach((c) => { const ok = (region === "all" || c.dataset.region === region) && (!q || norm(c.dataset.text).includes(q)); c.parentElement.hidden = !ok; if (ok) n++; c.href = `#/quote?lang=${encodeURIComponent(c.dataset.code)}${need ? `&mod=${need === "speech" ? "audio" : need}` : ""}`; });
+      cards.forEach((c) => { const ok = (region === "all" || c.dataset.region === region) && (!q || norm(c.dataset.text).includes(q)); c.parentElement.hidden = !ok; if (ok) n++; const mod = need ? `&mod=${need === "speech" ? "audio" : need}` : ""; c.href = `#/quote?lang=${encodeURIComponent(c.dataset.code)}${mod}`; const pl = c.parentElement.querySelector(".lx__pilot"); if (pl) pl.href = `#/quote?type=pilot&lang=${encodeURIComponent(c.dataset.code)}${mod}`; });
       count.textContent = t("lx.count", { n }); empty.hidden = n > 0; GD.scheduleRebuild();
     };
     input.addEventListener("input", apply);

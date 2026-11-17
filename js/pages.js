@@ -148,14 +148,22 @@
                 <p class="ms__none" data-ms-none hidden></p>
               </div>
               <span class="err" aria-live="polite" data-err="languages"></span>
+              <div class="form form--plain" style="margin-block-start:var(--s-6)">
+                <div class="field field--full"><label for="q-dialects">${esc(t("q.dialects"))} ${opt()}</label><textarea id="q-dialects" name="language_notes" maxlength="300" placeholder="${esc(t("q.dialects.ph"))}"></textarea>${err}</div>
+              </div>
             </fieldset>
 
             <fieldset class="wizard__step" data-step="2" hidden>
               <legend class="h3">${esc(t("q.s3.h"))}</legend>
               <div class="form form--plain">
+                <div class="field field--full"><label for="q-usecase">${esc(t("q.usecase"))}</label><textarea id="q-usecase" name="use_case" required maxlength="1000" placeholder="${esc(t("q.usecase.ph"))}"></textarea>${err}</div>
                 <fieldset class="field field--full seg"><legend>${esc(t("q.type"))}</legend>${mods.map((md) => `<label><input type="checkbox" name="data_types" value="${md}" ${preM === md ? "checked" : ""} /><span>${esc(t(`mod.${md}`))}</span></label>`).join("")}</fieldset>
                 <div class="field"><label for="q-volume">${esc(t("q.volume"))}</label><input id="q-volume" name="volume" maxlength="120" placeholder="${esc(t("f.volume.ph"))}" />${err}</div>
                 <div class="field"><label for="q-timeline">${esc(t("q.timeline"))}</label><select id="q-timeline" name="timeline"><option value="">—</option>${["asap", "1m", "3m", "later"].map((k) => `<option value="${k}">${esc(t(`f.tl.${k}`))}</option>`).join("")}</select>${err}</div>
+                <div class="field"><label for="q-deadline">${esc(t("q.deadline"))} ${opt()}</label><input id="q-deadline" name="deadline" type="date" />${err}</div>
+                <div class="field field--full"><label for="q-quality">${esc(t("q.quality"))} ${opt()}</label><textarea id="q-quality" name="quality_target" maxlength="500" placeholder="${esc(t("q.quality.ph"))}"></textarea>${err}</div>
+                <div class="field field--full"><label for="q-privacy">${esc(t("q.privacy"))} ${opt()}</label><textarea id="q-privacy" name="privacy_constraints" maxlength="1000" placeholder="${esc(t("q.privacy.ph"))}"></textarea>${err}</div>
+                <div class="field field--full"><label for="q-tools">${esc(t("q.tools"))} ${opt()}</label><input id="q-tools" name="existing_tools" maxlength="500" placeholder="${esc(t("q.tools.ph"))}" />${err}</div>
                 <label class="check field--full"><input type="checkbox" name="nda" value="yes" /><span>${esc(t("q.nda"))}</span></label>
                 <div class="field field--full"><label for="q-notes">${esc(t("q.notes"))} ${opt()}</label><textarea id="q-notes" name="notes" maxlength="4000"></textarea>${err}</div>
               </div>
@@ -168,6 +176,8 @@
                 <div class="field"><label for="q-email">${esc(t("f.email"))}</label><input id="q-email" name="email" type="email" autocomplete="email" required maxlength="160" />${err}</div>
                 <div class="field"><label for="q-company">${esc(t("f.company"))} ${opt()}</label><input id="q-company" name="company" autocomplete="organization" maxlength="120" />${err}</div>
                 <div class="field"><label for="q-phone">${esc(t("f.mobile"))} ${opt()}</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" dir="ltr" />${err}</div>
+                <label class="check field--full"><input type="checkbox" name="consent" value="yes" required /><span>${esc(t("q.consent"))} <a href="#/privacy">${esc(t("lg.privacy"))}</a></span></label>
+                <span class="err field--full" aria-live="polite" data-err="consent"></span>
                 <div class="hp" aria-hidden="true"><label for="q-web">${esc(t("f.website"))}</label><input id="q-web" name="website" tabindex="-1" autocomplete="off" /></div>
               </div>
             </fieldset>
@@ -216,10 +226,15 @@
             <div class="filters filters--mods" role="group" aria-label="${esc(t("lx.need"))}"><span class="filters__l">${esc(t("lx.need"))}</span>${["text", "speech", "image", "video"].map((md) => `<button data-need="${md}" aria-pressed="false">${esc(t(`mod.${md}`))}</button>`).join("")}</div>
           </div>
           <p class="results" aria-live="polite" data-lx-count></p>
-          <ul class="lx-grid">${L.map((l) => `<li><a class="lx" href="#/quote?lang=${encodeURIComponent(l.code)}" data-code="${esc(l.code)}" data-region="${esc(l.region || "")}" data-text="${esc(`${l.name} ${l.native} ${l.script} ${l.code}`.toLowerCase())}" aria-label="${esc(t("lx.request", { x: l.name }))}">
-            <span class="lx__native" lang="${esc(l.code)}">${esc(l.native)}</span><span class="lx__name">${esc(l.name)}</span><span class="lx__meta"><span>${esc(l.script)}</span><code>${esc(l.code)}</code></span>
-            ${Array.isArray(l.modalities) && l.modalities.length ? `<span class="lx__ok">${esc(t("lx.confirmed"))}: ${l.modalities.map((md) => esc(t(`mod.${md}`))).join(" · ")}</span>` : ""}
-          </a></li>`).join("")}</ul>
+          <ul class="lx-grid">${L.map((l) => {
+            const dm = /\(([^)]+)\)/.exec(l.name), dialect = dm ? dm[1] : "";
+            const conf = Array.isArray(l.modalities) && l.modalities.length;
+            return `<li class="lx-item"><a class="lx" href="#/quote?lang=${encodeURIComponent(l.code)}" data-code="${esc(l.code)}" data-region="${esc(l.region || "")}" data-text="${esc(`${l.name} ${l.native} ${l.script} ${l.code}`.toLowerCase())}" aria-label="${esc(t("lx.request", { x: l.name }))}">
+            <span class="lx__native" lang="${esc(l.code)}">${esc(l.native)}</span><span class="lx__name">${esc(l.name)}</span>
+            <span class="lx__meta"><span>${esc(t("lx.locale"))}: <code>${esc(l.code)}</code></span><span>${esc(t("lx.dialect"))}: ${esc(dialect || t("lx.dialect.std"))}</span><span>${esc(l.script)}</span></span>
+            <span class="lx__status ${conf ? "is-ok" : ""}"><b>${esc(t("lx.status"))}:</b> ${conf ? `${esc(t("lx.confirmed"))}: ${l.modalities.map((md) => esc(t(`mod.${md}`))).join(" · ")}` : esc(t("lx.requestable"))}</span>
+          </a><a class="lx__pilot link-arrow" href="#/quote?type=pilot&lang=${encodeURIComponent(l.code)}" aria-label="${esc(t("lx.pilotFor", { x: l.name }))}">${esc(t("lx.pilot"))} ${GD.ICON.arrow}</a></li>`;
+          }).join("")}</ul>
           <div class="empty" data-lx-empty hidden>${ILLO.spot("orbit")}<p>${esc(t("lx.empty"))}</p>${B(t("cta.quote"), "#/quote", "ghost")}</div>
           <p class="notice" data-reveal>${esc(t("lx.note"))}</p>
         </div>

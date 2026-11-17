@@ -90,7 +90,7 @@
     {
       slug: "quality-assurance", n: "05", label: "Quality Assurance", scene: "qa", slot: "svc-5",
       headline: "Quality you can audit, not just trust.",
-      line: "Layered review, gold-standard checks and transparent reporting, applied to our work or to datasets you already own.",
+      line: "Quality is designed before production: gold examples, calibration, layered review, issue taxonomy and a delivery report that separates accepted work from open questions.",
       subs: ["Multi-pass review workflows", "Gold-standard & consensus checks", "Agreement reporting", "Linguist-led spot audits"],
       what: "Quality is a system, not a promise. We combine qualified contributors, calibrated guidelines, multi-pass review and statistical sampling, then show you the numbers. We can also audit existing datasets and fix what we find.",
       details: [
@@ -323,64 +323,139 @@
     ],
   };
 
+  /* Three case studies, each labelled by evidence state:
+       "verified"       – client-approved, evidence on file (none yet)
+       "representative" – a workflow we run, described without client names or results
+       "illustration"   – a concept written to show structure
+     No speaker counts, utterance counts, accuracy or improvement figures appear until a client approves them. */
   const SAMPLE_CASES = [
     {
-      slug: "in-car-voice-speech-varieties", slot: "case-1", tag: "Speech & Voice", cats: ["Speech & Voice", "Data Collection", "Industry Solutions"], industry: "Automotive",
-      title: "Capturing in-car voice across speech varieties",
-      summary: "How a voice-assistant team could collect natural commands from drivers and passengers across regional accents and real cabin noise.",
-      challenge: "An in-car assistant trained on studio speech struggles the moment a real driver speaks: road noise, the fan at full blast, a passenger talking over the command, and an accent the model has rarely heard. The team needed speech that sounded like their customers, recorded where their customers would actually use it.",
+      slug: "voice-data-in-car-assistant", slot: "case-voice", evidence: "representative",
+      caption: "Representative workflow — not a verified client result.",
+      tag: "Speech & Voice", cats: ["Speech & Voice", "Data Collection", "Industry Solutions"], industry: "Automotive",
+      title: "Voice data for an in-car assistant",
+      summary: "How voice commands can be recorded under realistic cabin conditions, with consent, transcription, segmentation, metadata and QA built in.",
+      challenge: "An in-car assistant trained on studio speech struggles once a real driver speaks: road noise, a fan at full blast, a passenger talking over the command, an accent the model has rarely heard. The data has to be recorded where the product will be used, and every recording has to arrive with consent and context attached.",
       approach: [
-        ["Speaker plan", "Quotas defined by region, dialect, age band and seat position, so no single variety dominated."],
-        ["Cabin protocol", "Sessions scripted for parked, city and highway conditions with windows, fan and media states logged per file."],
-        ["Natural prompts", "Commands written as intents, letting speakers phrase requests their own way instead of reading fixed sentences."],
-        ["Layered review", "Native transcribers tagged noise events, overlaps and code-switching, followed by a second-pass linguist review."],
+        ["Recording under real conditions", "Sessions are planned for parked, city and highway conditions, with window, fan and media states logged for every file."],
+        ["Consent first", "Each contributor agrees to the recording and its purpose before the session starts, and the record travels with the audio."],
+        ["Transcription", "Native transcribers write what was said, tag noise events, overlaps and language switches, and follow one written guideline."],
+        ["Segmentation", "Long takes are cut into utterances with timestamps so each command can be used on its own."],
+        ["Metadata", "Speaker profile fields, device, seat position and acoustic conditions are stored as structured fields, not free text."],
+        ["QA", "A second reviewer checks a sample of every batch against the guideline; issues are logged and fixed before handoff."],
       ],
-      outcome: "The result is a dataset that mirrors real use: balanced speakers, documented acoustic conditions and transcripts that capture how people really ask for things in a moving car.",
-      takeaways: ["Record where the product lives, not where it is convenient.", "Let speakers phrase intents naturally.", "Log acoustic conditions as structured metadata."],
+      outcome: "What the team receives: audio with consent records, aligned transcripts, structured metadata and a delivery report that separates accepted work from open questions. This page does not publish speaker or utterance counts; those appear only after the client approves them.",
+      takeaways: ["Record where the product lives, not where it is convenient.", "Attach consent and conditions to every file.", "Keep transcription, segmentation and QA in one traceable flow."],
     },
     {
-      slug: "why-localization-matters", slot: "case-2", tag: "Translation & Localization", cats: ["Translation & Localization", "AI Model Evaluation"], industry: "Consumer AI",
-      title: "Why localization matters for multilingual AI",
-      summary: "A translated prompt is not a localized prompt. What changes when native linguists adapt data instead of converting it word for word.",
-      challenge: "Teams often expand a model to new markets by translating their English training and evaluation data. The words arrive, but the intent, politeness level and cultural references often do not — and the model learns to sound like a translation.",
+      slug: "localization-multilingual-support-assistant", slot: "case-localization", evidence: "representative",
+      caption: "Representative workflow — not a verified client result.",
+      tag: "Translation & Localization", cats: ["Translation & Localization", "AI Model Evaluation"], industry: "Customer support AI",
+      title: "Localization for a multilingual support assistant",
+      summary: "What changes when native reviewers adapt support content for each locale instead of translating it word for word.",
+      challenge: "A support assistant that is translated rather than localized reads as foreign: the intent shifts, the tone is too stiff or too casual, and edge cases such as formal address or regional wording are missed. The team needs content that works for each locale, with a way to show it was checked.",
       approach: [
-        ["Locale briefs", "Each target market gets a short brief on register, formality, humor and sensitive topics."],
-        ["Transcreation over translation", "Linguists rewrite prompts and examples so the intent lands naturally in the target culture."],
-        ["Shared terminology", "Glossaries keep product names and key terms consistent across every locale."],
-        ["Native validation", "A second linguist rates each item for fluency, accuracy and cultural fit before delivery."],
+        ["Glossary", "Product terms and fixed phrases are agreed once per locale and shared with every reviewer."],
+        ["Native review", "Reviewers who live the locale read each item for meaning, fluency and regional fit."],
+        ["Intent", "Each phrase is checked against the intent behind it, so a reply still does what the source reply does."],
+        ["Tone", "A short locale brief sets register and formality; reviewers flag any drift from it."],
+        ["Edge cases", "Dialect words, mixed-language input, numbers, dates and polite forms are collected as a running list."],
+        ["LQA", "A linguistic quality pass scores a sample with a written error taxonomy, and corrections go back into the glossary."],
       ],
-      outcome: "Localized data teaches the model how people actually talk in each market, which shows up as answers that feel local instead of imported.",
-      takeaways: ["Separate translation from adaptation in your plan.", "Brief linguists on culture, not just terminology.", "Evaluate per locale with native raters."],
+      outcome: "What the team receives: localized content per locale, the glossary and tone brief behind it, an issue log by category and a delivery report. No improvement figure or percentage is shown here; any such claim needs client evidence.",
+      takeaways: ["Separate translation from adaptation in the plan.", "Write the tone brief before the first item.", "Evaluate each locale with native reviewers."],
     },
     {
-      slug: "annotation-quality-at-scale", slot: "case-3", tag: "Data Annotation", cats: ["Data Annotation", "Quality Assurance"], industry: "Computer vision",
-      title: "Keeping annotation quality steady at scale",
-      summary: "The system behind labels that stay consistent from the first thousand items to the last million.",
-      challenge: "Quality usually drops as annotation volume grows: new annotators join, guidelines drift and edge cases multiply. A pilot that looked perfect can quietly degrade by the time the dataset is large enough to matter.",
+      slug: "annotation-evaluation-visual-ai", slot: "case-visual", evidence: "illustration",
+      caption: "Illustrative concept — not a client result.",
+      tag: "Data Annotation", cats: ["Data Annotation", "Quality Assurance", "AI Model Evaluation"], industry: "Computer vision",
+      title: "Annotation and evaluation for visual AI",
+      summary: "A concept for how object labels on street-scene frames can be defined, piloted, reviewed and exported in a schema the model team can load.",
+      challenge: "Labels drift when guidelines are loose: two annotators draw the same object two ways, and a category boundary nobody wrote down becomes noise in the training set. The team needs rules, evidence of agreement and a clean export before volume starts.",
       approach: [
-        ["Gold items in the stream", "Hidden reference items measure each annotator's accuracy continuously, not just at onboarding."],
-        ["Calibration rounds", "Short, regular sessions realign the team on new edge cases."],
-        ["Living guidelines", "Every resolved ambiguity becomes a documented rule with an example."],
-        ["Risk-based review", "Harder classes and newer annotators get deeper review; stable work gets sampled."],
+        ["Guidelines", "Written rules with pictured examples for every class, including what does not count."],
+        ["Pilot batch", "A small batch is labelled first to find unclear rules while they are cheap to fix."],
+        ["Category boundaries", "Confusing pairs such as occluded objects or similar classes get a decision rule and an example each."],
+        ["Disagreement report", "Items where annotators differ are listed and resolved by a lead, and the rule is updated."],
+        ["Review sample", "A sample of finished work is reviewed by a second person before the batch is accepted."],
+        ["Export schema", "Labels are delivered in the format and field names the model team agreed, with a version note."],
       ],
-      outcome: "Quality becomes something you can measure week by week, with drift caught early and corrected at the source instead of patched at the end.",
-      takeaways: ["Measure continuously with hidden gold items.", "Treat guidelines as a living document.", "Spend review effort where risk is highest."],
-    },
-    {
-      slug: "low-resource-transcription", slot: "case-4", tag: "Speech & Voice", cats: ["Speech & Voice", "Data Collection"], industry: "Research & public sector",
-      title: "Transcription for low-resource languages",
-      summary: "Building usable transcripts where standard spelling, tools and trained transcribers are all in short supply.",
-      challenge: "Some languages have few written resources, competing spelling conventions and almost no off-the-shelf tooling. Finding people who can transcribe them consistently is the first hard problem; agreeing on how to write what they hear is the second.",
-      approach: [
-        ["Community recruitment", "Native speakers found through community networks, then tested on short audio samples."],
-        ["Orthography guide", "A practical spelling convention agreed with the client and documented with examples."],
-        ["Paired review", "Transcribers work in pairs on difficult audio, with disagreements resolved by a lead linguist."],
-        ["Lexicon building", "A shared word list grows with the project, improving consistency batch after batch."],
-      ],
-      outcome: "The output is a consistent, documented transcript set plus the lexicon and conventions that make the next phase faster.",
-      takeaways: ["Agree on orthography before volume.", "Invest in contributor testing early.", "Deliver the lexicon alongside the data."],
+      outcome: "What the team would receive: a guideline document, a pilot report with the disagreement list, reviewed batches and an export that matches the agreed schema. This is a concept written to show structure, not a client engagement.",
+      takeaways: ["Pilot before volume.", "Turn every disagreement into a written rule.", "Agree the export schema before labelling starts."],
     },
   ];
+
+  /* Per-service brief: the problem it solves, how the work runs, the gates a batch must pass and the limits we state up front.
+     Evidence status for every brief is "representative": it describes how we run the service, not a client result. */
+  const SERVICE_BRIEF = {
+    "speech-voice": {
+      problem: "Speech models fail on the voices, accents and rooms they never heard. Recordings made in a quiet studio say little about how people really talk.",
+      steps: [["Scope the speakers", "Agree locales, dialects, age bands and recording conditions."], ["Brief and consent", "Contributors get prompts and agree to the recording and its use."], ["Record", "Sessions run in the agreed environments with a logged setup."], ["Review", "Native reviewers check audio and transcripts against the guideline."], ["Hand off", "Audio, transcripts, metadata and the QA report are delivered."]],
+      gates: ["Consent record present for every contributor", "Audio checked for clipping, noise and truncation", "Transcript sample reviewed against the written guideline"],
+      limits: ["Locale and dialect availability is confirmed per project, not assumed.", "Speaker and hour counts are agreed in the scope, not promised in advance."],
+    },
+    "data-collection": {
+      problem: "Public or scraped data rarely matches the task. Models need text, audio, image or video gathered to a specification, with a clear record of where it came from.",
+      steps: [["Write the specification", "Define content, quotas, formats and exclusions."], ["Recruit and brief", "Select contributors for the locale and task and brief them."], ["Collect", "Capture under the agreed protocol with metadata on every file."], ["Check", "Reviewers sample each batch against the specification."], ["Hand off", "Deliver files, metadata, consent records and a batch report."]],
+      gates: ["Every file carries consent and source metadata", "Quota coverage reported against the specification", "Duplicates and out-of-scope items removed before delivery"],
+      limits: ["We collect only what contributors have agreed to share.", "Sensitive categories need an extra written agreement before work starts."],
+    },
+    "data-annotation": {
+      problem: "Labels decide what a model learns. Loose guidelines produce labels that disagree with each other, and that disagreement becomes noise in training.",
+      steps: [["Write guidelines", "Rules with examples for every label, including edge cases."], ["Pilot batch", "Label a small batch to find unclear rules early."], ["Calibrate", "Align annotators on disagreements and update the rules."], ["Produce", "Label at volume with review layers sized to the risk."], ["Export", "Deliver labels in the agreed schema with a version note."]],
+      gates: ["Pilot batch accepted before production starts", "Disagreements logged and resolved into written rules", "Review sample passed before each batch ships"],
+      limits: ["Guideline changes after production starts can need rework, and we flag that early.", "Label taxonomy is agreed with you; we do not invent classes."],
+    },
+    "ai-model-evaluation": {
+      problem: "Automatic metrics miss what users notice: tone, fluency, correctness in context. Teams need structured human judgement they can repeat.",
+      steps: [["Define the rubric", "Agree criteria, scales and what each score means."], ["Calibrate raters", "Raters score shared examples until they agree on the rubric."], ["Rate", "Raters score model outputs, blind to the system where possible."], ["Reconcile", "Disagreements are reviewed and the rubric is tightened."], ["Report", "Scores, comments and a list of failure patterns are delivered."]],
+      gates: ["Raters pass a calibration set before live work", "Agreement between raters is measured and reported", "Rubric version recorded with every score"],
+      limits: ["Human ratings describe the sample reviewed, not the whole model.", "Reviewer panels are matched to the locale and domain per project."],
+    },
+    "quality-assurance": {
+      problem: "Quality that is checked only at the end arrives too late. Teams need to know what was accepted, what was fixed and what is still open.",
+      steps: [["Set acceptance criteria", "Write what a passing item looks like for each task."], ["Seed gold examples", "Add reference items with known answers to the stream."], ["Review in layers", "Sample and second-review work by risk."], ["Log issues", "Classify problems with an issue taxonomy."], ["Report", "Deliver a report that separates accepted work from open questions."]],
+      gates: ["Acceptance criteria signed off before production", "Gold-item results tracked per batch", "Open issues listed in the delivery report"],
+      limits: ["Sampling shows the quality of the sample, and the report states the sample size used.", "We do not publish accuracy figures without client-approved evidence."],
+    },
+    "industry-solutions": {
+      problem: "Domain data carries domain risk. Healthcare, retail, automotive and search each need reviewers who know the field and handling that respects it.",
+      steps: [["Understand the domain", "Agree vocabulary, risks and what must never appear in data."], ["Match specialists", "Select reviewers with relevant background."], ["Set handling rules", "Define anonymization and access limits up front."], ["Run the workflow", "Produce and review under those rules."], ["Hand off", "Deliver data and a record of the handling applied."]],
+      gates: ["Anonymization rules agreed in writing", "Domain reviewer sign-off on guidelines", "Access limited to named team members"],
+      limits: ["We do not work with identifiable patient records in demos or samples.", "Regulated work needs a signed agreement that covers your regulator's rules."],
+    },
+    "translation-localization": {
+      problem: "Translated text that ignores register, culture and regional wording makes products feel foreign and trains models to sound that way.",
+      steps: [["Locale brief", "Set register, formality and sensitive topics per locale."], ["Glossary", "Agree product terms and fixed phrases."], ["Adapt", "Native linguists adapt content rather than convert it."], ["Review", "A second linguist reviews meaning, fluency and fit."], ["LQA", "Score a sample with an error taxonomy and feed fixes back."]],
+      gates: ["Glossary applied consistently across reviewers", "Second linguist review on every batch", "LQA error categories reported"],
+      limits: ["A locale is listed as requestable, not as ready-made coverage.", "Reviewer availability by dialect is confirmed per project."],
+    },
+    "generative-ai": {
+      problem: "Generative models need human-written examples, preference judgements and safety review that reflect the people and places they will serve.",
+      steps: [["Define the task", "Agree prompts, response style and safety categories."], ["Write or collect", "Contributors write prompts and reference answers."], ["Rate and compare", "Reviewers rank outputs against a rubric."], ["Safety review", "Check outputs against agreed categories."], ["Deliver", "Hand over data with the rubric and a review report."]],
+      gates: ["Safety categories defined before review starts", "Anonymized outputs only in review material", "Sample re-reviewed by a second person"],
+      limits: ["Reviewers see the material the scope allows and no more.", "Human review reduces risk; it does not guarantee a model's behaviour."],
+    },
+    "off-the-shelf-datasets": {
+      problem: "Starting from scratch costs time. Existing datasets help only if scope, licence and format are clear before you commit.",
+      steps: [["Share your need", "Describe task, languages, modality and format."], ["Match", "We check what exists against that need."], ["Review the terms", "Scope, licence and format are written down."], ["Sample", "Where possible, you see a sample before you decide."], ["Deliver", "Data is handed over securely with its documentation."]],
+      gates: ["Scope, licence, format and last-reviewed date stated", "Sample available before purchase where the licence allows", "Source and consent status documented"],
+      limits: ["The catalog lists only real datasets; sample cards in demo mode are placeholders.", "Licence terms vary by dataset and are agreed in writing."],
+    },
+    "data-evaluation": {
+      problem: "A dataset can look complete and still be wrong in places. Teams need an independent review of existing data before they train on it.",
+      steps: [["Define checks", "Agree what to look for: errors, gaps, bias, duplicates."], ["Draw a sample", "Select items that represent the whole set."], ["Review", "Reviewers check items against a rubric."], ["Summarize", "Group findings by type and severity."], ["Report", "Deliver findings with suggested fixes."]],
+      gates: ["Sampling method written down", "Findings grouped by a defined issue taxonomy", "Reviewer agreement measured"],
+      limits: ["Findings describe the sample reviewed; the report states its size.", "We review data you provide and do not alter the original files."],
+    },
+    "transcription": {
+      problem: "Speech models and search need accurate, time-aligned text. Accents, overlap and noise are where automatic transcripts break.",
+      steps: [["Set the style", "Choose verbatim or clean-read, and the tags to use."], ["Segment", "Cut audio into units with timestamps."], ["Transcribe", "Native transcribers write each segment."], ["Review", "A second reviewer checks a sample against the guideline."], ["Deliver", "Hand over transcripts in your format with a QA note."]],
+      gates: ["Style guide agreed before work begins", "Timestamps checked on a sample", "Second-pass review on difficult audio"],
+      limits: ["Locale availability is confirmed per project and not assumed.", "Very poor audio can limit accuracy; we flag it rather than guess."],
+    },
+  };
+  SERVICES.forEach((s) => Object.assign(s, { brief: SERVICE_BRIEF[s.slug] }));
 
   /* Per-service presentation extras: icon + spot illustration + interactive demo + planner unit. */
   const SERVICE_EXTRAS = {
@@ -413,7 +488,7 @@
   const GLOBAL_TRIO = [
     ["Multilingual Data", "Text, speech and evaluation work in the languages and dialects your users speak, staffed per locale."],
     ["Human in the Loop", "People where judgment matters: writing, rating, reviewing and correcting what automation gets wrong."],
-    ["Quality Assurance", "Written acceptance criteria, hidden reference checks and layered review on every batch."],
+    ["Quality Assurance", "Quality is designed before production: gold examples, calibration, layered review, issue taxonomy and a delivery report that separates accepted work from open questions."],
   ];
 
   const HIGHLIGHTS = [

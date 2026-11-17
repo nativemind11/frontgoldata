@@ -11,10 +11,10 @@ window.CFG = {
   story: "Human expertise in every language, turned into the data that trains better AI.",
   hero: { lines: ["Fluent humans.", "Smarter machines."] },
 
-  /* Absolute public URL of the site, WITH trailing slash.
+  /* Absolute public URL of the site, WITH trailing slash (live reference: https://nativemind11.github.io/frontgoldata/).
      Used for canonical links, hreflang, sitemap, OG image and PDFs.
      e.g. "https://USER.github.io/goldata-site/" — empty = current location. */
-  siteUrl: "",
+  siteUrl: "https://nativemind11.github.io/frontgoldata/",
 
   email: "nativemind.contact@gmail.com",
   phone: "+201558126147",
@@ -46,7 +46,7 @@ window.CFG = {
                    optional { key: "locales" } marks the transcription locale count
      testimonials: [{ quote: "...", name: "Jane Doe", role: "Head of Data, Company" }]
      rating:       { value: 4.9, source: "Clutch", url: "https://..." }
-     certs:        [{ name: "ISO/IEC 27001", note: "Certified 2026", url: "" }]
+     certs:        [{ name: "<certificate name>", note: "<issuer, year>", url: "<verification link>" }]   (only with client-approved evidence)
      team:         [{ name: "...", role: "...", photo: "images/team-1.webp" }]
      cases:        same shape as SAMPLE_CASES in js/content.js
      datasets:     [{ id, title, modality: "text|audio|image|video", task, languages, volume, license, url }] */
@@ -175,54 +175,79 @@ window.CFG = {
   /* Image formats you have uploaded for EVERY slot. ["avif","webp"] adds AVIF with WebP fallback. */
   imageFormats: ["webp"],
 
-  /* Image slots: images/<slot>.<format>. alt = accessible description, ar = aspect ratio, w/h = intrinsic size (prevents layout shift). */
-  images: {
-    "hero-fallback": { alt: "Glowing data globe seen through a ring of light", ar: "16/9", w: 1920, h: 1080 },
-    "svc-1": { alt: "Studio microphone in a dark recording booth with a ring of teal light", ar: "1/1", w: 1600, h: 1600 },
-    "svc-2": { alt: "Hands recording a city street on a phone at dusk", ar: "1/1", w: 1600, h: 1600 },
-    "svc-3": { alt: "Monitor showing an abstract street scene with bounding boxes", ar: "1/1", w: 1600, h: 1600 },
-    "svc-4": { alt: "Hand choosing between two translucent evaluation cards", ar: "1/1", w: 1600, h: 1600 },
-    "svc-5": { alt: "Magnifying loupe on printed waveform sheets under a desk lamp", ar: "1/1", w: 1600, h: 1600 },
-    "svc-6": { alt: "Car cabin at night lit in blue and teal", ar: "1/1", w: 1600, h: 1600 },
-    "svc-7": { alt: "Abstract handwritten strokes in several scripts on layered paper", ar: "1/1", w: 1600, h: 1600 },
-    "svc-8": { alt: "Faceted glass polyhedron glowing from within", ar: "1/1", w: 1600, h: 1600 },
-    "svc-9": { alt: "Shelves of glowing data blocks in a dark archive", ar: "1/1", w: 1600, h: 1600 },
-    "svc-10": { alt: "Translucent checklist panels with light gauges", ar: "1/1", w: 1600, h: 1600 },
-    "svc-11": { alt: "Headphones beside a screen showing a waveform turning into lines of text", ar: "1/1", w: 1600, h: 1600 },
-    "services-hero": { alt: "Wide abstract composition of light panels representing data services", ar: "16/9", w: 1920, h: 1080 },
-    "hl-1": { alt: "Abstract layered text glyphs in soft light", ar: "4/3", w: 1600, h: 1200 },
-    "hl-2": { alt: "Sound waves rendered as thin teal lines", ar: "4/3", w: 1600, h: 1200 },
-    "hl-3": { alt: "Modular blocks rearranging on a dark surface", ar: "4/3", w: 1600, h: 1200 },
-    "flow": { alt: "Three glass panels joined by lines of light", ar: "16/9", w: 1920, h: 1080 },
-    "about-team": { alt: "A small team working around a table in a dim studio", ar: "4/3", w: 1600, h: 1200 },
-    "about-mission": { alt: "A person listening closely with headphones, face turned away", ar: "3/4", w: 1200, h: 1600 },
-    "global-trio": { alt: "Three glowing objects representing languages, people and quality", ar: "16/9", w: 1920, h: 1080 },
-    "industries": { alt: "Composite of a car dashboard, hospital corridor, headset and shelf", ar: "4/3", w: 1600, h: 1200 },
-    "contact-globe": { alt: "Glowing glass globe on a dark plinth", ar: "1/1", w: 1600, h: 1600 },
-    "trust": { alt: "Abstract shield of light over a dark data room", ar: "16/9", w: 1920, h: 1080 },
-    "rfp": { alt: "Neatly stacked documents and a pen under cool light", ar: "16/9", w: 1920, h: 1080 },
-    "resources": { alt: "Open notebook with abstract diagrams under a desk lamp", ar: "16/9", w: 1920, h: 1080 },
-    "presence": { alt: "Dotted world map glowing on a dark wall", ar: "21/9", w: 1920, h: 823 },
-    "languages": { alt: "Many writing scripts floating as soft light glyphs", ar: "21/9", w: 1920, h: 823 },
-    "join": { alt: "Contributor at home with headphones and a laptop, seen from behind", ar: "4/3", w: 1600, h: 1200 },
-    "quote": { alt: "Abstract light path with four checkpoints", ar: "4/3", w: 1600, h: 1200 },
-    "newsletter": { alt: "Envelope outline drawn in teal light", ar: "1/1", w: 800, h: 800 },
-    "notfound": { alt: "Small globe drifting off its orbit", ar: "1/1", w: 1200, h: 1200 },
-    "ds-text": { alt: "Abstract text lines representing a text dataset", ar: "16/10", w: 1600, h: 1000 },
-    "ds-audio": { alt: "Abstract waveform representing an audio dataset", ar: "16/10", w: 1600, h: 1000 },
-    "ds-image": { alt: "Abstract grid of frames representing an image dataset", ar: "16/10", w: 1600, h: 1000 },
-    "ds-video": { alt: "Abstract film strip representing a video dataset", ar: "16/10", w: 1600, h: 1000 },
-    "case-1": { alt: "Driver's hands on a wheel at night, dashboard glowing teal", ar: "16/9", w: 1920, h: 1080 },
-    "case-2": { alt: "World map of light points projected on a wall", ar: "16/9", w: 1920, h: 1080 },
-    "case-3": { alt: "Rows of monitors with abstract labelled shapes", ar: "16/9", w: 1920, h: 1080 },
-    "case-4": { alt: "Headphones beside a notebook and a laptop showing a waveform", ar: "16/9", w: 1920, h: 1080 },
-    "art-1": { alt: "Annotation guideline pages with highlighted examples", ar: "16/9", w: 1920, h: 1080 },
-    "art-2": { alt: "Two hands placing matching cards side by side", ar: "16/9", w: 1920, h: 1080 },
-    "art-3": { alt: "Planning board with a microphone and sticky notes, no text", ar: "16/9", w: 1920, h: 1080 },
-    "art-4": { alt: "Speech bubbles in several scripts compared on a screen", ar: "16/9", w: 1920, h: 1080 },
-    "og": { alt: "GOLDATA logo and tagline on a dark background", ar: "1200/630", w: 1200, h: 630 },
+  /* Image assets (supplied set, 21 files incl. one alternate crop). Files: images/<asset>.webp (1280w fallback)
+     plus images/<asset>-640.webp / -1280.webp / -1920.webp for srcset. Alt text lives here, once per asset. */
+  assets: {
+    "hero_multilingual_ai_lab": { w: 1920, h: 823, alt: "Multilingual AI data specialists reviewing speech and annotation workflows in an operations studio." },
+    "team_quality_review": { w: 1920, h: 1080, alt: "AI data operations team reviewing quality controls and dataset handoff materials." },
+    "process_pilot_workflow": { w: 1920, h: 1280, alt: "Client and operations team planning a small AI data pilot with sample tasks and a delivery checklist." },
+    "case_voice_collection": { w: 1920, h: 1280, alt: "Contributor recording a consented voice prompt inside a parked car for speech data collection." },
+    "service_data_collection": { w: 1920, h: 1280, alt: "Contributors recording consented text and speech data during a controlled collection session." },
+    "service_annotation_workspace": { w: 1920, h: 1440, alt: "Annotator reviewing an AI data labelling workflow beside a quality checklist." },
+    "service_model_evaluation": { w: 1920, h: 1080, alt: "Reviewers comparing anonymized AI model responses against a structured evaluation rubric." },
+    "service_data_evaluation_crop": { w: 1920, h: 1332, alt: "Reviewer checking anonymized records against a structured evaluation rubric on a wall display." },
+    "quality_qa_checkpoint": { w: 1920, h: 1280, alt: "Reviewers checking a sample batch as part of an AI data quality checkpoint." },
+    "industry_healthcare_ai": { w: 1920, h: 1280, alt: "Healthcare and data specialists reviewing anonymized AI workflow material." },
+    "industry_retail_search": { w: 1920, h: 1280, alt: "Retail operations team reviewing anonymized product search and relevance data." },
+    "service_localization": { w: 1920, h: 1280, alt: "Multilingual reviewers comparing regional language variations during a localization workflow." },
+    "case_localization_review": { w: 1920, h: 1280, alt: "Linguistic reviewers comparing multilingual interface phrases during a localization review." },
+    "service_genai_safety": { w: 1920, h: 1280, alt: "Team reviewing anonymized generative AI responses and safety categories." },
+    "service_dataset_library": { w: 1920, h: 1440, alt: "Curated AI dataset library materials organized for secure handoff." },
+    "service_speech_transcription": { w: 1920, h: 1440, alt: "Speech specialist reviewing audio waveforms and transcription timestamps." },
+    "privacy_data_governance": { w: 1920, h: 1440, alt: "Team reviewing anonymized records and access permissions for data governance." },
+    "service_digital_systems": { w: 1920, h: 1080, alt: "Operations team reviewing a dependable workflow system for multilingual data delivery." },
+    "case_visual_annotation": { w: 1920, h: 1080, alt: "Computer vision specialist reviewing anonymized street-scene frames with object annotations." },
+    "delivery_handoff": { w: 1920, h: 1280, alt: "Client and delivery team reviewing a structured AI dataset handoff package." },
+    "contact_brief_session": { w: 1920, h: 1440, alt: "Client and consultant discussing the first brief for an AI data project." },
   },
 
-  showSlotLabels: true,               // small "image slot" tag on empty image frames
+  /* Image slots → asset. ar = frame aspect ratio the photo is cropped to (object-fit: cover), pos = optional focal point.
+     A slot with no asset renders no <img> (no 404s). */
+  images: {
+    "hero-fallback": { asset: "hero_multilingual_ai_lab", ar: "7/3", w: 1920, h: 823, pos: "50% 40%" },
+    "svc-1": { asset: "case_voice_collection", ar: "4/3", w: 1920, h: 1280 },
+    "svc-2": { asset: "service_data_collection", ar: "4/3", w: 1920, h: 1280 },
+    "svc-3": { asset: "service_annotation_workspace", ar: "4/3", w: 1920, h: 1440 },
+    "svc-4": { asset: "service_model_evaluation", ar: "4/3", w: 1920, h: 1080 },
+    "svc-5": { asset: "quality_qa_checkpoint", ar: "4/3", w: 1920, h: 1280 },
+    "svc-6": { asset: "industry_healthcare_ai", ar: "4/3", w: 1920, h: 1280 },
+    "svc-7": { asset: "service_localization", ar: "4/3", w: 1920, h: 1280 },
+    "svc-8": { asset: "service_genai_safety", ar: "4/3", w: 1920, h: 1280 },
+    "svc-9": { asset: "service_dataset_library", ar: "4/3", w: 1920, h: 1440 },
+    "svc-10": { asset: "service_data_evaluation_crop", ar: "4/3", w: 1920, h: 1332 },
+    "svc-11": { asset: "service_speech_transcription", ar: "4/3", w: 1920, h: 1440 },
+    "services-hero": { asset: "service_digital_systems", ar: "16/9", w: 1920, h: 1080 },
+    "hl-1": { asset: "case_localization_review", ar: "4/3", w: 1920, h: 1280 },
+    "hl-2": { asset: "service_speech_transcription", ar: "4/3", w: 1920, h: 1440 },
+    "hl-3": { asset: "process_pilot_workflow", ar: "4/3", w: 1920, h: 1280 },
+    "flow": { asset: "process_pilot_workflow", ar: "16/9", w: 1920, h: 1280 },
+    "about-team": { asset: "team_quality_review", ar: "4/3", w: 1920, h: 1080 },
+    "about-mission": { asset: "service_digital_systems", ar: "3/4", w: 1920, h: 1080, pos: "70% 40%" },
+    "global-trio": { asset: "team_quality_review", ar: "16/9", w: 1920, h: 1080 },
+    "industries": { asset: "industry_retail_search", ar: "4/3", w: 1920, h: 1280 },
+    "contact-globe": { asset: "contact_brief_session", ar: "1/1", w: 1920, h: 1440 },
+    "trust": { asset: "privacy_data_governance", ar: "16/9", w: 1920, h: 1440 },
+    "rfp": { asset: "delivery_handoff", ar: "16/9", w: 1920, h: 1280 },
+    "resources": { asset: "team_quality_review", ar: "16/9", w: 1920, h: 1080 },
+    "presence": { asset: "service_digital_systems", ar: "21/9", w: 1920, h: 1080, pos: "50% 45%" },
+    "languages": { asset: "case_localization_review", ar: "21/9", w: 1920, h: 1280, pos: "50% 55%" },
+    "join": { asset: "service_digital_systems", ar: "4/3", w: 1920, h: 1080 },
+    "quote": { asset: "contact_brief_session", ar: "4/3", w: 1920, h: 1440 },
+    "ds-text": { asset: "service_dataset_library", ar: "16/10", w: 1920, h: 1440 },
+    "ds-audio": { asset: "service_speech_transcription", ar: "16/10", w: 1920, h: 1440 },
+    "ds-image": { asset: "case_visual_annotation", ar: "16/10", w: 1920, h: 1080 },
+    "ds-video": { asset: "service_digital_systems", ar: "16/10", w: 1920, h: 1080 },
+    "case-voice": { asset: "case_voice_collection", ar: "16/9", w: 1920, h: 1280 },
+    "case-localization": { asset: "case_localization_review", ar: "16/9", w: 1920, h: 1280 },
+    "case-visual": { asset: "case_visual_annotation", ar: "16/9", w: 1920, h: 1080 },
+    "art-1": { asset: "service_annotation_workspace", ar: "16/9", w: 1920, h: 1440 },
+    "art-2": { asset: "quality_qa_checkpoint", ar: "16/9", w: 1920, h: 1280 },
+    "art-3": { asset: "case_voice_collection", ar: "16/9", w: 1920, h: 1280 },
+    "art-4": { asset: "service_genai_safety", ar: "16/9", w: 1920, h: 1280 },
+    "notfound": { ar: "1/1", w: 1200, h: 1200, alt: "" },
+    "og": { ar: "1200/630", w: 1200, h: 630, alt: "GOLDATA logo and tagline on a dark background" },
+  },
+
+  showSlotLabels: false,              // dev only: dashed "image slot" tag on empty frames
   year: new Date().getFullYear(),
 };

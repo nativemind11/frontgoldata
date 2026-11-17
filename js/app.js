@@ -72,7 +72,7 @@
       <section class="section trio" ${world("trio", "navy", "0,0.2,9", "0,0,0")} aria-labelledby="trio-title">
         <div class="container">
           <div class="section-head section-head--split">
-            <div><p class="eyebrow" data-reveal>${esc(t(eyebrowKey))}</p><h2 id="trio-title" class="display-2" data-split>${lines([t("home.trio.t1"), t("home.trio.t2")])}</h2></div>
+            <div><p class="eyebrow" data-reveal>${esc(t(eyebrowKey))}</p><h2 id="trio-title" class="display-2" data-split>${lines([t("home.trio.t1"), t("home.trio.t2")])}</h2><p class="lead" data-reveal>${esc(t("home.trio.lead"))}</p></div>
             <div data-reveal>${slot("global-trio", "slot--frame slot--soft")}</div>
           </div>
           <div class="trio__cards">${items.map(([ti, d], i) => `<button type="button" class="trio__card" data-focus="${i}" data-reveal aria-describedby="trio-d${i}"><span class="card__icon">${ILLO.icon(icons[i], 24)}</span><span class="h3">${esc(ti)}</span><span class="trio__d" id="trio-d${i}">${esc(d)}</span></button>`).join("")}</div>
@@ -106,7 +106,7 @@
         <div class="hero__fallback" aria-hidden="true">${ILLO.spot("globe", "hero__svg")}${ILLO.spot("orbit", "hero__svg hero__svg--2")}</div>
         <div class="hero__sticky">
           <div class="container hero__inner" data-hero>
-            <p class="eyebrow">${esc(GD.cfgT("brand.tagline", CFG.tagline))}</p>
+            <p class="eyebrow">${esc(t("hero.eyebrow"))}</p>
             <h1 id="hero-title" class="display hero__title">${lines([GD.cfgT("hero.l1", CFG.hero.lines[0])])}${lines([GD.cfgT("hero.l2", CFG.hero.lines[1])], "accent")}</h1>
             <div class="hero__meta">
               <div class="hero__inner">
@@ -118,6 +118,10 @@
           </div>
         </div>
         <div class="world-mark" style="inset-block-start:56%" ${world("portal", "ink", "0,0,-1.4", "0,0,-7")}></div>
+      </section>
+
+      <section class="hero-photo" aria-label="${esc(t("hero.photo"))}">
+        <div class="container"><div data-clip>${slot("hero-fallback", "slot--frame slot--hero")}</div></div>
       </section>
 
       <section class="section tone-light" ${world("light", "light", "0,0,11", "0,0,0")}>
@@ -214,7 +218,7 @@
       ${tm ? `
       <section class="section" ${world("ambient", "ink", "0,0,9")} aria-labelledby="tm-title">
         <div class="container">
-          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("home.tm.eyebrow"))}</p><h2 id="tm-title" class="display-2" data-split>${lines([t("home.tm.t1"), t("home.tm.t2")])}</h2></div>
+          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("home.tm.eyebrow"))}</p><h2 id="tm-title" class="display-2" data-split>${lines([t("home.tm.t1"), t("home.tm.t2")])}</h2>${tm.demo ? `<p class="notice" data-reveal>${esc(t("home.tm.lead"))}</p>` : ""}</div>
           <div class="quotes has-demo" data-slider aria-live="polite" data-reveal>${ribbon(tm.demo)}
             ${tm.items.map((q, i) => `<figure class="quote" ${i ? "hidden" : ""} aria-roledescription="slide" aria-label="${esc(t("home.tm.of", { i: i + 1, n: tm.items.length }))}"><blockquote${tm.demo ? GD.enAttr() : ""}>“${esc(q.quote)}”</blockquote><figcaption><b>${esc(q.name)}</b>${esc(q.role)}</figcaption></figure>`).join("")}
           </div>
@@ -230,7 +234,7 @@
       ${ce ? `
       <section class="section section--tight" ${world("ambient", "deep", "0,0,8")} aria-labelledby="ce-title">
         <div class="container">
-          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("home.ce.eyebrow"))}</p><h2 id="ce-title" class="h3" data-reveal>${esc(t("home.ce.title"))} ${ribbon(ce.demo, t("demo.placeholders"))}</h2></div>
+          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("home.ce.eyebrow"))}</p><h2 id="ce-title" class="h3" data-reveal>${esc(t("home.ce.title"))} ${ribbon(ce.demo, t("demo.placeholders"))}</h2>${ce.demo ? `<p class="notice" data-reveal>${esc(t("home.ce.lead"))}</p>` : ""}</div>
           <div class="certs" data-reveal>${ce.items.map((c) => `<div class="cert"><b>${esc(c.name)}</b><span>${esc(c.note || "")}</span></div>`).join("")}</div>
         </div>
       </section>` : ""}
@@ -385,7 +389,7 @@
             ${locales ? `<p class="badge-line" data-reveal>${esc(t("sd.locales", { v: locales.value }))}</p>` : ""}
             <div class="cta-row" data-reveal style="margin-block-start:2rem">${btn(t("cta.quote"), `#/quote?service=${s.slug}`)}${btn(t("cta.pilot"), `#/quote?type=pilot&service=${s.slug}`, "ghost")}${waBtn()}</div>
           </div>
-          <div class="page-hero__media" style="grid-column:7 / span 6">${slot(s.slot)}</div>
+          <div class="page-hero__media" style="grid-column:7 / span 6">${slot(s.slot, "", undefined, t("ev.representative"))}</div>
         </div>
       </section>
       <section class="section" ${world("ambient", "ink", "0,0,9")}>
@@ -394,6 +398,7 @@
           <div class="prose" data-reveal${GD.enAttr()}><p>${esc(s.what)}</p><ul class="ticks">${s.subs.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
         </div>
       </section>
+      ${briefSection(s)}
       ${s.demo ? `
       <section class="section section--tight">
         <div class="container grid split">
@@ -434,6 +439,35 @@
     };
   }
 
+  /* evidence state of a case: verified (client-approved) · representative (workflow we run) · illustration (concept) */
+  const evOf = (x) => x.evidence || "verified";
+  const evBadge = (x) => `<span class="ev ev--${evOf(x)}">${esc(t(`ev.${evOf(x)}`))}</span>`;
+  const evCap = (x) => (GD.hasT(`ev.cap.${evOf(x)}`) ? t(`ev.cap.${evOf(x)}`) : "");
+  GD.evBadge = evBadge;
+
+  /* service brief: problem · workflow · quality gates · limits · evidence status · request */
+  function briefSection(s) {
+    const b = s.brief; if (!b) return "";
+    const en = GD.enAttr();
+    return `
+      <section class="section" ${world("ambient", "deep", "0,0,8")} aria-labelledby="sb-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow" data-reveal>${esc(t("sb.eyebrow"))}</p>
+            <h2 id="sb-title" class="display-2" data-split>${lines([t("sb.t1"), t("sb.t2")])}</h2>
+            <p class="ev-line" data-reveal><b>${esc(t("sb.evidence"))}:</b> <span class="ev ev--representative">${esc(t("ev.representative"))}</span> ${esc(t("sb.ev.note"))}</p>
+          </div>
+          <div class="brief">
+            <article class="brief__card brief__card--wide" data-reveal><h3 class="h3">${esc(t("sb.problem"))}</h3><p${en}>${esc(b.problem)}</p></article>
+            <article class="brief__card brief__card--wide" data-reveal><h3 class="h3">${esc(t("sb.steps"))}</h3><ol class="brief__steps"${en}>${b.steps.map(([a, d]) => `<li><b>${esc(a)}</b><span>${esc(d)}</span></li>`).join("")}</ol></article>
+            <article class="brief__card" data-reveal><h3 class="h3">${esc(t("sb.gates"))}</h3><ul class="ticks"${en}>${b.gates.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>
+            <article class="brief__card" data-reveal><h3 class="h3">${esc(t("sb.limits"))}</h3><ul class="ticks"${en}>${b.limits.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>
+          </div>
+          <div class="cta-row" data-reveal style="margin-block-start:2.5rem">${btn(t("sb.cta", { x: label(s) }), `#/quote?service=${s.slug}`)}${btn(t("cta.pilot"), `#/quote?type=pilot&service=${s.slug}`, "ghost")}</div>
+        </div>
+      </section>`;
+  }
+
   const catName = (c) => { const s = S.find((x) => x.label === c); return s ? label(s) : c; };
   GD.catName = catName;
 
@@ -467,8 +501,8 @@
           <p class="results" aria-live="polite" data-case-count></p>
           <div class="case-grid">${c.items.map((x) => `
             <a class="case" href="#/case-studies/${x.slug}" data-tags="${esc((x.cats || [x.tag]).join("|"))}" data-text="${esc(`${x.title} ${x.summary} ${x.industry} ${x.tag}`.toLowerCase())}" data-reveal data-cursor="view"${GD.enAttr()}>
-              ${slot(x.slot, "slot--frame")}
-              <div class="case__meta"><b>${esc(catName(x.tag))}</b><span>${esc(x.industry)}</span>${c.demo ? `<span class="pill">${esc(t("cs.illustrative"))}</span>` : ""}</div>
+              ${slot(x.slot, "slot--frame", undefined, evCap(x))}
+              <div class="case__meta"><b>${esc(catName(x.tag))}</b><span>${esc(x.industry)}</span>${evBadge(x)}</div>
               <h3>${esc(x.title)}</h3><p>${esc(x.summary)}</p>
               <span class="link-arrow">${esc(t("cs.read"))} ${ICON.arrow}</span>
             </a>`).join("")}
@@ -490,13 +524,13 @@
       <section class="page-hero" ${world("ambient", "deep", "0,0,10")} style="min-block-size:85vh">
         <div class="container"${GD.enAttr()}>
           <nav class="crumbs" aria-label="Breadcrumb" data-reveal><a href="#/case-studies">${esc(t("nav.cases"))}</a><span aria-hidden="true">/</span><span aria-current="page">${esc(catName(x.tag))}</span></nav>
-          <div class="case__meta" data-reveal><b>${esc(catName(x.tag))}</b><span>${esc(x.industry)}</span></div>
+          <div class="case__meta" data-reveal><b>${esc(catName(x.tag))}</b><span>${esc(x.industry)}</span>${evBadge(x)}</div>
           <h1 class="display-2" data-split style="margin-block:1.5rem;max-inline-size:18ch">${lines([x.title])}</h1>
           <p class="lead" data-reveal>${esc(x.summary)}</p>
-          ${c.demo ? `<p class="notice" data-reveal style="margin-block-start:2rem">${ribbon(true)} ${esc(t("cd.notice"))}</p>` : ""}
+          ${evOf(x) !== "verified" ? `<p class="notice" data-reveal style="margin-block-start:2rem">${evBadge(x)} ${esc(t(`cd.notice.${evOf(x)}`))}</p>` : ""}
         </div>
       </section>
-      <div class="container"><div class="media-wide" data-clip>${slot(x.slot, "slot--frame")}</div></div>
+      <div class="container"><div class="media-wide" data-clip>${slot(x.slot, "slot--frame", undefined, evCap(x))}</div></div>
       <section class="section">
         <article class="container article"${GD.enAttr()}>
           <div data-reveal><h2>${esc(t("cd.challenge"))}</h2><p class="prose">${esc(x.challenge)}</p></div>
@@ -507,7 +541,7 @@
       </section>
       <section class="section section--tight">
         <div class="container"><p class="eyebrow" data-reveal style="margin-block-end:2rem">${esc(t("cd.more"))}</p>
-          <div class="case-grid">${others.map((y) => `<a class="case" href="#/case-studies/${y.slug}" data-reveal data-cursor="view"${GD.enAttr()}>${slot(y.slot, "slot--frame")}<div class="case__meta"><b>${esc(catName(y.tag))}</b><span>${esc(y.industry)}</span></div><h3>${esc(y.title)}</h3></a>`).join("")}</div>
+          <div class="case-grid">${others.map((y) => `<a class="case" href="#/case-studies/${y.slug}" data-reveal data-cursor="view"${GD.enAttr()}>${slot(y.slot, "slot--frame", undefined, evCap(y))}<div class="case__meta"><b>${esc(catName(y.tag))}</b><span>${esc(y.industry)}</span>${evBadge(y)}</div><h3>${esc(y.title)}</h3></a>`).join("")}</div>
         </div>
       </section>
       ${finalCta()}`,
@@ -830,7 +864,7 @@
       const wrap = img.closest(".slot"); if (img.dataset.loaded) return; img.dataset.loaded = "1";
       img.addEventListener("load", () => { wrap.classList.add("has-img"); wrap.classList.remove("is-empty"); }, { once: true });
       img.addEventListener("error", () => wrap.classList.add("is-empty"), { once: true });
-      $$("source[data-srcset]", wrap).forEach((s) => (s.srcset = s.dataset.srcset));
+      if (img.dataset.srcset) img.srcset = img.dataset.srcset;
       img.src = img.dataset.src;
     };
     const imgs = $$("img[data-slot]", root);
@@ -963,8 +997,10 @@
             ${langSwitcher("lang-foot")}
           </div>
         </div>
-        <div class="footer__bottom"><span>${esc(t("ft.rights", { year: CFG.year, brand: CFG.brand }))}</span>${GD.lang() !== "en" ? `<span>${esc(t("ft.machine"))}</span>` : ""}${CFG.demo ? `<span>${esc(t("demo.footer"))}</span>` : ""}</div>
+        <div class="footer__bottom"><span>${esc(t("ft.rights", { year: CFG.year, brand: CFG.brand }))}</span>${GD.lang() !== "en" ? `<span>${esc(t("ft.machine"))}</span>` : ""}${CFG.demo ? `<span>${esc(t("demo.footer"))}</span>` : ""}${GD.osReduced ? "" : `<button type="button" class="linklike" data-motion-toggle aria-pressed="${GD.motionOff ? "true" : "false"}">${esc(t(GD.motionOff ? "motion.play" : "motion.pause"))}</button>`}</div>
       </div>`;
+    const mt = $("[data-motion-toggle]", $("#footer"));
+    if (mt) mt.addEventListener("click", () => { try { localStorage.setItem("gd-motion", GD.motionOff ? "on" : "off"); } catch (e) { /* storage blocked */ } location.reload(); });
     $$("[data-lang-select]", $("#footer")).forEach((sel) => sel.addEventListener("change", () => GD.setLang(sel.value)));
     magnetic($("#footer"));
     GD.mounters.forEach((m) => m.footer && m.footer($("#footer")));

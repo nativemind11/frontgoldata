@@ -84,7 +84,9 @@
 
   /* ---------- environment ---------- */
   GD.hasGsap = !!(window.gsap && window.ScrollTrigger);
-  GD.reduced = matchMedia("(prefers-reduced-motion: reduce)").matches || !GD.hasGsap;
+  GD.osReduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  GD.motionOff = (() => { try { return localStorage.getItem("gd-motion") === "off"; } catch (e) { return false; } })();
+  GD.reduced = GD.osReduced || GD.motionOff || !GD.hasGsap;
   GD.fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   /* ---------- links ---------- */
@@ -109,14 +111,21 @@
   GD.lines = (arr, cls = "") => arr.map((x) => `<span class="line"><span class="line__inner ${cls}">${esc(x)}</span></span>`).join("");
   GD.world = (scene, tone, cam, look = "", extra = "") => `data-world data-scene="${scene}" data-tone="${tone}" data-cam="${cam}"${look ? ` data-look="${look}"` : ""} ${extra}`;
 
-  /* Art-directed image slot: ratio + intrinsic size from CFG.images (no CLS), lazy blur-up,
-     optional AVIF source, alt text from config. Missing file → procedural scene shows through. */
-  GD.slot = (name, cls = "", altOverride) => {
-    const m = (CFG.images && CFG.images[name]) || { alt: "", ar: "4/3", w: 1600, h: 1200 };
-    const fm = CFG.imageFormats && CFG.imageFormats.length ? CFG.imageFormats : ["webp"];
-    const last = fm[fm.length - 1];
-    const sources = fm.slice(0, -1).map((f) => `<source type="image/${f}" data-srcset="${GD.base}images/${name}.${f}" />`).join("");
-    return `<figure class="slot is-empty ${cls}" style="--ar:${m.ar}" data-slot-name="${name}"><picture>${sources}<img data-slot="${name}" data-src="${GD.base}images/${name}.${last}" alt="${esc(altOverride || m.alt)}" width="${m.w}" height="${m.h}" loading="lazy" decoding="async" /></picture><span class="slot__ph" aria-hidden="true"></span><figcaption class="slot__tag" aria-hidden="true">${esc(t("slot.label"))} · ${name} → images/${name}.${last}</figcaption></figure>`;
+  /* Art-directed image slot. Resolves the slot to a supplied asset (CFG.assets), keeps the frame ratio from
+     CFG.images (no layout shift), lazy-loads a responsive srcset (640/1280/1920 w) with a blur-up, and takes its
+     alt text from the asset. Optional caption (evidence label) is real HTML text over the image, never baked in.
+     A slot without an asset renders an empty frame and requests no file. */
+  GD.slot = (name, cls = "", altOverride, caption = "") => {
+    const m = (CFG.images && CFG.images[name]) || { ar: "4/3", w: 1600, h: 1200 };
+    const a = m.asset && CFG.assets ? CFG.assets[m.asset] : null;
+    const cap = caption ? `<figcaption class="slot__cap">${esc(caption)}</figcaption>` : "";
+    if (!a) return `<figure class="slot is-empty ${cls}" style="--ar:${m.ar}" data-slot-name="${name}">${cap}</figure>`;
+    const base = `${GD.base}images/${m.asset}`, alt = altOverride != null ? altOverride : a.alt;
+    const srcset = [640, 1280, 1920].filter((w) => w <= a.w).map((w) => `${base}-${w}.webp ${w}w`).join(", ");
+    const wide = /fill/.test(cls) || /^(21|16)\//.test(m.ar);
+    const sizes = wide ? "(min-width: 1100px) 1100px, 100vw" : "(min-width: 1100px) 560px, (min-width: 700px) 50vw, 100vw";
+    const pos = m.pos ? ` style="object-position:${esc(m.pos)}"` : "";
+    return `<figure class="slot is-empty ${cls}" style="--ar:${m.ar}" data-slot-name="${name}"><img data-slot="${name}" data-src="${base}.webp" data-srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}" width="${a.w}" height="${a.h}" loading="lazy" decoding="async"${pos} /><span class="slot__ph" aria-hidden="true"></span>${cap}${CFG.showSlotLabels ? `<span class="slot__tag" aria-hidden="true">${esc(name)} → ${esc(m.asset)}</span>` : ""}</figure>`;
   };
 
   /* ---------- live region ---------- */

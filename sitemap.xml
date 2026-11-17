@@ -1,323 +1,313 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://USER.github.io/REPO/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/about/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/about/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/about/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/about/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/about/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/about/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/about/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/about/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/about/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/about/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/about/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/about/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/about/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/about/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/speech-voice/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/speech-voice/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/speech-voice/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/speech-voice/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/speech-voice/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/speech-voice/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/speech-voice/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/speech-voice/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/speech-voice/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/speech-voice/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/speech-voice/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/speech-voice/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/speech-voice/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/speech-voice/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/data-collection/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/data-collection/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/data-collection/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/data-collection/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/data-collection/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/data-collection/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/data-collection/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/data-collection/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/data-collection/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/data-collection/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/data-collection/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/data-collection/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/data-collection/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/data-collection/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/data-annotation/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/data-annotation/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/data-annotation/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/data-annotation/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/data-annotation/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/data-annotation/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/data-annotation/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/data-annotation/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/data-annotation/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/data-annotation/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/data-annotation/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/data-annotation/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/data-annotation/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/data-annotation/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/ai-model-evaluation/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/ai-model-evaluation/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/ai-model-evaluation/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/ai-model-evaluation/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/ai-model-evaluation/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/ai-model-evaluation/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/ai-model-evaluation/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/ai-model-evaluation/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/ai-model-evaluation/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/ai-model-evaluation/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/ai-model-evaluation/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/ai-model-evaluation/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/ai-model-evaluation/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/ai-model-evaluation/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/quality-assurance/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/quality-assurance/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/quality-assurance/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/quality-assurance/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/quality-assurance/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/quality-assurance/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/quality-assurance/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/quality-assurance/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/quality-assurance/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/quality-assurance/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/quality-assurance/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/quality-assurance/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/quality-assurance/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/quality-assurance/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/industry-solutions/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/industry-solutions/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/industry-solutions/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/industry-solutions/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/industry-solutions/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/industry-solutions/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/industry-solutions/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/industry-solutions/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/industry-solutions/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/industry-solutions/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/industry-solutions/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/industry-solutions/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/industry-solutions/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/industry-solutions/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/translation-localization/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/translation-localization/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/translation-localization/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/translation-localization/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/translation-localization/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/translation-localization/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/translation-localization/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/translation-localization/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/translation-localization/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/translation-localization/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/translation-localization/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/translation-localization/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/translation-localization/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/translation-localization/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/generative-ai/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/generative-ai/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/generative-ai/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/generative-ai/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/generative-ai/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/generative-ai/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/generative-ai/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/generative-ai/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/generative-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/generative-ai/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/generative-ai/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/generative-ai/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/generative-ai/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/generative-ai/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/off-the-shelf-datasets/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/off-the-shelf-datasets/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/off-the-shelf-datasets/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/off-the-shelf-datasets/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/off-the-shelf-datasets/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/off-the-shelf-datasets/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/off-the-shelf-datasets/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/data-evaluation/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/data-evaluation/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/data-evaluation/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/data-evaluation/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/data-evaluation/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/data-evaluation/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/data-evaluation/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/data-evaluation/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/data-evaluation/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/data-evaluation/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/data-evaluation/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/data-evaluation/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/data-evaluation/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/data-evaluation/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/services/transcription/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/services/transcription/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/services/transcription/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/services/transcription/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/services/transcription/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/services/transcription/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/services/transcription/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/services/transcription/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/transcription/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/services/transcription/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/services/transcription/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/services/transcription/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/transcription/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/transcription/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/case-studies/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/case-studies/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/case-studies/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/case-studies/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/case-studies/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/case-studies/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/case-studies/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/case-studies/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/case-studies/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/case-studies/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/case-studies/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/case-studies/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/case-studies/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/case-studies/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/case-studies/in-car-voice-speech-varieties/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/case-studies/in-car-voice-speech-varieties/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/case-studies/in-car-voice-speech-varieties/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/case-studies/in-car-voice-speech-varieties/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/case-studies/in-car-voice-speech-varieties/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/case-studies/in-car-voice-speech-varieties/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/case-studies/in-car-voice-speech-varieties/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/case-studies/voice-data-in-car-assistant/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/case-studies/voice-data-in-car-assistant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/case-studies/voice-data-in-car-assistant/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/case-studies/voice-data-in-car-assistant/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/case-studies/voice-data-in-car-assistant/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/case-studies/voice-data-in-car-assistant/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/case-studies/voice-data-in-car-assistant/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/case-studies/why-localization-matters/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/case-studies/why-localization-matters/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/case-studies/why-localization-matters/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/case-studies/why-localization-matters/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/case-studies/why-localization-matters/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/case-studies/why-localization-matters/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/case-studies/why-localization-matters/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/case-studies/localization-multilingual-support-assistant/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/case-studies/localization-multilingual-support-assistant/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/case-studies/localization-multilingual-support-assistant/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/case-studies/localization-multilingual-support-assistant/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/case-studies/localization-multilingual-support-assistant/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/case-studies/localization-multilingual-support-assistant/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/case-studies/localization-multilingual-support-assistant/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/case-studies/annotation-quality-at-scale/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/case-studies/annotation-quality-at-scale/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/case-studies/annotation-quality-at-scale/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/case-studies/annotation-quality-at-scale/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/case-studies/annotation-quality-at-scale/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/case-studies/annotation-quality-at-scale/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/case-studies/annotation-quality-at-scale/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/case-studies/annotation-evaluation-visual-ai/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/case-studies/annotation-evaluation-visual-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/case-studies/annotation-evaluation-visual-ai/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/case-studies/annotation-evaluation-visual-ai/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/case-studies/annotation-evaluation-visual-ai/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/case-studies/annotation-evaluation-visual-ai/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/case-studies/annotation-evaluation-visual-ai/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/case-studies/low-resource-transcription/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/case-studies/low-resource-transcription/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/case-studies/low-resource-transcription/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/case-studies/low-resource-transcription/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/case-studies/low-resource-transcription/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/case-studies/low-resource-transcription/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/case-studies/low-resource-transcription/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/contact/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/contact/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/contact/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/contact/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/contact/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/contact/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/contact/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/contact/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/contact/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/contact/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/contact/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/contact/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/contact/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/contact/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/quote/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/quote/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/quote/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/quote/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/quote/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/quote/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/quote/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/quote/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/quote/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/quote/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/quote/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/quote/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/quote/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/quote/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/languages/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/languages/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/languages/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/languages/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/languages/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/languages/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/languages/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/languages/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/languages/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/languages/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/languages/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/languages/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/languages/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/languages/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/join/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/join/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/join/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/join/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/join/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/join/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/join/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/join/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/join/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/join/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/join/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/join/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/join/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/join/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/trust/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/trust/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/trust/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/trust/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/trust/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/trust/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/trust/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/trust/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/trust/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/trust/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/trust/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/trust/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/trust/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/trust/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/rfp/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/rfp/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/rfp/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/rfp/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/rfp/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/rfp/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/rfp/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/rfp/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/rfp/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/rfp/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/rfp/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/rfp/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/rfp/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/rfp/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/resources/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/resources/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/resources/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/resources/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/resources/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/resources/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/resources/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/resources/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/resources/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/resources/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/resources/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/resources/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/resources/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/resources/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/resources/writing-annotation-guidelines/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/resources/writing-annotation-guidelines/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/resources/writing-annotation-guidelines/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/resources/writing-annotation-guidelines/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/resources/writing-annotation-guidelines/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/resources/writing-annotation-guidelines/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/resources/writing-annotation-guidelines/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/resources/writing-annotation-guidelines/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/resources/writing-annotation-guidelines/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/resources/writing-annotation-guidelines/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/resources/writing-annotation-guidelines/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/resources/writing-annotation-guidelines/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/resources/writing-annotation-guidelines/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/resources/writing-annotation-guidelines/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/resources/inter-annotator-agreement/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/resources/inter-annotator-agreement/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/resources/inter-annotator-agreement/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/resources/inter-annotator-agreement/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/resources/inter-annotator-agreement/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/resources/inter-annotator-agreement/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/resources/inter-annotator-agreement/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/resources/inter-annotator-agreement/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/resources/inter-annotator-agreement/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/resources/inter-annotator-agreement/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/resources/inter-annotator-agreement/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/resources/inter-annotator-agreement/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/resources/inter-annotator-agreement/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/resources/inter-annotator-agreement/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/resources/designing-a-speech-collection-plan/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/resources/designing-a-speech-collection-plan/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/resources/designing-a-speech-collection-plan/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/resources/designing-a-speech-collection-plan/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/resources/designing-a-speech-collection-plan/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/resources/designing-a-speech-collection-plan/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/resources/designing-a-speech-collection-plan/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/resources/designing-a-speech-collection-plan/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/resources/designing-a-speech-collection-plan/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/resources/designing-a-speech-collection-plan/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/resources/designing-a-speech-collection-plan/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/resources/designing-a-speech-collection-plan/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/resources/designing-a-speech-collection-plan/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/resources/designing-a-speech-collection-plan/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/resources/evaluating-multilingual-llm-outputs/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/resources/evaluating-multilingual-llm-outputs/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/resources/evaluating-multilingual-llm-outputs/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/resources/evaluating-multilingual-llm-outputs/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/resources/evaluating-multilingual-llm-outputs/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/resources/evaluating-multilingual-llm-outputs/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/resources/evaluating-multilingual-llm-outputs/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/resources/evaluating-multilingual-llm-outputs/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/resources/evaluating-multilingual-llm-outputs/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/resources/evaluating-multilingual-llm-outputs/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/resources/evaluating-multilingual-llm-outputs/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/resources/evaluating-multilingual-llm-outputs/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/resources/evaluating-multilingual-llm-outputs/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/resources/evaluating-multilingual-llm-outputs/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/privacy/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/privacy/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/privacy/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/privacy/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/privacy/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/privacy/"/>
   </url>
   <url>
-    <loc>https://USER.github.io/REPO/privacy/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/privacy/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/privacy/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/privacy/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/privacy/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/privacy/"/>
-  </url>
-  <url>
-    <loc>https://USER.github.io/REPO/terms/</loc>
-    <lastmod>2026-11-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://USER.github.io/REPO/terms/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://USER.github.io/REPO/terms/?lang=ar"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://USER.github.io/REPO/terms/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://USER.github.io/REPO/terms/?lang=es"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://USER.github.io/REPO/terms/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://USER.github.io/REPO/terms/"/>
+    <loc>https://nativemind11.github.io/frontgoldata/terms/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/terms/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/terms/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/terms/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/terms/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/terms/"/>
   </url>
 </urlset>

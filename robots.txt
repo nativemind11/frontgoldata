@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://USER.github.io/REPO/sitemap.xml
+Sitemap: https://nativemind11.github.io/frontgoldata/sitemap.xml
