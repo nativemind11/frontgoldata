@@ -873,15 +873,16 @@
   function slots(root) {
     const load = (img) => {
       const wrap = img.closest(".slot"); if (img.dataset.loaded) return; img.dataset.loaded = "1";
-      img.addEventListener("load", () => { wrap.classList.add("has-img"); wrap.classList.remove("is-empty"); }, { once: true });
-      img.addEventListener("error", () => wrap.classList.add("is-empty"), { once: true });
+      img.addEventListener("load", () => { wrap.classList.add("has-img"); wrap.classList.remove("is-empty", "is-pending"); }, { once: true });
+      img.addEventListener("error", () => { wrap.classList.remove("is-pending"); wrap.classList.add("is-empty"); }, { once: true });
       if (img.dataset.srcset) img.srcset = img.dataset.srcset;
       img.src = img.dataset.src;
     };
     const imgs = $$("img[data-slot]", root);
     if (!("IntersectionObserver" in window)) { imgs.forEach(load); return; }
-    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { load(e.target); io.unobserve(e.target); } }), { rootMargin: "600px 0px" });
-    imgs.forEach((i) => io.observe(i)); cleanups.push(() => io.disconnect());
+    /* Observe the slot wrapper (it always has a box); the <img> inside is hidden until it has loaded, and a hidden element never intersects. */
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { const im = e.target.querySelector("img[data-slot]"); if (im) load(im); io.unobserve(e.target); } }), { rootMargin: "600px 0px" });
+    imgs.forEach((i) => io.observe(i.closest(".slot") || i)); cleanups.push(() => io.disconnect());
   }
 
   function magnetic(root) {

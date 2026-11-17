@@ -262,6 +262,7 @@ body[data-tone="light"] .nav::before { background: linear-gradient(to bottom, rg
 .slot img { inline-size: 100%; block-size: 112%; margin-block-start: -6%; object-fit: cover; opacity: 0; filter: blur(18px) saturate(1.2); transform: scale(1.04); transition: opacity var(--t-slow) var(--ease-out), filter var(--t-slow) var(--ease-out), transform 1.2s var(--ease-out); }
 .slot.has-img img { opacity: 1; filter: none; transform: none; }
 .slot.is-empty img { display: none; }
+.slot.is-pending img { display: block; }
 .slot__tag { position: absolute; inset-block-end: var(--s-3); inset-inline-start: var(--s-3); padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.68rem; letter-spacing: 0.08em; border: 1px dashed var(--mist-56); color: var(--mist-72); background: rgba(7, 11, 24, 0.45); display: none; }
 .tone-light .slot__tag { border-color: rgba(7, 11, 24, 0.4); color: var(--ink-72); background: rgba(255, 255, 255, 0.5); }
 .show-slots .slot.is-empty .slot__tag { display: inline-block; }
@@ -1003,7 +1004,7 @@ html, body { overflow-x: clip; }
 .hero-photo { padding-block: var(--s-8) 0; }
 .hero-photo .slot { border-radius: var(--radius); }
 .slot__cap { position: absolute; inset-block-end: var(--s-3); inset-inline-start: var(--s-3); max-inline-size: calc(100% - 2 * var(--s-3)); padding: 0.3rem 0.65rem; border-radius: 6px; font-size: 0.72rem; line-height: 1.35; color: #EAF0FF; background: rgba(7, 11, 24, 0.72); backdrop-filter: blur(6px); z-index: 2; }
-.slot.is-empty .slot__cap { display: none; }
+.slot.is-empty .slot__cap, .slot.is-pending .slot__cap { display: none; }
 .reduced .slot img { block-size: 100%; margin-block-start: 0; }
 .ev { display: inline-flex; align-items: center; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; border: 1px solid var(--line); color: var(--fg-soft); }
 .ev--verified { color: var(--teal); border-color: var(--teal); }

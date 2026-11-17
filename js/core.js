@@ -127,7 +127,7 @@
     const wide = /fill/.test(cls) || /^(21|16)\//.test(m.ar);
     const sizes = wide ? "(min-width: 1100px) 1100px, 100vw" : "(min-width: 1100px) 560px, (min-width: 700px) 50vw, 100vw";
     const pos = m.pos ? ` style="object-position:${esc(m.pos)}"` : "";
-    return `<figure class="slot is-empty ${cls}" style="--ar:${m.ar}" data-slot-name="${name}"><img data-slot="${name}" data-src="${base}.webp" data-srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}" width="${a.w}" height="${a.h}" decoding="async"${pos} /><span class="slot__ph" aria-hidden="true"></span>${cap}${CFG.showSlotLabels ? `<span class="slot__tag" aria-hidden="true">${esc(name)} → ${esc(m.asset)}</span>` : ""}</figure>`;
+    return `<figure class="slot is-pending ${cls}" style="--ar:${m.ar}" data-slot-name="${name}"><img data-slot="${name}" data-src="${base}.webp" data-srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}" width="${a.w}" height="${a.h}" decoding="async"${pos} /><span class="slot__ph" aria-hidden="true"></span>${cap}${CFG.showSlotLabels ? `<span class="slot__tag" aria-hidden="true">${esc(name)} → ${esc(m.asset)}</span>` : ""}</figure>`;
   };
 
   /* ---------- live region ---------- */
