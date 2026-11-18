@@ -74,7 +74,7 @@ const setMeta = (html, { title, desc, canon, depth, route, ld, body }) => {
     .replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(desc)}$2`)
     .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`)
     .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(desc)}$2`)
-    .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" id="canonical" href="${canon}" />\n  ${LANGS.concat(["x-default"]).map((l) => `<link rel="alternate" hreflang="${l}" href="${canon}${l === "en" || l === "x-default" ? "" : `?lang=${l}`}" data-static-hreflang />`).join("\n  ")}\n  <meta property="og:url" content="${canon}" />\n  <meta property="og:image" content="${SITE}images/og-share.jpg" />\n  <meta name="twitter:image" content="${SITE}images/og-share.jpg" />`)
+    .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" id="canonical" href="${canon}" />\n  ${LANGS.concat(["x-default"]).map((l) => `<link rel="alternate" hreflang="${l}" href="${canon}${l === "en" || l === "x-default" ? "" : `?lang=${l}`}" data-static-hreflang />`).join("\n  ")}\n  <meta property="og:url" content="${canon}" />\n  <meta property="og:image" content="${SITE}images/og-logo.jpg" />\n  <meta name="twitter:image" content="${SITE}images/og-logo.jpg" />`)
     .replace(/(<script type="application\/ld\+json" id="ld-org">)[\s\S]*?(<\/script>)/, `$1${JSON.stringify(org)}$2`)
     .replace(/(<script type="application\/ld\+json" id="ld-page">)[\s\S]*?(<\/script>)/, `$1${ld ? JSON.stringify(ld) : "{}"}$2`)
     .replace(/<!--prerender:start-->[\s\S]*?<!--prerender:end-->/, `<!--prerender:start--><div class="container prerendered">${body}</div><!--prerender:end-->`);
