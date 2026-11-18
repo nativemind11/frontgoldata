@@ -52,6 +52,33 @@ window.CFG = {
      cases:        same shape as SAMPLE_CASES in js/content.js
      datasets:     [{ id, title, modality: "text|audio|image|video", task, languages, volume, license, url }] */
   stats: null,
+
+  /* HOME METRICS ROW (after "The difference"). Text only, no count-up.
+     Hidden for visitors until the owner sets ownerApproved:true. For review, open the site with ?review=1 to preview it under a "Review only" ribbon.
+     projects: figure supplied by the owner (replaces the old "80,000+").
+     clients / languages: PROPOSED small increases over the old 700 / 200 figures — the owner must confirm both before ownerApproved:true.
+     "languages" = cumulative across past projects, NOT the 62 languages/dialects a visitor can request in the Language Explorer. */
+  metrics: {
+    ownerApproved: false,
+    items: [
+      { key: "projects",  value: "90,000+", status: "owner-supplied" },
+      { key: "clients",   value: "750+",    status: "proposed — needs owner approval" },
+      { key: "languages", value: "210+",    status: "proposed — needs owner approval" },
+    ],
+  },
+
+  /* ISO BADGE BAND (Home) + "Certifications" section (Trust Center). Uses the ORIGINAL badge artwork from the previous site
+     (images/legacy_iso_badge_trio.*) — not redrawn. The image is a badge strip, NOT a certificate document.
+     Hidden for visitors until verified:true. Set it only after, for each standard (ISO 18587:2017, ISO 9001:2015, ISO 17100:2015),
+     you have confirmed: valid certificate for the same legal entity, issuer, certificate ID, scope, validity dates, official
+     verification link, and written approval to publish. Preview with ?review=1. */
+  certBadges: {
+    verified: false,
+    asset: "legacy_iso_badge_trio", w: 2508, h: 355,
+    alt: "ISO 18587:2017, ISO 9001:2015 and ISO 17100:2015 certification badges",
+    /* internal record, never rendered: [{ standard, issuer, certId, scope, validUntil, verifyUrl, approvedBy }] */
+    records: [],
+  },
   testimonials: null,
   rating: null,
   certs: null,

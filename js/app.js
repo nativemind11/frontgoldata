@@ -95,6 +95,35 @@
       </section>`;
   }
 
+  /* ---------- owner-gated proof: metrics row + ISO badge band (see CFG.metrics / CFG.certBadges) ---------- */
+  const reviewMode = () => /[?&]review=1/.test(location.search + location.hash);
+  const metricsOn = () => !!(CFG.metrics && Array.isArray(CFG.metrics.items) && CFG.metrics.items.length && (CFG.metrics.ownerApproved || reviewMode()));
+  const badgesOn = () => !!(CFG.certBadges && CFG.certBadges.asset && (CFG.certBadges.verified || reviewMode()));
+  const badgeImg = () => {
+    const b = CFG.certBadges, base = `${GD.base}images/${b.asset}`;
+    return `<img class="badges__img" src="${base}-1280.webp" srcset="${base}-1280.webp 1280w, ${base}-1920.webp 1920w, ${base}.webp ${b.w}w" sizes="(min-width: 1100px) 1000px, 92vw" alt="${esc(b.alt)}" width="${b.w}" height="${b.h}" loading="lazy" decoding="async" />`;
+  };
+  const metricsSection = () => {
+    if (!metricsOn()) return "";
+    const pending = !CFG.metrics.ownerApproved;
+    return `
+      <section class="section section--tight metrics-sec" ${world("ambient", "ink", "0,0,9")} aria-labelledby="metrics-title">
+        <div class="container">
+          <h2 id="metrics-title" class="sr-only">${esc(t("m.title"))}</h2>
+          ${pending ? `<p data-reveal>${GD.ribbon(true, t("m.review"))}</p>` : ""}
+          <div class="metrics" data-reveal>${CFG.metrics.items.map((m) => `<div class="metric"><div class="metric__v">${esc(m.value)}</div><div class="metric__l">${esc(t("m." + m.key))}</div></div>`).join("")}</div>
+          <p class="body-soft metrics__note" data-reveal>${esc(t("m.note"))}</p>
+          ${badgesOn() ? `
+          <div class="badges" data-reveal>
+            ${CFG.certBadges.verified ? "" : `<p>${GD.ribbon(true, t("iso.review"))}</p>`}
+            <div class="badges__panel">${badgeImg()}</div>
+            <a class="link-arrow" href="#/trust">${esc(t("iso.cta"))}</a>
+          </div>` : ""}
+        </div>
+      </section>`;
+  };
+  Object.assign(GD, { reviewMode, badgesOn, badgeImg });
+
   function home() {
     const st = GD.proof("stats", K.SAMPLE.stats), tm = GD.proof("testimonials", K.SAMPLE.testimonials), ce = GD.proof("certs", K.SAMPLE.certs);
     const vals = T2("values", K.VALUES), icons = ["quality", "collection", "security", "localization"];
@@ -153,6 +182,8 @@
           ${statsBlock(st)}
         </div>
       </section>
+
+      ${metricsSection()}
 
       ${trioSection()}
 

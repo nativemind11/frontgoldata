@@ -324,6 +324,17 @@
   "rc.2.d": "Questions, edge cases and unresolved items, recorded rather than hidden.",
   "rc.3.t": "Quality summary",
   "rc.3.d": "The sampling method, criteria and limitations behind the review.",
+  "m.title": "GOLDATA in numbers",
+  "m.projects": "Projects completed",
+  "m.clients": "Clients",
+  "m.languages": "Languages served across projects",
+  "m.note": "Languages served is cumulative across past projects. It is not a catalog of on-demand inventory: the Language Explorer lists the 62 languages and dialects you can request, and availability is confirmed for each project.",
+  "m.review": "Review only · pending owner approval",
+  "iso.eyebrow": "Standards",
+  "iso.title": "Certifications",
+  "iso.cta": "See the Trust Center",
+  "iso.review": "Review only · certificates not yet verified",
+  "iso.note": "Badge artwork only, not a certificate document. Issuer, scope, validity dates and verification details are provided on request.",
 };
 /* Note: "brand.tagline", "brand.story", "hero.l1", "hero.l2" are intentionally NOT defined in English:
    English reads them from CFG (js/config.js) so your brand edits always win. Other languages may override. */

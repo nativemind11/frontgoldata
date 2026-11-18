@@ -295,6 +295,15 @@
           <div class="trust-grid"${GD.enAttr()}>${K.TRUST.map(([ti, d, ic]) => `<article class="card" data-reveal><span class="card__icon">${ILLO.icon(ic, 24)}</span><h2 class="h3">${esc(ti)}</h2><p>${esc(d)}</p></article>`).join("")}</div>
         </div>
       </section>
+      ${GD.badgesOn() ? `<section class="section section--tight" ${world("ambient", "ink", "0,0,9")} aria-labelledby="iso-title">
+        <div class="container">
+          <p class="eyebrow" data-reveal>${esc(t("iso.eyebrow"))}</p>
+          <h2 id="iso-title" class="h3" data-reveal>${esc(t("iso.title"))}</h2>
+          ${CFG.certBadges.verified ? "" : `<p data-reveal>${GD.ribbon(true, t("iso.review"))}</p>`}
+          <div class="badges" data-reveal><div class="badges__panel">${GD.badgeImg()}</div></div>
+          <p class="body-soft" data-reveal>${esc(t("iso.note"))}</p>
+        </div>
+      </section>` : ""}
       <section class="section section--tight">
         <div class="container grid split">
           <div><p class="eyebrow" data-reveal>${esc(t("tr.certs"))}</p></div>

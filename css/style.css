@@ -1028,3 +1028,17 @@ html, body { overflow-x: clip; }
 .lx__status.is-ok { color: var(--teal); }
 .lx__pilot { font-size: var(--t-small); padding-inline: var(--s-2); }
 .footer__bottom [data-motion-toggle] { color: var(--mist-72); }
+
+/* Metrics row + ISO badge band (owner-gated, see CFG.metrics / CFG.certBadges) */
+.metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6); border-block: 1px solid var(--line); padding-block: var(--s-7); }
+.metric__v { font-family: var(--f-display); font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.metric__l { color: var(--fg-soft); font-size: var(--t-small); margin-block-start: var(--s-2); }
+.metrics__note { margin-block-start: var(--s-4); max-inline-size: 62ch; font-size: var(--t-small); }
+.badges { display: grid; gap: var(--s-4); justify-items: start; margin-block-start: var(--s-7); }
+.badges__panel { background: #fff; border-radius: var(--radius); padding: var(--s-4) var(--s-5); inline-size: 100%; box-shadow: 0 0 0 1px rgba(7, 11, 24, 0.08); }
+.badges__img { display: block; inline-size: 100%; block-size: auto; max-inline-size: 1000px; margin-inline: auto; }
+@media (max-width: 700px) { .metrics { grid-template-columns: 1fr; gap: var(--s-5); } }
+.metrics-sec .demo-ribbon { margin-block-end: var(--s-5); }
+.badges + .body-soft, .badges__panel + .body-soft { margin-block-start: var(--s-4); }
+#iso-title + p, #iso-title ~ .badges { margin-block-start: var(--s-4); }
+#iso-title ~ .body-soft { margin-block-start: var(--s-5); }
