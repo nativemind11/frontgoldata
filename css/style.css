@@ -1044,3 +1044,12 @@ html, body { overflow-x: clip; }
 .iso__review, .stat__tag { justify-self: start; inline-size: fit-content; }
 
 .quote__stars { color: #f5b82e; letter-spacing: 0.15em; font-size: 1.25rem; margin-block-end: var(--s-3); }
+
+/* mobile hero: keep the eyebrow clear of the nav and show only the first sentence of the body */
+@media (max-width: 700px) {
+  .hero__sticky { padding-block-start: 6.5rem; align-items: flex-start; }
+  .hero__inner { gap: var(--s-4); }
+  .hero__scroll { display: none; }
+  .hero__inner .lead__more { display: none; }
+  .hero__inner .lead { font-size: 1.05rem; }
+}

@@ -117,7 +117,7 @@
             <h1 id="hero-title" class="display hero__title">${lines([GD.cfgT("hero.l1", CFG.hero.lines[0])])}${lines([GD.cfgT("hero.l2", CFG.hero.lines[1])], "accent")}</h1>
             <div class="hero__meta">
               <div class="hero__inner">
-                <p class="lead">${esc(t("hero.body"))}</p>
+                <p class="lead">${(() => { const b = t("hero.body"), i = b.indexOf(". "); return i > 0 ? `${esc(b.slice(0, i + 1))}<span class="lead__more"> ${esc(b.slice(i + 2))}</span>` : esc(b); })()}</p>
                 <div class="cta-row">${btn(t("cta.startPilot"), "#/quote?type=pilot")}${btn(t("cta.explore"), "#/services", "ghost")}</div>
               </div>
               <span class="hero__scroll"><i></i>${esc(t("hero.scroll"))}</span>
