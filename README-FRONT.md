@@ -72,8 +72,6 @@ python3 -m http.server 5500     # open http://localhost:5500
 | `socials` | Full profile URLs | Any `"#"` is hidden; all `"#"` hides the row |
 | `apiBase` | Your Vercel base, e.g. `https://goldata-back.vercel.app/api` | Forms fall back to opening the visitor's email app |
 | `demo` | `true` shows SAMPLE blocks under a yellow **DEMO** ribbon | `false` hides every block with no real data |
-| `metrics` | Home metrics row `{ ownerApproved, items:[{key,value,status}] }` — 90,000+ projects, 750+ clients, 210+ languages served across projects. Text only. 750+/210+ are **proposed**; set `ownerApproved:true` only after the owner confirms | Hidden for visitors; `?review=1` previews it under a "Review only" ribbon |
-| `certBadges` | ISO badge strip (original artwork `images/legacy_iso_badge_trio.*`) on Home + "Certifications" on Trust Center. Set `verified:true` only after each certificate is confirmed (entity, issuer, ID, scope, dates, verify link, publication approval) | Hidden for visitors; `?review=1` previews it |
 | `stats` | `[{ value: "40+", label: "…" }]` — numbers count up. Add `key: "locales"` to the entry that should show on Transcription | Hidden (demo: ribboned sample) |
 | `testimonials`, `rating`, `certs`, `team`, `cases` | Real, permitted proof only (shapes in config comments) | Hidden / ribboned samples. Trust Center shows "Documentation available on request" when `certs` is empty |
 | `datasets` | Real catalog entries `{ id, title, modality, task, languages, volume, license, url }` | Demo shows SAMPLE cards; otherwise the catalog block is hidden |
@@ -182,17 +180,3 @@ Confirm all terms on each provider's own page — they change.
 - Real photos, evidence labels (Verified / Representative workflow / Demo illustration), service briefs, 3 case studies, expanded quote form (use case, dialects, deadline, quality target, privacy, tools, consent), language availability + pilot request, pausable motion.
 - Run `003_brief_fields.sql` in Supabase before deploying the new front end (the quote form now sends those fields).
 - Client voices, standards and numbers stay sample placeholders until the client approves evidence.
-
-## Production mode (`CFG.demo = false`)
-
-`demo` is **false**: no placeholder metrics, certificates, testimonials, team or sample datasets are rendered.
-The home page shows a "What you receive" panel instead of client voices. The three case studies are built in and
-always labelled (Representative workflow / Illustrative concept) — they are not gated by `demo`.
-Set `demo: true` only for local design review. Real proof goes in `CFG.stats / testimonials / certs / team`
-only with written approval and evidence. After any content change run `node tools/prerender.js` and
-`node tools/check-i18n.js`.
-
-
-## Handoff
-
-`docs/GOLDATA_Claude_Handoff.md` (+ PDF) is the content/truth-rules handoff this site follows.

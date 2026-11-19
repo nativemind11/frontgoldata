@@ -6,7 +6,7 @@
     {
       slug: "speech-voice", n: "01", label: "Speech & Voice", scene: "mic", slot: "svc-1",
       headline: "Voices with context. Accents with nuance.",
-      line: "Plan consented scripted or conversational speech around the devices, environments and language varieties your project requires. Depending on scope, delivery can include recordings, transcripts, speaker turns, timestamps and reviewed audio metadata.",
+      line: "Scripted and spontaneous speech, recorded and labeled by native speakers in the rooms, cars and streets your users actually live in.",
       subs: ["Scripted & spontaneous speech", "Wake-word & command sets", "Transcription & diarization", "Accent, dialect & code-switching"],
       what: "We design recording programs around the way people really speak: regional accents, mixed languages, background noise, hesitations and all. Native-speaker contributors record to your script or speak freely, and trained transcribers turn every clip into clean, time-aligned text with speaker turns and event tags.",
       details: [
@@ -27,7 +27,7 @@
     {
       slug: "data-collection", n: "02", label: "Data Collection", scene: "cubes", slot: "svc-2",
       headline: "Fresh data, gathered with intent.",
-      line: "Collect text, audio, image or video to a written specification. Define contributor instructions, consent, locale quotas, capture conditions and metadata before production begins.",
+      line: "Text, audio, image and video captured to your specification by vetted contributors, with consent and metadata attached to every file.",
       subs: ["Text corpora & dialogues", "Audio in real environments", "Image capture to spec", "Video & multimodal sessions"],
       what: "Off-the-shelf datasets rarely match your product. We build collection programs from a spec: who contributes, what they capture, on which devices, in which conditions. Every file arrives with structured metadata and documented consent, ready to train on.",
       details: [
@@ -47,8 +47,8 @@
     },
     {
       slug: "data-annotation", n: "03", label: "Data Annotation", scene: "bbox", slot: "svc-3",
-      headline: "Labels built on clear rules.",
-      line: "Turn raw inputs into structured labels for text, image, speech and video. Start with a task schema, examples and rules for ambiguous items; use a pilot batch to align contributors before scaling.",
+      headline: "Precise labels. Every pixel, every phoneme.",
+      line: "Text, audio, image and video annotated by trained specialists who understand the language and the culture behind the content.",
       subs: ["Text: entities, intent, sentiment", "Audio: segments & events", "Image: boxes, polygons, keypoints", "Video: tracking & temporal events"],
       what: "Good labels come from people who understand what they are looking at. Our annotators are trained on your guidelines, calibrated against gold examples and reviewed in layers, so the hundredth thousand label is as careful as the first.",
       details: [
@@ -68,8 +68,8 @@
     },
     {
       slug: "ai-model-evaluation", n: "04", label: "AI Model Evaluation", scene: "score", slot: "svc-4",
-      headline: "See how outputs behave across contexts.",
-      line: "Use a written rubric and calibrated reviewers to assess model responses for task fit, language quality, instruction following and agreed safety dimensions. Report the sample, criteria and limitations alongside the findings.",
+      headline: "Know how your model behaves before your users do.",
+      line: "Native-speaker evaluators rate accuracy, fluency, safety and cultural fit, so you ship with evidence instead of hope.",
       subs: ["Side-by-side preference ranking", "Accuracy, fluency & cultural fit", "Benchmark & golden-set design", "Safety & bias review"],
       what: "Automatic metrics miss what people notice first: awkward phrasing, wrong register, cultural misses and unsafe answers. We build evaluation programs with clear rubrics and calibrated raters, then report results you can act on.",
       details: [
@@ -89,8 +89,8 @@
     },
     {
       slug: "quality-assurance", n: "05", label: "Quality Assurance", scene: "qa", slot: "svc-5",
-      headline: "Quality you can inspect.",
-      line: "Plan quality before production with calibration examples, reference items, layered review and an issue taxonomy. Agree sampling and acceptance thresholds with the client; deliver a report that separates accepted items from open questions.",
+      headline: "Quality you can audit, not just trust.",
+      line: "Quality is designed before production: gold examples, calibration, layered review, issue taxonomy and a delivery report that separates accepted work from open questions.",
       subs: ["Multi-pass review workflows", "Gold-standard & consensus checks", "Agreement reporting", "Linguist-led spot audits"],
       what: "Quality is a system, not a promise. We combine qualified contributors, calibrated guidelines, multi-pass review and statistical sampling, then show you the numbers. We can also audit existing datasets and fix what we find.",
       details: [
@@ -110,8 +110,8 @@
     },
     {
       slug: "industry-solutions", n: "06", label: "Industry Solutions", scene: "grid", slot: "svc-6",
-      headline: "Work shaped around domain language.",
-      line: "Scope data workflows for sectors such as automotive, healthcare, finance, customer support and retail. Confirm specialist qualifications, client terminology and applicable handling rules before the project begins.",
+      headline: "Data shaped to your domain.",
+      line: "Programs built around the vocabulary, regulation and edge cases of your industry, with contributors who know the field.",
       subs: ["Automotive & in-car voice", "Healthcare & life sciences", "Finance & customer support", "Retail, media & e-commerce"],
       what: "Every industry has its own words, risks and rules. We match subject-aware contributors to your domain, adapt guidelines to its edge cases and handle data under the confidentiality it demands.",
       details: [
@@ -132,7 +132,7 @@
     {
       slug: "translation-localization", n: "07", label: "Translation & Localization", scene: "loc", slot: "svc-7",
       headline: "Meaning that travels intact.",
-      line: "Adapt prompts, datasets and product language for an agreed locale. A project can include glossary setup, native review, tone and intent checks, terminology decisions and linguistic QA.",
+      line: "Datasets, prompts and products translated and adapted by native linguists, so your AI sounds local everywhere it speaks.",
       subs: ["Dataset & prompt translation", "Transcreation & cultural adaptation", "Locale-specific terminology", "Linguistic validation & LQA"],
       what: "Literal translation produces literal models. Our linguists adapt meaning, tone and cultural reference for each locale, keep terminology consistent and validate the result, whether it is a training set, an eval suite or a product interface.",
       details: [
@@ -152,8 +152,8 @@
     },
     {
       slug: "generative-ai", n: "08", label: "Generative AI Services", scene: "core", slot: "svc-8",
-      headline: "Human judgment for generative workflows.",
-      line: "Support LLM and multimodal programs with scoped preference judgments, supervised examples, prompt evaluation and red-team tasks. Define the policy and escalation rules with the client before rating begins.",
+      headline: "Human judgment, where generative models need it most.",
+      line: "RLHF, red-teaming, fine-tuning data and prompt evaluation from skilled, native-speaking experts in every language you serve.",
       subs: ["RLHF & preference data", "LLM red-teaming", "Supervised fine-tuning data", "Prompt engineering & evaluation"],
       what: "Large models learn taste from people. We supply the humans behind that loop: writers who craft demonstration data, raters who judge preference with reasons, and red-teamers who probe for failure across languages and cultures.",
       details: [
@@ -173,8 +173,8 @@
     },
     {
       slug: "off-the-shelf-datasets", n: "09", label: "Off-the-Shelf Datasets", scene: "shelf", slot: "svc-9", unit: "items", catalog: true,
-      headline: "Reusable data, documented before purchase.",
-      line: "Where a suitable catalog item exists, provide a dataset card describing source, license, permitted use, locale, schema, known limitations and last review date. Confirm catalog availability and rights before promising delivery.",
+      headline: "Ready-made data, held to custom standards.",
+      line: "Licensable datasets for object detection, instruction tuning, speech recognition and image classification, documented so you know exactly what you are buying.",
       subs: ["Object Detection", "Instruction Tuning", "Speech Recognition", "Image Classification"],
       what: "Sometimes a project needs to start this week, not next quarter. Off-the-shelf datasets give your team a documented starting point: clear provenance, consent records, a data card and a sample you can inspect before you license. When a catalog set is close but not exact, we extend it with custom collection under the same quality system.",
       details: [
@@ -194,8 +194,8 @@
     },
     {
       slug: "data-evaluation", n: "10", label: "Data Evaluation", scene: "evalx", slot: "svc-10", unit: "tasks",
-      headline: "Check the data before relying on it.",
-      line: "Review dataset coverage, format, labels, linguistic quality, duplicates or agreed risk areas. Share the sampling method and documented issues so the client can decide what needs remediation.",
+      headline: "Proof that your data, and your model, hold up.",
+      line: "Training data validation, AI model evaluation, audio and speech data review and search relevance judgments by calibrated human raters.",
       subs: ["Training Data Validation", "AI Model Evaluation", "Audio & Speech Data Evaluation", "Search Relevance"],
       what: "Before data trains a model, and before a model meets users, someone should check it with care. Our evaluators work to written rubrics, calibrate against reference items and report findings in a form your team can act on: what is wrong, how often, and where it comes from.",
       details: [
@@ -216,7 +216,7 @@
     {
       slug: "transcription", n: "11", label: "Transcription", scene: "transcript", slot: "svc-11", unit: "audio",
       headline: "Every word, timed and attributed.",
-      line: "Prepare audio, video or image-derived text according to the selected transcript style. Scope speaker labeling, timestamps, non-speech events, language switching, uncertainty marks, file formats and review depth in the project brief.",
+      line: "Audio, image and video transcription by trained native transcribers, with secure handling for high-volume programs.",
       subs: ["Audio Transcription", "Image Transcription", "Video Transcription", "Secure High-Volume Delivery"],
       what: "Transcripts are only useful when they are consistent. We agree a style guide with you up front: verbatim or clean read, how to mark noise, overlaps, hesitations and code-switching, which timestamp granularity you need. Then trained native transcribers apply it, and reviewers check it, batch after batch.",
       details: [
@@ -251,17 +251,16 @@
   ];
 
   const FLOW = [
-    ["Scope", "Agree the model or use case, data types, locales, permitted use, volume, schedule, delivery format and acceptance criteria."],
-    ["Pilot", "Test a small batch to align guidelines, format and review before committing to a larger scope."],
-    ["Produce & review", "Run the scoped work under written instructions, with review suited to the risk of the task and an issue log."],
-    ["Handoff", "Receive the agreed files, metadata, unresolved questions and a quality summary."],
+    ["Define your data needs", "Tell us the model, the languages and the outcome. We turn it into a clear spec with quotas, formats and quality targets."],
+    ["Collect & process", "Native contributors capture and label your data inside guided workflows, with every step tracked and every file traceable."],
+    ["Review & deliver", "Layered review and gold checks clear each batch before it ships, with a quality report you can actually read."],
   ];
 
   const WHY = [
-    ["Locale-first planning", "Language, region, dialect and use case are defined before the team is formed. Availability is confirmed per project."],
-    ["Guidelines before volume", "Rules, edge cases and acceptance criteria are written down before a pilot is scaled."],
-    ["Human review with a purpose", "Review is applied where context, tone or ambiguity affects the decision, and open cases are logged."],
-    ["Documented handoff", "Agreed files, fields and a quality summary are delivered, with the limits of the sample stated."],
+    ["Native expertise", "Contributors work in their own language and culture, not a learned one."],
+    ["Linguist-led QA", "Quality is owned by language specialists, not left to automated checks alone."],
+    ["Your formats, your tools", "We fit your pipeline instead of asking you to fit ours."],
+    ["One accountable team", "A single project lead from scoping to final delivery."],
   ];
 
   const FAQ = [
@@ -298,30 +297,8 @@
   };
 
   /* SAMPLE content — only shown when CFG.demo is true, always under a DEMO ribbon. */
-  const SAMPLE = {
-    stats: [
-      { value: "00+", label: "Languages (sample)" },
-      { value: "00k", label: "Hours of audio (sample)" },
-      { value: "00", label: "Countries (sample)" },
-      { value: "00%", label: "Accuracy target (sample)" },
-    ],
-    testimonials: [
-      { quote: "The pilot told us more about our data gaps than a year of internal tests. Scaling after that felt simple.", name: "Sample client", role: "Head of Speech AI · Automotive (sample)" },
-      { quote: "Their linguists caught cultural misses our metrics never would have flagged. That changed our launch plan.", name: "Sample client", role: "Localization Manager · Consumer tech (sample)" },
-      { quote: "Clear scope, honest timelines and quality reports we could forward straight to leadership.", name: "Sample client", role: "Procurement Lead · Enterprise software (sample)" },
-    ],
-    certs: [
-      { name: "Your certification", note: "Add real certifications in CFG.certs" },
-      { name: "Your security framework", note: "Only list what you hold" },
-      { name: "Your privacy standard", note: "Shown as sample in demo mode" },
-      { name: "Your industry badge", note: "Hidden when demo = false" },
-    ],
-    team: [
-      { name: "Team member", role: "Founder & Program Lead (sample)" },
-      { name: "Team member", role: "Head of Linguistic Quality (sample)" },
-      { name: "Team member", role: "Contributor Community Lead (sample)" },
-      { name: "Team member", role: "Solutions Engineer (sample)" },
-    ],
+  const SAMPLE = {   /* intentionally empty: no placeholder proof ships. Real proof goes in CFG (js/config.js). */
+    stats: [], testimonials: [], certs: [], team: [],
   };
 
   /* Three case studies, each labelled by evidence state:
@@ -482,17 +459,9 @@
   ];
 
   const INTRO = {
-    title: "Smart data. Human expertise.",
-    body: "AI teams need data that reflects the people who will use their systems. GOLDATA plans multilingual collection, annotation, localization and evaluation programs around a written brief. Native-language contributors complete the work; calibrated review checks it against agreed instructions; and delivery includes the files and documentation the client has approved.",
+    title: "Smart Data, Human Expertise",
+    body: "AI is only as good as what it learns from. We combine trained native-speaking people with disciplined workflows, so the data behind your model is accurate, representative and ready to use.",
   };
-
-  /* Shown on the home page instead of the testimonial slot until client-approved endorsements exist. */
-  const RECEIVE = [
-    ["Data files", "The dataset in the agreed format and schema."],
-    ["Metadata & field guide", "Structured fields as agreed, with documentation of what each one means."],
-    ["Issue log", "Questions, edge cases and unresolved items, recorded rather than hidden."],
-    ["Quality summary", "The sampling method, criteria and limitations behind the review."],
-  ];
 
   const GLOBAL_TRIO = [
     ["Multilingual Data", "Text, speech and evaluation work in the languages and dialects your users speak, staffed per locale."],
@@ -690,5 +659,5 @@
     ],
   };
 
-  window.CONTENT = { RECEIVE, SERVICES, SERVICE_GROUPS, PROCESS, VALUES, FLOW, WHY, FAQ, ABOUT, SAMPLE, SAMPLE_CASES, INTRO, GLOBAL_TRIO, HIGHLIGHTS, APPROACH_DIFF, CASE_CATEGORIES, DATASET_MODALITIES, SAMPLE_DATASETS, ROLES, TRUST, RFP, ARTICLES, GLOSSARY, CHECKLISTS, LEGAL };
+  window.CONTENT = { SERVICES, SERVICE_GROUPS, PROCESS, VALUES, FLOW, WHY, FAQ, ABOUT, SAMPLE, SAMPLE_CASES, INTRO, GLOBAL_TRIO, HIGHLIGHTS, APPROACH_DIFF, CASE_CATEGORIES, DATASET_MODALITIES, SAMPLE_DATASETS, ROLES, TRUST, RFP, ARTICLES, GLOSSARY, CHECKLISTS, LEGAL };
 })();

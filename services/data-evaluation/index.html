@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Data Evaluation — GOLDATA</title>
-  <meta name="description" content="Review dataset coverage, format, labels, linguistic quality, duplicates or agreed risk areas. Share the sampling method and documented issues so the client can decide what needs remediation." />
+  <meta name="description" content="Training data validation, AI model evaluation, audio and speech data review and search relevance judgments by calibrated human raters." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#070B18" />
   <link rel="canonical" id="canonical" href="https://nativemind11.github.io/frontgoldata/services/data-evaluation/" />
@@ -15,24 +15,34 @@
   <link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/services/data-evaluation/?lang=de" data-static-hreflang />
   <link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/data-evaluation/" data-static-hreflang />
   <meta property="og:url" content="https://nativemind11.github.io/frontgoldata/services/data-evaluation/" />
-  <meta property="og:image" content="https://nativemind11.github.io/frontgoldata/images/og-logo.jpg" />
-  <meta name="twitter:image" content="https://nativemind11.github.io/frontgoldata/images/og-logo.jpg" />
+  <meta property="og:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
+  <meta name="twitter:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
+  <link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/" data-static-hreflang />
+  <link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/?lang=ar" data-static-hreflang />
+  <link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/?lang=fr" data-static-hreflang />
+  <link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/?lang=es" data-static-hreflang />
+  <link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/?lang=de" data-static-hreflang />
+  <link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/" data-static-hreflang />
+  <meta property="og:url" content="https://nativemind11.github.io/frontgoldata/" />
+  <meta property="og:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
+  <meta name="twitter:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
+  <link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/" data-static-hreflang />
+  <link rel="alternate" hreflang="ar" href="https://nativemind11.github.io/frontgoldata/?lang=ar" data-static-hreflang />
+  <link rel="alternate" hreflang="fr" href="https://nativemind11.github.io/frontgoldata/?lang=fr" data-static-hreflang />
+  <link rel="alternate" hreflang="es" href="https://nativemind11.github.io/frontgoldata/?lang=es" data-static-hreflang />
+  <link rel="alternate" hreflang="de" href="https://nativemind11.github.io/frontgoldata/?lang=de" data-static-hreflang />
+  <link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/" data-static-hreflang />
+  <meta property="og:url" content="https://nativemind11.github.io/frontgoldata/" />
+  <meta property="og:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
+  <meta name="twitter:image" content="https://nativemind11.github.io/frontgoldata/images/og.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GOLDATA" />
-  <meta property="og:locale" content="en_US" />
-  <meta name="application-name" content="GOLDATA" />
-  <meta name="apple-mobile-web-app-title" content="GOLDATA" />
-  <meta itemprop="name" content="GOLDATA" />
-  <meta itemprop="image" content="https://nativemind11.github.io/frontgoldata/images/og-logo.jpg" />
   <meta property="og:title" content="Data Evaluation — GOLDATA" />
-  <meta property="og:description" content="Review dataset coverage, format, labels, linguistic quality, duplicates or agreed risk areas. Share the sampling method and documented issues so the client can decide what needs remediation." />
-  <meta property="og:image:secure_url" content="https://nativemind11.github.io/frontgoldata/images/og-logo.jpg" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="GOLDATA logo — Human expertise in every language, turned into the data that trains better AI." />
-  <meta name="twitter:title" content="GOLDATA — Multilingual AI data services" />
-  <meta name="twitter:description" content="Human expertise in every language, turned into the data that trains better AI." />
+  <meta property="og:description" content="Training data validation, AI model evaluation, audio and speech data review and search relevance judgments by calibrated human raters." />
+  <!-- After deploy, add ABSOLUTE image URLs (social networks ignore relative paths). A brand-only
+       card ships as images/og.png; replace with images/og.webp when you have the final art:
+  <meta property="og:image" content="https://USER.github.io/REPO/images/og.png" />
+  <meta name="twitter:image" content="https://USER.github.io/REPO/images/og.png" /> -->
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="../../favicon-32.png" type="image/png" sizes="32x32" />
@@ -43,9 +53,9 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Syne:wght@700&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Syne:wght@700&display=swap" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="stylesheet" href="../../css/style.css?v=20261118" />
-  <script type="application/ld+json" id="ld-org">{"@context":"https://schema.org","@type":"Organization","name":"GOLDATA","logo":"https://nativemind11.github.io/frontgoldata/icon-512.png","url":"https://nativemind11.github.io/frontgoldata/","description":"Human expertise in every language, turned into the data that trains better AI.","email":"nativemind.contact@gmail.com","telephone":"+201558126147","sameAs":[]}</script>
-  <script type="application/ld+json" id="ld-page">{"@context":"https://schema.org","@type":"Service","name":"Data Evaluation","description":"Review dataset coverage, format, labels, linguistic quality, duplicates or agreed risk areas. Share the sampling method and documented issues so the client can decide what needs remediation.","serviceType":"Data Evaluation","provider":{"@type":"Organization","name":"GOLDATA","url":"https://nativemind11.github.io/frontgoldata/"},"areaServed":"Worldwide"}</script>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <script type="application/ld+json" id="ld-org">{"@context":"https://schema.org","@type":"Organization","name":"GOLDATA","url":"https://nativemind11.github.io/frontgoldata/","description":"Human expertise in every language, turned into the data that trains better AI.","email":"nativemind.contact@gmail.com","telephone":"+201558126147","sameAs":[]}</script>
+  <script type="application/ld+json" id="ld-page">{"@context":"https://schema.org","@type":"Service","name":"Data Evaluation","description":"Training data validation, AI model evaluation, audio and speech data review and search relevance judgments by calibrated human raters.","serviceType":"Data Evaluation","provider":{"@type":"Organization","name":"GOLDATA","url":"https://nativemind11.github.io/frontgoldata/"},"areaServed":"Worldwide"}</script>
 </head>
 <body data-tone="ink">
   <a class="skip-link" href="#view" onclick="event.preventDefault();document.getElementById('view').focus()">Skip to content</a>
@@ -74,7 +84,7 @@
   <header class="nav" id="nav"></header>
   <div class="menu" id="menu" hidden></div>
 
-  <main id="view" class="view" tabindex="-1"><!--prerender:start--><div class="container prerendered"><h1>Check the data before relying on it.</h1><p>Review dataset coverage, format, labels, linguistic quality, duplicates or agreed risk areas. Share the sampling method and documented issues so the client can decide what needs remediation.</p><h2>What we do</h2><p>Before data trains a model, and before a model meets users, someone should check it with care. Our evaluators work to written rubrics, calibrate against reference items and report findings in a form your team can act on: what is wrong, how often, and where it comes from.</p><ul><li>Training Data Validation</li><li>AI Model Evaluation</li><li>Audio &amp; Speech Data Evaluation</li><li>Search Relevance</li></ul><h2>Sub-services</h2><h3>Training Data Validation</h3><p>Sampling and review of datasets for label accuracy, coverage gaps, duplicates and leakage.</p><h3>AI Model Evaluation</h3><p>Rubric scoring and side-by-side comparisons by native-speaking raters.</p><h3>Audio &amp; Speech Data Evaluation</h3><p>Transcript accuracy, audio quality, speaker metadata and consent completeness checked.</p><h3>Search Relevance</h3><p>Query-result judgments on graded scales, with locale-aware raters and clear guidelines.</p><h3>Calibrated raters</h3><p>Agreement tracked against reference items, with re-calibration when drift appears.</p><h3>Actionable reporting</h3><p>Findings grouped by root cause, with examples and suggested fixes.</p><h2>Deliverables</h2><ul><li>Evaluation plan and rubric</li><li>Scored items with rationale</li><li>Findings report by category and locale</li><li>Rater agreement summary</li><li>Recommended fixes</li></ul><h2>FAQ</h2><h3>Can you evaluate data we already have?</h3><p>Yes. We sample your dataset, agree acceptance criteria and report what we find, with an optional fix plan.</p><h3>How are search relevance raters trained?</h3><p>On your guidelines and a graded reference set, with calibration rounds before production judgments.</p><h3>Do you evaluate speech data specifically?</h3><p>Yes: transcript accuracy, segmentation, audio quality and metadata completeness.</p></div><!--prerender:end--></main>
+  <main id="view" class="view" tabindex="-1"><!--prerender:start--><div class="container prerendered"><h1>Proof that your data, and your model, hold up.</h1><p>Training data validation, AI model evaluation, audio and speech data review and search relevance judgments by calibrated human raters.</p><h2>What we do</h2><p>Before data trains a model, and before a model meets users, someone should check it with care. Our evaluators work to written rubrics, calibrate against reference items and report findings in a form your team can act on: what is wrong, how often, and where it comes from.</p><ul><li>Training Data Validation</li><li>AI Model Evaluation</li><li>Audio &amp; Speech Data Evaluation</li><li>Search Relevance</li></ul><h2>Sub-services</h2><h3>Training Data Validation</h3><p>Sampling and review of datasets for label accuracy, coverage gaps, duplicates and leakage.</p><h3>AI Model Evaluation</h3><p>Rubric scoring and side-by-side comparisons by native-speaking raters.</p><h3>Audio &amp; Speech Data Evaluation</h3><p>Transcript accuracy, audio quality, speaker metadata and consent completeness checked.</p><h3>Search Relevance</h3><p>Query-result judgments on graded scales, with locale-aware raters and clear guidelines.</p><h3>Calibrated raters</h3><p>Agreement tracked against reference items, with re-calibration when drift appears.</p><h3>Actionable reporting</h3><p>Findings grouped by root cause, with examples and suggested fixes.</p><h2>Deliverables</h2><ul><li>Evaluation plan and rubric</li><li>Scored items with rationale</li><li>Findings report by category and locale</li><li>Rater agreement summary</li><li>Recommended fixes</li></ul><h2>FAQ</h2><h3>Can you evaluate data we already have?</h3><p>Yes. We sample your dataset, agree acceptance criteria and report what we find, with an optional fix plan.</p><h3>How are search relevance raters trained?</h3><p>On your guidelines and a graded reference set, with calibration rounds before production judgments.</p><h3>Do you evaluate speech data specifically?</h3><p>Yes: transcript accuracy, segmentation, audio quality and metadata completeness.</p></div><!--prerender:end--></main>
   <footer id="footer" class="footer"></footer>
 
   <div class="sticky" id="sticky" aria-hidden="true"></div>
@@ -103,14 +113,14 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <!-- Site (order matters). Other dictionaries in js/i18n/ load on demand. -->
-  <script defer src="../../js/config.js?v=20261118"></script>
-  <script defer src="../../js/i18n/en.js?v=20261118"></script>
-  <script defer src="../../js/core.js?v=20261118"></script>
-  <script defer src="../../js/content.js?v=20261118"></script>
-  <script defer src="../../js/illustrations.js?v=20261118"></script>
-  <script defer src="../../js/scene.js?v=20261118"></script>
-  <script defer src="../../js/pages.js?v=20261118"></script>
-  <script defer src="../../js/features.js?v=20261118"></script>
-  <script defer src="../../js/app.js?v=20261118"></script>
+  <script defer src="../../js/config.js"></script>
+  <script defer src="../../js/i18n/en.js"></script>
+  <script defer src="../../js/core.js"></script>
+  <script defer src="../../js/content.js"></script>
+  <script defer src="../../js/illustrations.js"></script>
+  <script defer src="../../js/scene.js"></script>
+  <script defer src="../../js/pages.js"></script>
+  <script defer src="../../js/features.js"></script>
+  <script defer src="../../js/app.js"></script>
 </body>
 </html>

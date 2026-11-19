@@ -38,8 +38,7 @@ window.CFG = {
      Empty = mailto fallback (newsletter + contributor forms then open email). */
   apiBase: "",
 
-  /* DEMO MODE — false (production): every empty proof block is hidden (no placeholder metrics, certificates, quotes or team).
-     true is for local design review only and shows clearly ribboned SAMPLE content. */
+  /* DEMO MODE — true shows clearly ribboned SAMPLE content. false hides every empty block. */
   demo: false,
 
   /* Real proof. Leave null until you have it. Shapes:
@@ -51,40 +50,43 @@ window.CFG = {
      team:         [{ name: "...", role: "...", photo: "images/team-1.webp" }]
      cases:        same shape as SAMPLE_CASES in js/content.js
      datasets:     [{ id, title, modality: "text|audio|image|video", task, languages, volume, license, url }] */
-  stats: null,
-
-  /* HOME METRICS ROW (after "The difference"). Text only, no count-up.
-     Hidden for visitors until the owner sets ownerApproved:true. For review, open the site with ?review=1 to preview it under a "Review only" ribbon.
-     projects: figure supplied by the owner (replaces the old "80,000+").
-     clients / languages: PROPOSED small increases over the old 700 / 200 figures — the owner must confirm both before ownerApproved:true.
-     "languages" = cumulative across past projects, NOT the 62 languages/dialects a visitor can request in the Language Explorer. */
-  metrics: {
-    ownerApproved: false,
-    items: [
-      { key: "projects",  value: "90,000+", status: "owner-supplied" },
-      { key: "clients",   value: "750+",    status: "proposed — needs owner approval" },
-      { key: "languages", value: "210+",    status: "proposed — needs owner approval" },
-    ],
-  },
-
-  /* ISO BADGE BAND (Home) + "Certifications" section (Trust Center). Uses the ORIGINAL badge artwork from the previous site
-     (images/legacy_iso_badge_trio.*) — not redrawn. The image is a badge strip, NOT a certificate document.
-     Hidden for visitors until verified:true. Set it only after, for each standard (ISO 18587:2017, ISO 9001:2015, ISO 17100:2015),
-     you have confirmed: valid certificate for the same legal entity, issuer, certificate ID, scope, validity dates, official
-     verification link, and written approval to publish. Preview with ?review=1. */
-  certBadges: {
-    verified: false,
-    asset: "legacy_iso_badge_trio", w: 2508, h: 355,
-    alt: "ISO 18587:2017, ISO 9001:2015 and ISO 17100:2015 certification badges",
-    /* internal record, never rendered: [{ standard, issuer, certId, scope, validUntil, verifyUrl, approvedBy }] */
-    records: [],
-  },
-  testimonials: null,
-  rating: null,
+  /* Metric row (Home, after "The difference"). Static text — no counters. Items marked pending:true are the owner's
+     proposed figures: they show while showPendingStats is true (review build); set it to false to hide them until approved. */
+  stats: [
+    { value: "90,000+", labelKey: "stats.projects", label: "Projects completed" },
+    { value: "750+", labelKey: "stats.clients", label: "Clients", pending: true },
+    { value: "210+", labelKey: "stats.languages", label: "Languages served across projects", pending: true },
+  ],
+  showPendingStats: true,
+  /* Testimonials supplied by the owner. */
+  testimonials: [
+    { quote: "GOLDATA helped us collect and label multilingual speech data across different accents while keeping the workflow organized and easy to audit.", name: "Isabella Grant", role: "Speech Data Program Manager · Conversational AI", stars: 5 },
+    { quote: "The annotation team understood the edge cases in our image and video datasets and delivered consistent labels across every batch.", name: "Marcus Ellis", role: "Computer Vision Product Lead · Retail Technology", stars: 5 },
+    { quote: "Their native-language evaluators gave us useful feedback on fluency, cultural fit, and safety before we launched our multilingual assistant.", name: "Nora Haddad", role: "AI Evaluation Manager · Customer Experience", stars: 5 },
+    { quote: "GOLDATA made the localization process much more reliable. Terminology, tone, and regional language differences were handled with care.", name: "Julian Moretti", role: "Localization Operations Director · SaaS", stars: 5 },
+    { quote: "The transcription workflow was accurate, speaker-aware, and structured in a format our research team could use immediately.", name: "Elena Brooks", role: "Research Operations Lead · Healthcare Technology", stars: 5 },
+    { quote: "From contributor recruitment to quality review, the project had clear acceptance criteria and transparent reporting at every stage.", name: "Theo Morgan", role: "Data Quality Manager · Automotive AI", stars: 5 },
+    { quote: "Their preference data and prompt evaluation support helped our team identify where the model was helpful, vague, or culturally inappropriate.", name: "Amira Collins", role: "Generative AI Product Manager · Enterprise Software", stars: 5 },
+    { quote: "The pilot gave us a practical way to validate our data requirements before scaling the full multilingual program.", name: "Daniel Rivera", role: "Machine Learning Program Director · Financial Services", stars: 5 },
+  ],
+  rating: null,                       // keep hidden until a current, verifiable review source exists (never raise the 4.9)
   certs: null,
   team: null,
   cases: null,
   datasets: null,
+
+  /* ISO badge strip (exact legacy artwork, not redrawn). Shown on Home + Trust Center ONLY when every standard below has
+     verified:true AND a verifyUrl (and no past expires date). Add ?review=1 to the URL to preview it before verification
+     (marked "internal preview"). The image is a badge row, not a certificate: fill issuer/certId/scope/expires/verifyUrl. */
+  iso: {
+    image: "images/legacy_iso_badge_trio.png", w: 2508, h: 355,
+    ownerApproved: true,   // owner chose to show the badges; set false to hide them until each standard is verified below
+    standards: [
+      { name: "ISO 18587:2017", issuer: "", certId: "", scope: "", expires: "", verifyUrl: "", verified: false },
+      { name: "ISO 9001:2015",  issuer: "", certId: "", scope: "", expires: "", verifyUrl: "", verified: false },
+      { name: "ISO 17100:2015", issuer: "", certId: "", scope: "", expires: "", verifyUrl: "", verified: false },
+    ],
+  },
 
   /* Languages a visitor can REQUEST (Language Explorer + quote wizard).
      Listing a language is not a coverage claim. Add `modalities: ["text","speech","image","video"]`
@@ -207,26 +209,26 @@ window.CFG = {
      plus images/<asset>-640.webp / -1280.webp / -1920.webp for srcset. Alt text lives here, once per asset. */
   assets: {
     "hero_multilingual_ai_lab": { w: 1920, h: 823, alt: "Multilingual AI data specialists reviewing speech and annotation workflows in an operations studio." },
-    "team_quality_review": { w: 1920, h: 1080, alt: "AI data operations team reviewing quality controls and dataset handoff materials." },
-    "process_pilot_workflow": { w: 1920, h: 1280, alt: "Client and operations team planning a small AI data pilot with sample tasks and a delivery checklist." },
-    "case_voice_collection": { w: 1920, h: 1280, alt: "Contributor recording a consented voice prompt inside a parked car for speech data collection." },
-    "service_data_collection": { w: 1920, h: 1280, alt: "Contributors recording consented text and speech data during a controlled collection session." },
-    "service_annotation_workspace": { w: 1920, h: 1440, alt: "Annotator reviewing an AI data labelling workflow beside a quality checklist." },
-    "service_model_evaluation": { w: 1920, h: 1080, alt: "Reviewers comparing anonymized AI model responses against a structured evaluation rubric." },
+    "team_quality_review": { w: 1920, h: 1080, alt: "AI data operations colleagues reviewing sample quality instructions at a shared worktable." },
+    "process_pilot_workflow": { w: 1920, h: 1280, alt: "A client and data operations coordinator planning a small pilot and reviewing an unmarked checklist." },
+    "case_voice_collection": { w: 1920, h: 1280, alt: "A contributor recording a voice prompt in a parked car for an illustrative speech-data workflow." },
+    "service_data_collection": { w: 1920, h: 1280, alt: "Contributors preparing a controlled text and speech data collection session." },
+    "service_annotation_workspace": { w: 1920, h: 1440, alt: "An annotator reviewing object labels on an anonymized sample frame." },
+    "service_model_evaluation": { w: 1920, h: 1080, alt: "Language evaluators comparing anonymized model responses against a written rubric." },
     "service_data_evaluation_crop": { w: 1920, h: 1332, alt: "Reviewer checking anonymized records against a structured evaluation rubric on a wall display." },
-    "quality_qa_checkpoint": { w: 1920, h: 1280, alt: "Reviewers checking a sample batch as part of an AI data quality checkpoint." },
-    "industry_healthcare_ai": { w: 1920, h: 1280, alt: "Healthcare and data specialists reviewing anonymized AI workflow material." },
-    "industry_retail_search": { w: 1920, h: 1280, alt: "Retail operations team reviewing anonymized product search and relevance data." },
-    "service_localization": { w: 1920, h: 1280, alt: "Multilingual reviewers comparing regional language variations during a localization workflow." },
-    "case_localization_review": { w: 1920, h: 1280, alt: "Linguistic reviewers comparing multilingual interface phrases during a localization review." },
-    "service_genai_safety": { w: 1920, h: 1280, alt: "Team reviewing anonymized generative AI responses and safety categories." },
-    "service_dataset_library": { w: 1920, h: 1440, alt: "Curated AI dataset library materials organized for secure handoff." },
-    "service_speech_transcription": { w: 1920, h: 1440, alt: "Speech specialist reviewing audio waveforms and transcription timestamps." },
-    "privacy_data_governance": { w: 1920, h: 1440, alt: "Team reviewing anonymized records and access permissions for data governance." },
-    "service_digital_systems": { w: 1920, h: 1080, alt: "Operations team reviewing a dependable workflow system for multilingual data delivery." },
-    "case_visual_annotation": { w: 1920, h: 1080, alt: "Computer vision specialist reviewing anonymized street-scene frames with object annotations." },
-    "delivery_handoff": { w: 1920, h: 1280, alt: "Client and delivery team reviewing a structured AI dataset handoff package." },
-    "contact_brief_session": { w: 1920, h: 1440, alt: "Client and consultant discussing the first brief for an AI data project." },
+    "quality_qa_checkpoint": { w: 1920, h: 1280, alt: "A quality reviewer inspecting a sample batch against an unmarked checklist." },
+    "industry_healthcare_ai": { w: 1920, h: 1280, alt: "Healthcare and data specialists reviewing an anonymized workflow without patient records." },
+    "industry_retail_search": { w: 1920, h: 1280, alt: "Retail search analysts comparing anonymized product examples in a real operations office." },
+    "service_localization": { w: 1920, h: 1280, alt: "Native-language reviewers comparing localized interface examples." },
+    "case_localization_review": { w: 1920, h: 1280, alt: "Linguists reviewing locale-specific terminology and tone for an illustrative support workflow." },
+    "service_genai_safety": { w: 1920, h: 1280, alt: "Reviewers checking anonymized generative AI examples against a safety rubric." },
+    "service_dataset_library": { w: 1920, h: 1440, alt: "A data specialist preparing an organized dataset package and documentation for handoff." },
+    "service_speech_transcription": { w: 1920, h: 1440, alt: "A transcription specialist reviewing an audio waveform with headphones." },
+    "privacy_data_governance": { w: 1920, h: 1440, alt: "A team discussing access control and data-retention procedures using anonymized materials." },
+    "service_digital_systems": { w: 1920, h: 1080, alt: "Operations colleagues coordinating a multilingual data workflow across workstations." },
+    "case_visual_annotation": { w: 1920, h: 1080, alt: "A computer-vision annotator reviewing a sample street-scene frame with illustrative object boxes." },
+    "delivery_handoff": { w: 1920, h: 1280, alt: "A client and data operations specialist reviewing an anonymized dataset handoff package." },
+    "contact_brief_session": { w: 1920, h: 1440, alt: "A client and consultant discussing the first brief for a multilingual AI data project." },
   },
 
   /* Image slots → asset. ar = frame aspect ratio the photo is cropped to (object-fit: cover), pos = optional focal point.
@@ -256,7 +258,6 @@ window.CFG = {
     "contact-globe": { asset: "contact_brief_session", ar: "1/1", w: 1920, h: 1440 },
     "trust": { asset: "privacy_data_governance", ar: "16/9", w: 1920, h: 1440 },
     "rfp": { asset: "delivery_handoff", ar: "16/9", w: 1920, h: 1280 },
-    "receive": { asset: "delivery_handoff", ar: "4/3", w: 1920, h: 1280, pos: "50% 50%" },
     "resources": { asset: "team_quality_review", ar: "16/9", w: 1920, h: 1080 },
     "presence": { asset: "service_digital_systems", ar: "21/9", w: 1920, h: 1080, pos: "50% 45%" },
     "languages": { asset: "case_localization_review", ar: "21/9", w: 1920, h: 1280, pos: "50% 55%" },

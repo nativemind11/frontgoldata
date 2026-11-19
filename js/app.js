@@ -36,7 +36,8 @@
   GD.ICON = ICON;
 
   /* ---------- markup helpers ---------- */
-  const cases = () => GD.proof("cases", K.SAMPLE_CASES, true);
+  /* The three cases are always shown: each carries its own evidence label (Representative workflow / Illustrative concept). */
+  const cases = () => (Array.isArray(CFG.cases) && CFG.cases.length ? { items: CFG.cases, demo: false } : { items: K.SAMPLE_CASES, demo: true });
   const btn = (label, href, v = "primary", extra = "") => `<a class="btn btn--${v} magnetic" href="${href}" ${extra}><span class="btn__label">${esc(label)}</span><span class="btn__icon" aria-hidden="true">${ICON.arrow}</span></a>`;
   const waBtn = (label = t("cta.wa")) => (GD.digits ? `<a class="btn btn--wa magnetic" href="${GD.waLink()}" target="_blank" rel="noopener"><span class="btn__label">${esc(label)}</span><span class="sr-only"> ${esc(t("a11y.newTab"))}</span></a>` : "");
   const faqItems = (list, id) => list.map(([q, a], i) => `
@@ -45,7 +46,13 @@
       <div class="faq__a" id="${id}-a${i}" role="region" aria-labelledby="${id}-q${i}" hidden><p>${esc(a)}</p></div>
     </div>`).join("");
   /* Count-up only for real numbers in CFG.stats; sample values ("00+") stay static. */
-  const statsBlock = (st) => (st ? `<div class="stats has-demo" data-reveal>${ribbon(st.demo)}${st.items.map((s) => `<div><div class="stat__v" ${!st.demo && /\d/.test(s.value) && !/^0+\D*$/.test(s.value) ? `data-count="${esc(s.value)}"` : ""}>${esc(s.value)}</div><div class="stat__l">${esc(s.label)}</div></div>`).join("")}</div>` : "");
+  /* Metric row: static text (no counters). Pending figures show only while CFG.showPendingStats or ?review=1. */
+  const statsBlock = (st) => {
+    if (!st) return "";
+    const items = st.items.filter((x) => !x.pending || CFG.showPendingStats || GD.REVIEW);
+    if (!items.length) return "";
+    return `<div class="stats stats--n${items.length} has-demo" data-reveal>${ribbon(st.demo)}${items.map((x) => `<div><div class="stat__v">${esc(x.value)}</div><div class="stat__l">${esc(x.labelKey ? t(x.labelKey) : x.label)}</div>${x.pending && GD.REVIEW ? `<div class="stat__tag" lang="en" dir="ltr">Pending owner approval</div>` : ""}</div>`).join("")}</div><p class="stats__note">${esc(t("stats.note"))}</p>${GD.isoBlock(true)}`;
+  };
   const finalCta = (title = [t("final.t1"), t("final.t2")]) => `
     <section class="final" ${world("ambient", "navy", "0,0,6", "0,0,-6")}>
       <div class="final__glow" aria-hidden="true"></div>
@@ -95,35 +102,6 @@
       </section>`;
   }
 
-  /* ---------- owner-gated proof: metrics row + ISO badge band (see CFG.metrics / CFG.certBadges) ---------- */
-  const reviewMode = () => /[?&]review=1/.test(location.search + location.hash);
-  const metricsOn = () => !!(CFG.metrics && Array.isArray(CFG.metrics.items) && CFG.metrics.items.length && (CFG.metrics.ownerApproved || reviewMode()));
-  const badgesOn = () => !!(CFG.certBadges && CFG.certBadges.asset && (CFG.certBadges.verified || reviewMode()));
-  const badgeImg = () => {
-    const b = CFG.certBadges, base = `${GD.base}images/${b.asset}`;
-    return `<img class="badges__img" src="${base}-1280.webp" srcset="${base}-1280.webp 1280w, ${base}-1920.webp 1920w, ${base}.webp ${b.w}w" sizes="(min-width: 1100px) 1000px, 92vw" alt="${esc(b.alt)}" width="${b.w}" height="${b.h}" loading="lazy" decoding="async" />`;
-  };
-  const metricsSection = () => {
-    if (!metricsOn()) return "";
-    const pending = !CFG.metrics.ownerApproved;
-    return `
-      <section class="section section--tight metrics-sec" ${world("ambient", "ink", "0,0,9")} aria-labelledby="metrics-title">
-        <div class="container">
-          <h2 id="metrics-title" class="sr-only">${esc(t("m.title"))}</h2>
-          ${pending ? `<p data-reveal>${GD.ribbon(true, t("m.review"))}</p>` : ""}
-          <div class="metrics" data-reveal>${CFG.metrics.items.map((m) => `<div class="metric"><div class="metric__v">${esc(m.value)}</div><div class="metric__l">${esc(t("m." + m.key))}</div></div>`).join("")}</div>
-          <p class="body-soft metrics__note" data-reveal>${esc(t("m.note"))}</p>
-          ${badgesOn() ? `
-          <div class="badges" data-reveal>
-            ${CFG.certBadges.verified ? "" : `<p>${GD.ribbon(true, t("iso.review"))}</p>`}
-            <div class="badges__panel">${badgeImg()}</div>
-            <a class="link-arrow" href="#/trust">${esc(t("iso.cta"))}</a>
-          </div>` : ""}
-        </div>
-      </section>`;
-  };
-  Object.assign(GD, { reviewMode, badgesOn, badgeImg });
-
   function home() {
     const st = GD.proof("stats", K.SAMPLE.stats), tm = GD.proof("testimonials", K.SAMPLE.testimonials), ce = GD.proof("certs", K.SAMPLE.certs);
     const vals = T2("values", K.VALUES), icons = ["quality", "collection", "security", "localization"];
@@ -139,8 +117,8 @@
             <h1 id="hero-title" class="display hero__title">${lines([GD.cfgT("hero.l1", CFG.hero.lines[0])])}${lines([GD.cfgT("hero.l2", CFG.hero.lines[1])], "accent")}</h1>
             <div class="hero__meta">
               <div class="hero__inner">
-                <p class="lead">${esc(GD.cfgT("brand.story", CFG.story))}</p>
-                <div class="cta-row">${btn(t("cta.quote"), "#/quote")}${btn(t("cta.explore"), "#/services", "ghost")}</div>
+                <p class="lead">${esc(t("hero.body"))}</p>
+                <div class="cta-row">${btn(t("cta.startPilot"), "#/quote?type=pilot")}${btn(t("cta.explore"), "#/services", "ghost")}</div>
               </div>
               <span class="hero__scroll"><i></i>${esc(t("hero.scroll"))}</span>
             </div>
@@ -182,8 +160,6 @@
           ${statsBlock(st)}
         </div>
       </section>
-
-      ${metricsSection()}
 
       ${trioSection()}
 
@@ -251,7 +227,7 @@
         <div class="container">
           <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("home.tm.eyebrow"))}</p><h2 id="tm-title" class="display-2" data-split>${lines([t("home.tm.t1"), t("home.tm.t2")])}</h2>${tm.demo ? `<p class="notice" data-reveal>${esc(t("home.tm.lead"))}</p>` : ""}</div>
           <div class="quotes has-demo" data-slider aria-live="polite" data-reveal>${ribbon(tm.demo)}
-            ${tm.items.map((q, i) => `<figure class="quote" ${i ? "hidden" : ""} aria-roledescription="slide" aria-label="${esc(t("home.tm.of", { i: i + 1, n: tm.items.length }))}"><blockquote${tm.demo ? GD.enAttr() : ""}>“${esc(q.quote)}”</blockquote><figcaption><b>${esc(q.name)}</b>${esc(q.role)}</figcaption></figure>`).join("")}
+            ${tm.items.map((q, i) => `<figure class="quote" ${i ? "hidden" : ""} aria-roledescription="slide" aria-label="${esc(t("home.tm.of", { i: i + 1, n: tm.items.length }))}">${q.stars ? `<div class="quote__stars" role="img" aria-label="${esc(t("home.tm.stars", { n: q.stars }))}">${"★".repeat(q.stars)}</div>` : ""}<blockquote lang="en" dir="ltr">“${esc(q.quote)}”</blockquote><figcaption><b>${esc(q.name)}</b>${esc(q.role)}</figcaption></figure>`).join("")}
           </div>
           <div class="quotes__ctrl">
             <button class="round-btn" data-prev aria-label="${esc(t("home.tm.prev"))}">${ICON.back}</button>
@@ -260,18 +236,7 @@
           </div>
           ${CFG.rating ? `<p class="body-soft" style="margin-block-start:2rem">${esc(t("home.rated", { v: CFG.rating.value, src: "" }))}${live(CFG.rating.url) ? `<a class="link-arrow" href="${esc(CFG.rating.url)}" target="_blank" rel="noopener">${esc(CFG.rating.source)}</a>` : esc(CFG.rating.source)}</p>` : ""}
         </div>
-      </section>` : `
-      <section class="section" ${world("ambient", "ink", "0,0,9")} aria-labelledby="rc-title">
-        <div class="container grid split">
-          <div>
-            <p class="eyebrow" data-reveal>${esc(t("home.rc.eyebrow"))}</p>
-            <h2 id="rc-title" class="display-2" data-split>${lines([t("home.rc.t1"), t("home.rc.t2")])}</h2>
-            <p class="body-soft" data-reveal>${esc(t("home.rc.lead"))}</p>
-            <div data-reveal style="margin-block-start:1.5rem">${slot("receive", "slot--frame")}</div>
-          </div>
-          <div class="rows rows--values" data-reveal>${T2("rc", K.RECEIVE).map(([ti, d], i) => `<div class="row"><span class="row__n">0${i + 1}</span><span class="row__t">${esc(ti)}</span><span class="row__d">${esc(d)}</span></div>`).join("")}</div>
-        </div>
-      </section>`}
+      </section>` : ""}
 
       ${ce ? `
       <section class="section section--tight" ${world("ambient", "deep", "0,0,8")} aria-labelledby="ce-title">
@@ -528,7 +493,7 @@
             <p class="eyebrow" data-reveal>${esc(t("cs.eyebrow"))}</p>
             <h1 class="display" data-split>${lines([t("cs.t1"), t("cs.t2")])}</h1>
             <p class="lead" data-reveal>${esc(t("cs.lead"))}</p>
-            ${c.builtin ? `<p class="notice" data-reveal style="margin-block-start:2rem">${esc(t("cs.sampleNotice"))}</p>` : (c.demo ? `<p class="notice" data-reveal style="margin-block-start:2rem">${ribbon(true)} ${esc(t("cs.sampleNotice"))}</p>` : "")}
+            ${c.demo ? `<p class="notice" data-reveal style="margin-block-start:2rem">${esc(t("cs.sampleNotice"))}</p>` : ""}
           </div>
         </div>
       </section>
@@ -817,7 +782,7 @@
     const steps = $$(".step", sec);
     const set = (idx) => steps.forEach((st, i) => { st.classList.toggle("is-active", i === idx); st.classList.toggle("is-done", i < idx); });
     set(0);
-    ScrollTrigger.create({ trigger: sec, start: "top top", end: "bottom bottom", onUpdate: (s) => set(Math.min(steps.length - 1, Math.floor(s.progress * (steps.length + 0.05)))) });
+    ScrollTrigger.create({ trigger: sec, start: "top top", end: "bottom bottom", onUpdate: (s) => set(Math.min(2, Math.floor(s.progress * 3.05))) });
   }
 
   function chapterCounter(root) {
@@ -904,18 +869,15 @@
   function slots(root) {
     const load = (img) => {
       const wrap = img.closest(".slot"); if (img.dataset.loaded) return; img.dataset.loaded = "1";
-      img.addEventListener("load", () => { wrap.classList.add("has-img"); wrap.classList.remove("is-empty", "is-pending"); }, { once: true });
-      img.addEventListener("error", () => { wrap.classList.remove("is-pending"); wrap.classList.add("is-empty"); }, { once: true });
+      img.addEventListener("load", () => { wrap.classList.add("has-img"); wrap.classList.remove("is-empty"); }, { once: true });
+      img.addEventListener("error", () => wrap.classList.add("is-empty"), { once: true });
       if (img.dataset.srcset) img.srcset = img.dataset.srcset;
       img.src = img.dataset.src;
     };
     const imgs = $$("img[data-slot]", root);
     if (!("IntersectionObserver" in window)) { imgs.forEach(load); return; }
-    /* Observe the slot wrapper (it always has a box); the <img> inside is hidden until it has loaded, and a hidden element never intersects. */
-    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { const im = e.target.querySelector("img[data-slot]"); if (im) load(im); io.unobserve(e.target); } }), { rootMargin: "600px 0px" });
-    imgs.forEach((i) => io.observe(i.closest(".slot") || i)); cleanups.push(() => io.disconnect());
-    /* Safety net: if the observer never fires (some browsers/extensions), load any remaining photos once the page has settled. */
-    const t0 = setTimeout(() => imgs.forEach(load), 2500); cleanups.push(() => clearTimeout(t0));
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { load(e.target); io.unobserve(e.target); } }), { rootMargin: "600px 0px" });
+    imgs.forEach((i) => io.observe(i)); cleanups.push(() => io.disconnect());
   }
 
   function magnetic(root) {

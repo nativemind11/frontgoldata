@@ -295,19 +295,10 @@
           <div class="trust-grid"${GD.enAttr()}>${K.TRUST.map(([ti, d, ic]) => `<article class="card" data-reveal><span class="card__icon">${ILLO.icon(ic, 24)}</span><h2 class="h3">${esc(ti)}</h2><p>${esc(d)}</p></article>`).join("")}</div>
         </div>
       </section>
-      ${GD.badgesOn() ? `<section class="section section--tight" ${world("ambient", "ink", "0,0,9")} aria-labelledby="iso-title">
-        <div class="container">
-          <p class="eyebrow" data-reveal>${esc(t("iso.eyebrow"))}</p>
-          <h2 id="iso-title" class="h3" data-reveal>${esc(t("iso.title"))}</h2>
-          ${CFG.certBadges.verified ? "" : `<p data-reveal>${GD.ribbon(true, t("iso.review"))}</p>`}
-          <div class="badges" data-reveal><div class="badges__panel">${GD.badgeImg()}</div></div>
-          <p class="body-soft" data-reveal>${esc(t("iso.note"))}</p>
-        </div>
-      </section>` : ""}
       <section class="section section--tight">
         <div class="container grid split">
           <div><p class="eyebrow" data-reveal>${esc(t("tr.certs"))}</p></div>
-          <div data-reveal>${certs ? `<div class="certs certs--list">${certs.map((c) => `<div class="cert"><b>${esc(c.name)}</b><span>${esc(c.note || "")}</span>${live(c.url) ? `<a class="link-arrow" href="${esc(c.url)}" target="_blank" rel="noopener">${esc(t("cta.learn"))}</a>` : ""}</div>`).join("")}</div>` : `<p class="statement statement--sm">${esc(t("tr.certsNone"))}</p>`}</div>
+          <div data-reveal>${certs ? `<div class="certs certs--list">${certs.map((c) => `<div class="cert"><b>${esc(c.name)}</b><span>${esc(c.note || "")}</span>${live(c.url) ? `<a class="link-arrow" href="${esc(c.url)}" target="_blank" rel="noopener">${esc(t("cta.learn"))}</a>` : ""}</div>`).join("")}</div>` : `<p class="statement statement--sm">${esc(t("tr.certsNone"))}</p>`}${GD.isoBlock(false)}</div>
         </div>
       </section>
       <section class="section section--tight">
@@ -368,7 +359,7 @@
   function resItems() {
     const cs = GD.cases();
     const arts = K.ARTICLES.map((a) => ({ kind: "article", slug: a.slug, href: `#/resources/${a.slug}`, title: a.title, summary: a.summary, tags: a.tags, slot: a.slot, min: minutes(artText(a)), date: a.date }));
-    const cases = cs ? cs.items.map((c) => ({ kind: "case", slug: c.slug, href: `#/case-studies/${c.slug}`, title: c.title, summary: c.summary, tags: c.cats || [c.tag], slot: c.slot, min: minutes(caseText(c)), demo: cs.demo || (c.evidence || "verified") !== "verified" })) : [];
+    const cases = cs ? cs.items.map((c) => ({ kind: "case", slug: c.slug, href: `#/case-studies/${c.slug}`, title: c.title, summary: c.summary, tags: c.cats || [c.tag], slot: c.slot, min: minutes(caseText(c)), demo: cs.demo })) : [];
     return arts.concat(cases);
   }
   GD.resItems = resItems;

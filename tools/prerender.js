@@ -31,7 +31,7 @@ const LANGS = (CFG.i18n && CFG.i18n.available) || ["en"];
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const t = (k, v = {}) => String(EN[k] || k).replace(/\{(\w+)\}/g, (m, x) => (v[x] != null ? v[x] : m));
 const P = (s) => `<p>${esc(s)}</p>`, H2 = (s) => `<h2>${esc(s)}</h2>`, UL = (a) => `<ul>${a.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>`;
-const cases = Array.isArray(CFG.cases) && CFG.cases.length ? CFG.cases : K.SAMPLE_CASES;
+const cases = Array.isArray(CFG.cases) && CFG.cases.length ? CFG.cases : CFG.demo ? K.SAMPLE_CASES : [];
 const org = { "@context": "https://schema.org", "@type": "Organization", name: CFG.brand, url: SITE, description: CFG.story, email: CFG.email, telephone: CFG.phone, sameAs: Object.values(CFG.socials || {}).filter((u) => u && u !== "#") };
 
 /* ---------- route table: [path, title, description, bodyHtml, jsonld?] ---------- */
@@ -64,17 +64,12 @@ const indexPath = path.join(ROOT, "index.html");
 const tpl = fs.readFileSync(indexPath, "utf8");
 const setMeta = (html, { title, desc, canon, depth, route, ld, body }) => {
   const up = "../".repeat(depth);
-  // Idempotent: drop tags a previous run generated so they are not stacked on every run.
   let h = html
-    .replace(/[ \t]*<link rel="alternate" hreflang="[^"]*"[^>]*data-static-hreflang \/>\r?\n?/g, "")
-    .replace(/[ \t]*<meta property="og:url" content="[^"]*" \/>\r?\n?/g, "")
-    .replace(/[ \t]*<meta property="og:image" content="https:\/\/(?!USER\.)[^"]*" \/>\r?\n?/g, "")
-    .replace(/[ \t]*<meta name="twitter:image" content="https:\/\/(?!USER\.)[^"]*" \/>\r?\n?/g, "")
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(desc)}$2`)
     .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`)
     .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(desc)}$2`)
-    .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" id="canonical" href="${canon}" />\n  ${LANGS.concat(["x-default"]).map((l) => `<link rel="alternate" hreflang="${l}" href="${canon}${l === "en" || l === "x-default" ? "" : `?lang=${l}`}" data-static-hreflang />`).join("\n  ")}\n  <meta property="og:url" content="${canon}" />\n  <meta property="og:image" content="${SITE}images/og-logo.jpg" />\n  <meta name="twitter:image" content="${SITE}images/og-logo.jpg" />`)
+    .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" id="canonical" href="${canon}" />\n  ${LANGS.concat(["x-default"]).map((l) => `<link rel="alternate" hreflang="${l}" href="${canon}${l === "en" || l === "x-default" ? "" : `?lang=${l}`}" data-static-hreflang />`).join("\n  ")}\n  <meta property="og:url" content="${canon}" />\n  <meta property="og:image" content="${SITE}images/og.png" />\n  <meta name="twitter:image" content="${SITE}images/og.png" />`)
     .replace(/(<script type="application\/ld\+json" id="ld-org">)[\s\S]*?(<\/script>)/, `$1${JSON.stringify(org)}$2`)
     .replace(/(<script type="application\/ld\+json" id="ld-page">)[\s\S]*?(<\/script>)/, `$1${ld ? JSON.stringify(ld) : "{}"}$2`)
     .replace(/<!--prerender:start-->[\s\S]*?<!--prerender:end-->/, `<!--prerender:start--><div class="container prerendered">${body}</div><!--prerender:end-->`);

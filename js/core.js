@@ -66,7 +66,7 @@
     }
   }
   /* Dictionaries other than English load on demand (js/i18n/<lang>.js). */
-  const loadDict = (l) => (l === "en" || I18N[l] ? Promise.resolve() : GD.loadScript(`${GD.base}js/i18n/${l}.js?v=20261118`));
+  const loadDict = (l) => (l === "en" || I18N[l] ? Promise.resolve() : GD.loadScript(`${GD.base}js/i18n/${l}.js`));
   async function setLang(l) {
     if (!AVAIL.includes(l) || l === lang) return;
     try { await loadDict(l); } catch (e) { return; }
@@ -100,12 +100,26 @@
   });
 
   /* ---------- proof helpers (NO-FAKE-PROOF) ---------- */
-  GD.proof = (key, sample, always) => {
+  GD.proof = (key, sample) => {
     if (Array.isArray(CFG[key]) && CFG[key].length) return { items: CFG[key], demo: false };
-    /* `always` = built-in content that is labelled by its own evidence state (e.g. the three representative cases), so it ships in production too. */
-    if (always && sample && sample.length) return { items: sample, demo: false, builtin: true };
     if (CFG.demo && sample && sample.length) return { items: sample, demo: true };
     return null;
+  };
+  GD.REVIEW = /[?&]review=1/.test(location.search);
+  GD.isoState = () => {
+    const I = CFG.iso; if (!I || !Array.isArray(I.standards) || !I.standards.length) return null;
+    const now = Date.now();
+    const verified = I.standards.every((x) => x.verified === true && live(x.verifyUrl) && !(x.expires && new Date(x.expires).getTime() < now));
+    return verified || I.ownerApproved || GD.REVIEW ? { I, verified: verified || !!I.ownerApproved } : null;
+  };
+  /* ISO badge row. compact = Home strip (links to Trust Center); full = Trust Center block with standards list. */
+  GD.isoBlock = (compact) => {
+    const st = GD.isoState(); if (!st) return "";
+    const { I, verified } = st;
+    const img = `<img src="${GD.base}${esc(I.image)}" alt="${esc(t("iso.alt"))}" width="${I.w}" height="${I.h}" loading="lazy" decoding="async" />`;
+    const tag = verified ? "" : `<p class="iso__review" lang="en" dir="ltr">Internal preview — certificates not yet verified. Not shown publicly.</p>`;
+    if (compact) return `<div class="iso iso--compact" data-reveal>${tag}<a class="iso__link" href="#/trust"><span class="iso__img">${img}</span><span class="link-arrow">${esc(t("iso.link"))}</span></a></div>`;
+    return `<div class="iso" data-reveal>${tag}<div class="iso__img">${img}</div><ul class="iso__list">${I.standards.map((x) => `<li><b>${esc(x.name)}</b>${x.issuer ? ` <span>${esc(x.issuer)}</span>` : ""}${live(x.verifyUrl) ? ` <a class="link-arrow" href="${esc(x.verifyUrl)}" target="_blank" rel="noopener">${esc(t("iso.verify"))}</a>` : ""}</li>`).join("")}</ul></div>`;
   };
   GD.ribbon = (onOff, label) => (onOff ? `<span class="demo-ribbon">${esc(label || t("demo.ribbon"))}</span>` : "");
 
@@ -127,7 +141,7 @@
     const wide = /fill/.test(cls) || /^(21|16)\//.test(m.ar);
     const sizes = wide ? "(min-width: 1100px) 1100px, 100vw" : "(min-width: 1100px) 560px, (min-width: 700px) 50vw, 100vw";
     const pos = m.pos ? ` style="object-position:${esc(m.pos)}"` : "";
-    return `<figure class="slot is-pending ${cls}" style="--ar:${m.ar}" data-slot-name="${name}"><img data-slot="${name}" data-src="${base}.webp" data-srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}" width="${a.w}" height="${a.h}" decoding="async"${pos} /><span class="slot__ph" aria-hidden="true"></span>${cap}${CFG.showSlotLabels ? `<span class="slot__tag" aria-hidden="true">${esc(name)} → ${esc(m.asset)}</span>` : ""}</figure>`;
+    return `<figure class="slot is-empty ${cls}" style="--ar:${m.ar}" data-slot-name="${name}"><img data-slot="${name}" data-src="${base}.webp" data-srcset="${srcset}" sizes="${sizes}" alt="${esc(alt)}" width="${a.w}" height="${a.h}" decoding="async"${pos} /><span class="slot__ph" aria-hidden="true"></span>${cap}${CFG.showSlotLabels ? `<span class="slot__tag" aria-hidden="true">${esc(name)} → ${esc(m.asset)}</span>` : ""}</figure>`;
   };
 
   /* ---------- live region ---------- */
