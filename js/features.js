@@ -67,7 +67,8 @@
   function consent(force) {
     const el = $("#consent"), choice = GD.store.get("gd-consent"), hasA = !!(CFG.analytics && live(CFG.analytics.src));
     if (choice === "analytics" && hasA) loadAnalytics();
-    if (choice && !force) { el.hidden = true; return; }
+    /* No analytics configured → nothing to consent to, so the banner stays hidden (the footer privacy link still opens it). */
+    if ((choice || !hasA) && !force) { el.hidden = true; return; }
     el.innerHTML = `<div class="consent__inner"><p class="consent__t">${esc(t("cn.t"))}</p><p>${esc(hasA ? t("cn.body") : t("cn.bodyNoAnalytics"))} <a href="#/privacy" class="link-arrow">${esc(t("cn.more"))}</a></p><div class="cta-row">${hasA ? `<button class="btn btn--sm btn--ghost" data-c="necessary"><span class="btn__label">${esc(t("cn.necessary"))}</span></button><button class="btn btn--sm btn--primary" data-c="analytics"><span class="btn__label">${esc(t("cn.accept"))}</span></button>` : `<button class="btn btn--sm btn--primary" data-c="necessary"><span class="btn__label">${esc(t("cn.ok"))}</span></button>`}</div></div>`;
     el.hidden = false;
     $$("[data-c]", el).forEach((b) => b.addEventListener("click", () => { GD.store.set("gd-consent", b.dataset.c); el.hidden = true; if (b.dataset.c === "analytics") loadAnalytics(); }));
