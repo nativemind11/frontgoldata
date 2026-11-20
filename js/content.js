@@ -264,14 +264,11 @@
   ];
 
   const FAQ = [
-    ["Which languages and dialects do you cover?", "We build teams around your target locales, including regional dialects and lower-resource languages. Share your list and we confirm coverage, contributor availability and timelines before any work starts."],
-    ["How do you keep our data secure?", "Access is limited to the people who need it, contributors sign confidentiality agreements, and we agree storage, transfer and deletion rules with you before any data moves. We can work inside your environment when required."],
-    ["How do you control quality?", "Contributors are qualified and calibrated against gold examples, work passes through layered review, and accuracy is measured continuously. You see quality reports throughout the project, not just at the end."],
-    ["What is a typical turnaround?", "It depends on volume, languages and complexity. After scoping we give you a written schedule with milestones; pilots typically come first so the timeline rests on real throughput."],
-    ["Can we start with a pilot?", "Yes, and we recommend it. A pilot aligns guidelines and quality targets on a small batch before you commit to full volume."],
-    ["How is pricing structured?", "Per unit (hour of audio, item, label or word), per evaluator hour, or a fixed project fee — whichever fits the work. Every quote is itemized so you know exactly what you pay for."],
-    ["Which tools do you work with?", "Your own platform, common open-source annotation tools, or a setup we configure for the project. Delivery formats follow your pipeline."],
-    ["Will you sign our NDA?", "Yes. We are happy to sign your NDA before scoping, or provide ours. Contributor confidentiality agreements apply to every project."],
+    ["Which languages do you cover?", "Share your target locales and we confirm coverage and timelines before work starts."],
+    ["How do you keep our data secure?", "Limited access, signed NDAs, and storage and deletion rules agreed up front."],
+    ["How do you control quality?", "Qualified contributors, layered review, and quality reports during the project."],
+    ["Can we start with a pilot?", "Yes. A small pilot batch proves quality before you commit to full volume."],
+    ["How is pricing structured?", "Per unit, per hour, or a fixed fee. Every quote is itemized."],
   ];
 
   const ABOUT = {
