@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* RESONARA — tools/check-i18n.js (Node 18+, no dependencies)
+/* GOLDATA — tools/check-i18n.js (Node 18+, no dependencies)
    Compares every dictionary in js/i18n/ with en.js: missing keys, extra keys, {placeholder} mismatches.
    Usage (from front/): node tools/check-i18n.js        Exit code 1 if anything is wrong. */
 "use strict";

@@ -1,5 +1,5 @@
 /* =====================================================================
-   RESONARA — APP: hash router, pages, chrome (nav + mega menu, footer),
+   GOLDATA — APP: hash router, pages, chrome (nav + mega menu, footer),
    motion (GSAP master timeline + ScrollTrigger + Lenis), intro, forms.
    Brand values: js/config.js (CFG). Strings: js/i18n/*.js via GD.t().
    Extra pages: js/pages.js. Interactive features: js/features.js.
@@ -67,8 +67,6 @@
   Object.assign(GD, { btn, waBtn, faqItems, finalCta, statsBlock, cases, enNotice });
 
   const S = K.SERVICES;
-  const PRI = ["speech-voice", "data-collection", "data-annotation", "transcription", "ai-model-evaluation"];
-  const SH = PRI.map((sl) => S.find((x) => x.slug === sl)).filter(Boolean);
   const svcHref = (s) => `#/services/${s.slug}`;
   const label = (s) => sv(s, "label");
   const T2 = (pfx, arr) => arr.map(([a, b, ...rest], i) => [GD.hasT(`${pfx}.${i}.t`) ? t(`${pfx}.${i}.t`) : a, GD.hasT(`${pfx}.${i}.d`) ? t(`${pfx}.${i}.d`) : b, ...rest]);
@@ -134,16 +132,36 @@
       </section>
 
       <section class="section tone-light" ${world("light", "light", "0,0,11", "0,0,0")}>
-        <div class="container">
-          <div class="section-head"><p class="eyebrow" data-reveal>Behind the work</p><h2 class="display-2" data-split>${lines(["Real tools. Real speakers.", "Managed end to end."])}</h2></div>
-          <div class="cards">
-            <article class="card" data-reveal><span class="card__icon">${ILLO.icon("collection", 22)}</span><span class="card__n">01</span><h3 class="h3">Our own recording studio</h3><p>A web platform where talent record scripted sentences, with leader and QA review on every file.</p></article>
-            <article class="card" data-reveal><span class="card__icon">${ILLO.icon("quality", 22)}</span><span class="card__n">02</span><h3 class="h3">Voice screening</h3><p>Speakers are vetted with in-browser voice prompts in 25+ languages and dialects before they record.</p></article>
-            <article class="card" data-reveal><span class="card__icon">${ILLO.icon("localization", 22)}</span><span class="card__n">03</span><h3 class="h3">Native-speaker communities</h3><p>Organized talent groups per language, run by coordinators who manage scheduling and delivery.</p></article>
-            <article class="card" data-reveal><span class="card__icon">${ILLO.icon("security", 22)}</span><span class="card__n">04</span><h3 class="h3">Live B2B voice projects</h3><p>Talent auditions, direction and delivery for multilingual client recordings.</p></article>
+        <div class="container grid">
+          <div class="intro__head">
+            <p class="eyebrow" data-reveal>${esc(t("intro.eyebrow"))}</p>
+            <h2 class="display-2" data-split>${lines([t("intro.title")])}</h2>
           </div>
+          <div class="intro__body" data-reveal>
+            <p class="lead">${esc(t("intro.body"))}</p>
+          </div>
+          <div class="intro__cap">
+            <p class="eyebrow" data-reveal>${esc(t("home.cap.eyebrow"))}</p>
+            <h3 class="display-3" data-split>${lines([t("home.cap.t1"), t("home.cap.t2")])}</h3>
+            <p class="body-soft" data-reveal>${esc(t("home.cap.lead"))}</p>
+            <div data-reveal>${btn(t("cta.explore"), "#/services", "ghost")}</div>
+          </div>
+          <div class="chips" data-reveal>${S.map((s) => `<a class="chip" href="${svcHref(s)}" data-vt="svc-label"><span class="chip__ico">${ILLO.icon(s.icon, 16)}</span><b>${s.n}</b><span class="chip__l">${esc(label(s))}</span></a>`).join("")}</div>
         </div>
       </section>
+
+      <section class="section tone-light" ${world("light", "light", "0,0.3,5", "0,0,-5")}>
+        <div class="container">
+          <div class="section-head section-head--split">
+            <div><p class="eyebrow" data-reveal>${esc(t("home.diff.eyebrow"))}</p><h2 class="display-2" data-split>${lines([t("home.diff.t1"), t("home.diff.t2")])}</h2></div>
+            <p class="lead" data-reveal>${esc(t("home.diff.lead"))}</p>
+          </div>
+          <div class="cards">${vals.map(([ti, d], i) => `<article class="card" data-reveal><span class="card__icon">${ILLO.icon(icons[i], 22)}</span><span class="card__n">0${i + 1}</span><h3 class="h3">${esc(ti)}</h3><p>${esc(d)}</p></article>`).join("")}</div>
+          ${statsBlock(st)}
+        </div>
+      </section>
+
+      ${trioSection()}
 
       <section class="flow" ${world("flow", "navy", "0,0.6,13", "0,0,0", 'data-flow="0"')} data-flow-section aria-labelledby="flow-title">
         <div class="flow__sticky">
@@ -159,13 +177,22 @@
         <div class="world-mark" style="inset-block-start:70%" ${world("flow", "navy", "3.4,0,6.6", "3.4,0,0", 'data-flow="2"')}></div>
       </section>
 
-      ${SH.map((s, i) => {
+      ${demosSection()}
+
+      <section class="chapters-intro">
+        <div class="container section-head section-head--split">
+          <div><p class="eyebrow" data-reveal>${esc(t("home.svc.eyebrow"))}</p><h2 class="display-2" data-split>${lines([t("home.svc.t1", { n: GD.fmt(S.length) }), t("home.svc.t2")])}</h2></div>
+          <p class="lead" data-reveal>${esc(t("home.svc.lead"))}</p>
+        </div>
+      </section>
+
+      ${S.map((s, i) => {
         const x = i % 2 ? 2.7 : -2.7;
         return `
-      <section class="chapter ${i % 2 ? "chapter--flip" : ""}" ${world(s.scene, i % 2 ? "navy" : "ink", `${x},0,9`, `${x},0,0`)} data-chapter="0${i + 1}" data-label="${esc(label(s))}" aria-labelledby="ch-${s.slug}">
+      <section class="chapter ${i % 2 ? "chapter--flip" : ""}" ${world(s.scene, i % 2 ? "navy" : "ink", `${x},0,9`, `${x},0,0`)} data-chapter="${s.n}" data-label="${esc(label(s))}" aria-labelledby="ch-${s.slug}">
         <div class="container grid chapter__grid">
           <div class="chapter__text">
-            <p class="chapter__label" data-reveal><span class="chapter__ico">${ILLO.icon(s.icon, 18)}</span><span>0${i + 1}</span>${esc(label(s))}</p>
+            <p class="chapter__label" data-reveal><span class="chapter__ico">${ILLO.icon(s.icon, 18)}</span><span>${s.n}</span>${esc(label(s))}</p>
             <h2 id="ch-${s.slug}" class="display-2" data-split>${lines([sv(s, "headline")])}</h2>
             <p data-reveal>${esc(sv(s, "line"))}</p>
             <ul class="bullets" data-reveal${GD.enAttr()}>${s.subs.map((x2) => `<li>${esc(x2)}</li>`).join("")}</ul>
@@ -177,6 +204,16 @@
       }).join("")}
       <div class="chapter__count" data-chapter-count aria-hidden="true"></div>
 
+      <section class="section" ${world("network", "ink", "-2.8,0,9.5", "-2.8,0,0")}>
+        <div class="container grid why__grid">
+          <div class="why__text">
+            <p class="eyebrow" data-reveal>${esc(t("home.why.eyebrow", { brand: CFG.brand }))}</p>
+            <h2 class="display-2" data-split>${lines([t("home.why.t1"), t("home.why.t2")])}</h2>
+            <div class="why__list">${T2("why", K.WHY).map(([ti, d]) => `<div data-reveal><h3>${esc(ti)}</h3><p>${esc(d)}</p></div>`).join("")}</div>
+          </div>
+        </div>
+      </section>
+
       <section class="network" ${world("network", "deep", "0,0,9.6", "0,0,0")} aria-labelledby="net-title">
         <div class="bigword" aria-hidden="true" data-parallax="-0.12"><span>NATIVE</span></div>
         <div class="container network__caption">
@@ -185,6 +222,41 @@
         </div>
       </section>
 
+      ${tm ? `
+      <section class="section" ${world("ambient", "ink", "0,0,9")} aria-labelledby="tm-title">
+        <div class="container">
+          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("home.tm.eyebrow"))}</p><h2 id="tm-title" class="display-2" data-split>${lines([t("home.tm.t1"), t("home.tm.t2")])}</h2>${tm.demo ? `<p class="notice" data-reveal>${esc(t("home.tm.lead"))}</p>` : ""}</div>
+          <div class="quotes has-demo" data-slider aria-live="polite" data-reveal>${ribbon(tm.demo)}
+            ${tm.items.map((q, i) => `<figure class="quote" ${i ? "hidden" : ""} aria-roledescription="slide" aria-label="${esc(t("home.tm.of", { i: i + 1, n: tm.items.length }))}">${q.stars ? `<div class="quote__stars" role="img" aria-label="${esc(t("home.tm.stars", { n: q.stars }))}">${"★".repeat(q.stars)}</div>` : ""}<blockquote lang="en" dir="ltr">“${esc(q.quote)}”</blockquote><figcaption><b>${esc(q.name)}</b>${esc(q.role)}</figcaption></figure>`).join("")}
+          </div>
+          <div class="quotes__ctrl">
+            <button class="round-btn" data-prev aria-label="${esc(t("home.tm.prev"))}">${ICON.back}</button>
+            <button class="round-btn" data-next aria-label="${esc(t("home.tm.next"))}">${ICON.next}</button>
+            <div class="dots">${tm.items.map((_, i) => `<button aria-label="${esc(t("home.tm.show", { n: i + 1 }))}" aria-current="${i === 0}"></button>`).join("")}</div>
+          </div>
+          ${CFG.rating ? `<p class="body-soft" style="margin-block-start:2rem">${esc(t("home.rated", { v: CFG.rating.value, src: "" }))}${live(CFG.rating.url) ? `<a class="link-arrow" href="${esc(CFG.rating.url)}" target="_blank" rel="noopener">${esc(CFG.rating.source)}</a>` : esc(CFG.rating.source)}</p>` : ""}
+        </div>
+      </section>` : ""}
+
+      ${ce ? `
+      <section class="section section--tight" ${world("ambient", "deep", "0,0,8")} aria-labelledby="ce-title">
+        <div class="container">
+          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("home.ce.eyebrow"))}</p><h2 id="ce-title" class="h3" data-reveal>${esc(t("home.ce.title"))} ${ribbon(ce.demo, t("demo.placeholders"))}</h2>${ce.demo ? `<p class="notice" data-reveal>${esc(t("home.ce.lead"))}</p>` : ""}</div>
+          <div class="certs" data-reveal>${ce.items.map((c) => `<div class="cert"><b>${esc(c.name)}</b><span>${esc(c.note || "")}</span></div>`).join("")}</div>
+        </div>
+      </section>` : ""}
+
+      <section class="section" ${world("ambient", "ink", "0,0,9")} aria-labelledby="faq-title">
+        <div class="container grid faq__grid">
+          <div class="faq__head">
+            <p class="eyebrow" data-reveal>${esc(t("home.faq.eyebrow"))}</p>
+            <h2 id="faq-title" class="display-2" data-split>${lines([t("home.faq.t1"), t("home.faq.t2")])}</h2>
+            <p class="body-soft" data-reveal>${esc(t("home.faq.body"))}</p>
+            <div data-reveal>${btn(t("cta.talk"), "#/contact", "ghost")}</div>
+          </div>
+          <div class="faq__list">${enNotice()}${faqItems(K.FAQ, "home-faq")}</div>
+        </div>
+      </section>
       ${finalCta()}`,
     };
   }
@@ -269,7 +341,36 @@
       </section>
       <section class="section" ${world("ambient", "ink", "0,0,9")}>
         <div class="container">
-          <div class="rows">${SH.map((s, i) => `<a class="row row--svc" href="${svcHref(s)}" data-reveal data-vt="svc-label"><span class="row__n">0${i + 1}</span><span class="row__t"><span class="row__ico">${ILLO.icon(s.icon, 22)}</span>${esc(label(s))}</span><span class="row__d">${esc(sv(s, "line"))}</span><span class="row__a" aria-hidden="true">${ICON.arrow}</span></a>`).join("")}</div>
+          <div class="rows">${S.map((s) => `<a class="row row--svc" href="${svcHref(s)}" data-reveal data-vt="svc-label"><span class="row__n">${s.n}</span><span class="row__t"><span class="row__ico">${ILLO.icon(s.icon, 22)}</span>${esc(label(s))}</span><span class="row__d">${esc(sv(s, "line"))}</span><span class="row__a" aria-hidden="true">${ICON.arrow}</span></a>`).join("")}</div>
+        </div>
+      </section>
+      <section class="section" ${world("ambient", "deep", "0,0,8")} aria-labelledby="hl-title">
+        <div class="container">
+          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("svcs.hl.eyebrow"))}</p><h2 id="hl-title" class="display-2" data-split>${lines([t("svcs.hl.t1"), t("svcs.hl.t2")])}</h2></div>
+          <div class="hl-grid">${hl.map(([ti, d, sl, ic]) => `<article class="hl" data-reveal><div class="hl__media" data-clip>${slot(sl, "slot--frame")}</div><span class="card__icon">${ILLO.icon(ic, 22)}</span><h3 class="h3">${esc(ti)}</h3><p>${esc(d)}</p></article>`).join("")}</div>
+        </div>
+      </section>
+      <section class="section" ${world("grid", "navy", "2.7,0,9", "2.7,0,0")} aria-labelledby="ad-title">
+        <div class="container">
+          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("svcs.ad.eyebrow"))}</p><h2 id="ad-title" class="display-2" data-split>${lines([t("svcs.ad.t1"), t("svcs.ad.t2")])}</h2></div>
+          <div class="cards">${ad.map(([ti, d, ic], i) => `<article class="card" data-reveal><span class="card__icon">${ILLO.icon(ic, 22)}</span><span class="card__n">0${i + 1}</span><h3 class="h3">${esc(ti)}</h3><p>${esc(d)}</p></article>`).join("")}</div>
+        </div>
+      </section>
+      <section class="section" ${world("grid", "navy", "2.7,0,9", "2.7,0,0")}>
+        <div class="container grid" style="align-items:center">
+          <div style="grid-column:1 / span 6" class="media-4x3" data-clip>${slot("industries", "slot--frame")}</div>
+          <div style="grid-column:8 / span 5;display:grid;gap:1.5rem">
+            <p class="eyebrow" data-reveal>${esc(t("svcs.ind.eyebrow"))}</p>
+            <h2 class="display-2" data-split>${lines([t("svcs.ind.t1"), t("svcs.ind.t2")])}</h2>
+            <ul class="bullets" data-reveal${GD.enAttr()}>${ind.subs.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+            <div data-reveal>${btn(label(ind), svcHref(ind), "ghost")}</div>
+          </div>
+        </div>
+      </section>
+      <section class="section" ${world("ambient", "deep", "0,0,8")}>
+        <div class="container">
+          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("svcs.proc.eyebrow"))}</p><h2 class="display-2" data-split>${lines([t("svcs.proc.t1"), t("svcs.proc.t2")])}</h2></div>
+          <div class="steps4">${T2("process", K.PROCESS).map(([ti, d]) => `<div data-reveal><h3 class="h3">${esc(ti)}</h3><p>${esc(d)}</p></div>`).join("")}</div>
         </div>
       </section>
       ${finalCta()}`,
@@ -304,10 +405,26 @@
           <div class="prose" data-reveal${GD.enAttr()}><p>${esc(s.what)}</p><ul class="ticks">${s.subs.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
         </div>
       </section>
+      ${briefSection(s)}
+      ${s.demo ? `
+      <section class="section section--tight">
+        <div class="container grid split">
+          <div><p class="eyebrow" data-reveal>${esc(t("demo.illustration"))}</p><h2 class="display-3" data-split style="margin-block-start:1.25rem">${lines([t("sd.demo.t")])}</h2></div>
+          <div data-reveal data-cursor="explore">${ILLO.demo(s.demo)}</div>
+        </div>
+      </section>` : ""}
       <section class="section section--tight">
         <div class="container">
           <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("sd.subs"))}</p><h2 class="display-2" data-split>${lines([t("sd.subs.t")])}</h2></div>
           <div class="detail-grid"${GD.enAttr()}>${s.details.map(([ti, d], k) => `<article class="card" data-reveal><span class="card__n">${s.n}.${k + 1}</span><h3 class="h3">${esc(ti)}</h3><p>${esc(d)}</p></article>`).join("")}</div>
+        </div>
+      </section>
+      ${s.catalog && GD.catalogSection ? GD.catalogSection(s) : ""}
+      ${GD.plannerSection ? GD.plannerSection(s) : ""}
+      <section class="section" ${world("ambient", "deep", "0,0,8")}>
+        <div class="container">
+          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("svcs.proc.eyebrow"))}</p><h2 class="display-2" data-split>${lines([t("sd.proc.t1"), t("sd.proc.t2")])}</h2></div>
+          <div class="steps4">${T2("process", K.PROCESS).map(([ti, d]) => `<div data-reveal><h3 class="h3">${esc(ti)}</h3><p>${esc(d)}</p></div>`).join("")}</div>
         </div>
       </section>
       <section class="section section--tight">
@@ -315,6 +432,15 @@
           <div><p class="eyebrow" data-reveal>${esc(t("sd.deliv"))}</p><h2 class="display-2" data-split style="margin-block-start:1.25rem">${lines([t("sd.deliv.t1"), t("sd.deliv.t2")])}</h2></div>
           <ul class="ticks prose" data-reveal${GD.enAttr()}>${s.deliverables.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
         </div>
+      </section>
+      <section class="section" ${world("ambient", "ink", "0,0,9")}>
+        <div class="container grid faq__grid">
+          <div class="faq__head"><p class="eyebrow" data-reveal>${esc(t("home.faq.eyebrow"))}</p><h2 class="display-2" data-split>${lines([`${label(s)},`, t("sd.faq.t2")])}</h2></div>
+          <div class="faq__list">${faqItems(s.faq, `faq-${s.slug}`)}</div>
+        </div>
+      </section>
+      <section class="section section--tight no-print">
+        <div class="container"><a class="row" href="${svcHref(nx)}" data-reveal data-vt="svc-label"><span class="row__n">${nx.n}</span><span class="row__t">${esc(t("sd.next", { x: label(nx) }))}</span><span class="row__d">${esc(sv(nx, "line"))}</span><span class="row__a" aria-hidden="true">${ICON.arrow}</span></a></div>
       </section>
       ${finalCta([t("sd.final1"), `${label(s)} ${t("sd.final2")}`])}`,
     };
@@ -766,11 +892,9 @@
   GD.magnetic = magnetic;
 
   /* ---------- chrome: nav, mega menu, mobile accordion, footer ---------- */
-  const groups = () => [[t("nav.services"), SH]];
-  const _groupsOld = () => K.SERVICE_GROUPS.map(([g, slugs], gi) => [GD.hasT(`group.${gi}`) ? t(`group.${gi}`) : g, slugs.map((sl) => S.find((x) => x.slug === sl)).filter(Boolean)]);
-  const companyLinks = () => [["#/about", "nav.about", "about"], ["#/trust", "nav.trust", "trust"], ["#/join", "nav.join", "join"], ["#/contact", "nav.contact", "contact"]];
+  const groups = () => K.SERVICE_GROUPS.map(([g, slugs], gi) => [GD.hasT(`group.${gi}`) ? t(`group.${gi}`) : g, slugs.map((sl) => S.find((x) => x.slug === sl)).filter(Boolean)]);
+  const companyLinks = () => [["#/about", "nav.about", "about"], ["#/trust", "nav.trust", "trust"], ["#/rfp", "nav.enterprise", "rfp"], ["#/join", "nav.join", "join"], ["#/contact", "nav.contact", "contact"]];
   function langSwitcher(id) {
-    if (GD.AVAIL.length < 2) return "";
     return `<div class="lang"><label class="sr-only" for="${id}">${esc(t("nav.lang"))}</label><span class="lang__ico" aria-hidden="true">${ICON.lang}</span><select id="${id}" data-lang-select>${GD.AVAIL.map((l) => `<option value="${l}" ${l === GD.lang() ? "selected" : ""} lang="${l}">${esc((GD.LANG_META[l] || { name: l }).name)}</option>`).join("")}</select></div>`;
   }
   function renderNav() {
@@ -789,8 +913,12 @@
             </div>
           </div>
           <a href="#/languages" data-nav="languages"><span class="scr" data-scramble>${esc(t("nav.languages"))}</span></a>
-          <a href="#/about" data-nav="about"><span class="scr" data-scramble>${esc(t("nav.about"))}</span></a>
-          <a href="#/contact" data-nav="contact"><span class="scr" data-scramble>${esc(t("nav.contact"))}</span></a>
+          ${c ? `<a href="#/case-studies" data-nav="case-studies"><span class="scr" data-scramble>${esc(t("nav.cases"))}</span></a>` : ""}
+          <a href="#/resources" data-nav="resources"><span class="scr" data-scramble>${esc(t("nav.resources"))}</span></a>
+          <div class="dd" data-dd>
+            <button class="dd__btn" aria-expanded="false" aria-controls="dd-company" data-nav-group="about trust rfp join contact"><span class="scr" data-scramble>${esc(t("nav.company"))}</span>${ICON.chevron}</button>
+            <div class="dd__panel" id="dd-company" hidden>${companyLinks().map(([h, k, n]) => `<a href="${h}" data-nav="${n}">${esc(t(k))}</a>`).join("")}</div>
+          </div>
         </nav>
         <div class="nav__tools">
           <button class="icon-btn" data-open-palette aria-label="${esc(t("nav.search"))}" aria-keyshortcuts="Control+K Meta+K">${ICON.search}<kbd>⌘K</kbd></button>
@@ -804,11 +932,15 @@
         <a href="#/home" data-nav="home">${esc(t("nav.home"))}</a>
         <div class="acc">
           <button class="acc__btn" aria-expanded="false" aria-controls="acc-svc">${esc(t("nav.services"))}${ICON.chevron}</button>
-          <div class="acc__panel" id="acc-svc" hidden>${SH.map((s) => `<a href="${svcHref(s)}">${ILLO.icon(s.icon, 18)}${esc(label(s))}</a>`).join("")}<a href="#/services">${esc(t("nav.allServices"))}</a></div>
+          <div class="acc__panel" id="acc-svc" hidden>${S.map((s) => `<a href="${svcHref(s)}">${ILLO.icon(s.icon, 18)}${esc(label(s))}</a>`).join("")}<a href="#/services">${esc(t("nav.allServices"))}</a></div>
         </div>
         <a href="#/languages" data-nav="languages">${esc(t("nav.languages"))}</a>
-        <a href="#/about" data-nav="about">${esc(t("nav.about"))}</a>
-        <a href="#/contact" data-nav="contact">${esc(t("nav.contact"))}</a>
+        ${c ? `<a href="#/case-studies" data-nav="case-studies">${esc(t("nav.cases"))}</a>` : ""}
+        <a href="#/resources" data-nav="resources">${esc(t("nav.resources"))}</a>
+        <div class="acc">
+          <button class="acc__btn" aria-expanded="false" aria-controls="acc-co">${esc(t("nav.company"))}${ICON.chevron}</button>
+          <div class="acc__panel" id="acc-co" hidden>${companyLinks().map(([h, k]) => `<a href="${h}">${esc(t(k))}</a>`).join("")}</div>
+        </div>
       </nav>
       <div class="menu__foot">${btn(t("nav.quote"), "#/quote")}<button class="icon-btn" data-open-palette aria-label="${esc(t("nav.search"))}">${ICON.search}</button>${langSwitcher("lang-menu")}</div>`;
     wireNav();

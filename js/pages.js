@@ -1,5 +1,5 @@
 /* =====================================================================
-   RESONARA — EXTRA PAGES (registered into GD.routes)
+   GOLDATA — EXTRA PAGES (registered into GD.routes)
    #/quote · #/languages · #/join · #/trust · #/rfp · #/resources
    #/resources/<slug> · #/privacy · #/terms
    + shared sections used by core pages: presence, catalog, planner,
