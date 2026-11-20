@@ -61,7 +61,11 @@ R.push(["terms", `${t("lg.terms")} — ${CFG.brand}`, t("lg.terms"), `<h1>${esc(
 
 /* ---------- write stubs ---------- */
 const indexPath = path.join(ROOT, "index.html");
-const tpl = fs.readFileSync(indexPath, "utf8");
+/* Idempotent: strip any hreflang / og:url / og:image / twitter:image lines injected by an earlier run, so re-running never duplicates them. */
+const tpl = fs.readFileSync(indexPath, "utf8")
+  .replace(/^[ \t]*<link rel="alternate" hreflang="[^"]*" href="[^"]*" data-static-hreflang \/>\r?\n/gm, "")
+  .replace(/^[ \t]*<meta property="og:url"[^\n]*\n/gm, "")
+  .replace(/^(?![^\n]*USER\.github\.io)[ \t]*<meta (?:property="og:image(?::[a-z]+)?"|name="twitter:image") [^\n]*\n/gm, "");
 const setMeta = (html, { title, desc, canon, depth, route, ld, body }) => {
   const up = "../".repeat(depth);
   let h = html
@@ -69,7 +73,7 @@ const setMeta = (html, { title, desc, canon, depth, route, ld, body }) => {
     .replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(desc)}$2`)
     .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(title)}$2`)
     .replace(/(<meta property="og:description" content=")[^"]*(")/, `$1${esc(desc)}$2`)
-    .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" id="canonical" href="${canon}" />\n  ${LANGS.concat(["x-default"]).map((l) => `<link rel="alternate" hreflang="${l}" href="${canon}${l === "en" || l === "x-default" ? "" : `?lang=${l}`}" data-static-hreflang />`).join("\n  ")}\n  <meta property="og:url" content="${canon}" />\n  <meta property="og:image" content="${SITE}images/og.png" />\n  <meta name="twitter:image" content="${SITE}images/og.png" />`)
+    .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" id="canonical" href="${canon}" />\n  ${LANGS.concat(["x-default"]).map((l) => `<link rel="alternate" hreflang="${l}" href="${canon}${l === "en" || l === "x-default" ? "" : `?lang=${l}`}" data-static-hreflang />`).join("\n  ")}\n  <meta property="og:url" content="${canon}" />\n  <meta property="og:image" content="${SITE}images/og.jpg" />\n  <meta property="og:image:type" content="image/jpeg" />\n  <meta property="og:image:width" content="1200" />\n  <meta property="og:image:height" content="630" />\n  <meta name="twitter:image" content="${SITE}images/og.jpg" />`)
     .replace(/(<script type="application\/ld\+json" id="ld-org">)[\s\S]*?(<\/script>)/, `$1${JSON.stringify(org)}$2`)
     .replace(/(<script type="application\/ld\+json" id="ld-page">)[\s\S]*?(<\/script>)/, `$1${ld ? JSON.stringify(ld) : "{}"}$2`)
     .replace(/<!--prerender:start-->[\s\S]*?<!--prerender:end-->/, `<!--prerender:start--><div class="container prerendered">${body}</div><!--prerender:end-->`);
