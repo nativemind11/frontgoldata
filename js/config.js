@@ -36,7 +36,7 @@ window.CFG = {
      apiBase: "https://goldata-back.vercel.app/api"
      → forms post to /contact, /quote, /pilot, /contributor, /subscriber.
      Empty = mailto fallback (newsletter + contributor forms then open email). */
-  apiBase: "",
+  apiBase: "https://backgoldata.vercel.app/api",
 
   /* DEMO MODE — true shows clearly ribboned SAMPLE content. false hides every empty block. */
   demo: false,
