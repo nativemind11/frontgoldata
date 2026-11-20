@@ -1,5 +1,5 @@
 /* =====================================================================
-   GOLDATA — APP: hash router, pages, chrome (nav + mega menu, footer),
+   Questverse — APP: hash router, pages, chrome (nav + mega menu, footer),
    motion (GSAP master timeline + ScrollTrigger + Lenis), intro, forms.
    Brand values: js/config.js (CFG). Strings: js/i18n/*.js via GD.t().
    Extra pages: js/pages.js. Interactive features: js/features.js.
@@ -161,8 +161,6 @@
         </div>
       </section>
 
-      ${trioSection()}
-
       <section class="flow" ${world("flow", "navy", "0,0.6,13", "0,0,0", 'data-flow="0"')} data-flow-section aria-labelledby="flow-title">
         <div class="flow__sticky">
           <div class="flow__bg">${slot("flow", "slot--fill")}</div>
@@ -177,33 +175,6 @@
         <div class="world-mark" style="inset-block-start:70%" ${world("flow", "navy", "3.4,0,6.6", "3.4,0,0", 'data-flow="2"')}></div>
       </section>
 
-      ${demosSection()}
-
-      <section class="chapters-intro">
-        <div class="container section-head section-head--split">
-          <div><p class="eyebrow" data-reveal>${esc(t("home.svc.eyebrow"))}</p><h2 class="display-2" data-split>${lines([t("home.svc.t1", { n: GD.fmt(S.length) }), t("home.svc.t2")])}</h2></div>
-          <p class="lead" data-reveal>${esc(t("home.svc.lead"))}</p>
-        </div>
-      </section>
-
-      ${S.map((s, i) => {
-        const x = i % 2 ? 2.7 : -2.7;
-        return `
-      <section class="chapter ${i % 2 ? "chapter--flip" : ""}" ${world(s.scene, i % 2 ? "navy" : "ink", `${x},0,9`, `${x},0,0`)} data-chapter="${s.n}" data-label="${esc(label(s))}" aria-labelledby="ch-${s.slug}">
-        <div class="container grid chapter__grid">
-          <div class="chapter__text">
-            <p class="chapter__label" data-reveal><span class="chapter__ico">${ILLO.icon(s.icon, 18)}</span><span>${s.n}</span>${esc(label(s))}</p>
-            <h2 id="ch-${s.slug}" class="display-2" data-split>${lines([sv(s, "headline")])}</h2>
-            <p data-reveal>${esc(sv(s, "line"))}</p>
-            <ul class="bullets" data-reveal${GD.enAttr()}>${s.subs.map((x2) => `<li>${esc(x2)}</li>`).join("")}</ul>
-            <div data-reveal>${btn(t("cta.exploreX", { x: label(s) }), svcHref(s), "ghost", 'data-vt="svc-label"')}</div>
-          </div>
-          <div class="chapter__media" data-parallax-wrap>${slot(s.slot)}</div>
-        </div>
-      </section>`;
-      }).join("")}
-      <div class="chapter__count" data-chapter-count aria-hidden="true"></div>
-
       <section class="section" ${world("network", "ink", "-2.8,0,9.5", "-2.8,0,0")}>
         <div class="container grid why__grid">
           <div class="why__text">
@@ -213,38 +184,6 @@
           </div>
         </div>
       </section>
-
-      <section class="network" ${world("network", "deep", "0,0,9.6", "0,0,0")} aria-labelledby="net-title">
-        <div class="bigword" aria-hidden="true" data-parallax="-0.12"><span>NATIVE</span></div>
-        <div class="container network__caption">
-          <div><p class="eyebrow" data-reveal>${esc(t("home.net.eyebrow"))}</p><h2 id="net-title" class="display-2" data-split>${lines([t("home.net.t1"), t("home.net.t2"), t("home.net.t3")])}</h2></div>
-          <div data-reveal><p class="body-soft" style="margin-block-end:1.5rem">${esc(t("home.net.body"))}</p><div class="cta-row">${btn(t("cta.languages"), "#/languages")}${btn(t("nav.join"), "#/join", "ghost")}</div></div>
-        </div>
-      </section>
-
-      ${tm ? `
-      <section class="section" ${world("ambient", "ink", "0,0,9")} aria-labelledby="tm-title">
-        <div class="container">
-          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("home.tm.eyebrow"))}</p><h2 id="tm-title" class="display-2" data-split>${lines([t("home.tm.t1"), t("home.tm.t2")])}</h2>${tm.demo ? `<p class="notice" data-reveal>${esc(t("home.tm.lead"))}</p>` : ""}</div>
-          <div class="quotes has-demo" data-slider aria-live="polite" data-reveal>${ribbon(tm.demo)}
-            ${tm.items.map((q, i) => `<figure class="quote" ${i ? "hidden" : ""} aria-roledescription="slide" aria-label="${esc(t("home.tm.of", { i: i + 1, n: tm.items.length }))}">${q.stars ? `<div class="quote__stars" role="img" aria-label="${esc(t("home.tm.stars", { n: q.stars }))}">${"★".repeat(q.stars)}</div>` : ""}<blockquote lang="en" dir="ltr">“${esc(q.quote)}”</blockquote><figcaption><b>${esc(q.name)}</b>${esc(q.role)}</figcaption></figure>`).join("")}
-          </div>
-          <div class="quotes__ctrl">
-            <button class="round-btn" data-prev aria-label="${esc(t("home.tm.prev"))}">${ICON.back}</button>
-            <button class="round-btn" data-next aria-label="${esc(t("home.tm.next"))}">${ICON.next}</button>
-            <div class="dots">${tm.items.map((_, i) => `<button aria-label="${esc(t("home.tm.show", { n: i + 1 }))}" aria-current="${i === 0}"></button>`).join("")}</div>
-          </div>
-          ${CFG.rating ? `<p class="body-soft" style="margin-block-start:2rem">${esc(t("home.rated", { v: CFG.rating.value, src: "" }))}${live(CFG.rating.url) ? `<a class="link-arrow" href="${esc(CFG.rating.url)}" target="_blank" rel="noopener">${esc(CFG.rating.source)}</a>` : esc(CFG.rating.source)}</p>` : ""}
-        </div>
-      </section>` : ""}
-
-      ${ce ? `
-      <section class="section section--tight" ${world("ambient", "deep", "0,0,8")} aria-labelledby="ce-title">
-        <div class="container">
-          <div class="section-head"><p class="eyebrow" data-reveal>${esc(t("home.ce.eyebrow"))}</p><h2 id="ce-title" class="h3" data-reveal>${esc(t("home.ce.title"))} ${ribbon(ce.demo, t("demo.placeholders"))}</h2>${ce.demo ? `<p class="notice" data-reveal>${esc(t("home.ce.lead"))}</p>` : ""}</div>
-          <div class="certs" data-reveal>${ce.items.map((c) => `<div class="cert"><b>${esc(c.name)}</b><span>${esc(c.note || "")}</span></div>`).join("")}</div>
-        </div>
-      </section>` : ""}
 
       <section class="section" ${world("ambient", "ink", "0,0,9")} aria-labelledby="faq-title">
         <div class="container grid faq__grid">
@@ -1129,21 +1068,21 @@
 
   /* ---------- preloader: animated logo mark with real progress ---------- */
   function preloader() {
-    const el = $("#preloader"), ring = $("#preloader .lm-ring"), count = $("#preloader-count");
+    const el = $("#preloader"), ring = $("#preloader .lm-ring"), tail = $("#preloader .lm-tail"), mk = $("#preloader .preloader__mark"), count = $("#preloader-count");
     el.setAttribute("aria-label", t("a11y.loading", { brand: CFG.brand }));
     const st = { v: 0, target: 10 }; let done = false;
     const bump = (n) => (st.target = Math.max(st.target, n));
     const finish = () => {
       if (done) return; done = true;
       const end = () => { el.remove(); readyResolve(); scheduleRebuild(); };
-      if (hasGsap && !reduced) gsap.to(el, { clipPath: "inset(0 0 100% 0)", duration: 1.1, ease: "expo.inOut", onComplete: end, onStart: () => setTimeout(readyResolve, 350) });
+      if (hasGsap && !reduced) setTimeout(() => gsap.to(el, { clipPath: "inset(0 0 100% 0)", duration: 1.1, ease: "expo.inOut", onComplete: end, onStart: () => setTimeout(readyResolve, 350) }), 600);
       else end();
     };
     let lastT = performance.now();
     const tick = (now) => {
       const dt = Math.min(200, (now || performance.now()) - lastT); lastT = now || performance.now();
       st.v += (st.target - st.v) * Math.min(1, dt * 0.012); if (st.target - st.v < 1.5) st.v = st.target;
-      count.textContent = Math.round(st.v); if (ring) ring.style.strokeDashoffset = String(1 - st.v / 100);
+      count.textContent = Math.round(st.v); if (ring) ring.style.strokeDashoffset = String(1 - Math.min(1, st.v / 80)); if (tail) tail.style.strokeDashoffset = String(1 - Math.max(0, Math.min(1, (st.v - 80) / 15))); if (mk && st.v >= 96) mk.classList.add("is-lit");
       if (st.v >= 100) return finish();
       requestAnimationFrame(tick);
     };

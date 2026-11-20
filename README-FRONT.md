@@ -1,4 +1,4 @@
-# GOLDATA — front end (static site)
+# Questverse — front end (static site)
 
 A cinematic, scroll-driven 3D website. Plain HTML/CSS/JS — **no build step**.
 Works on any static host, including a GitHub Pages project URL such as

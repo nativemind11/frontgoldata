@@ -1,4 +1,4 @@
-# GOLDATA front — update notes
+# Questverse front — update notes
 
 - Home: hero body + "Start with a pilot" CTA; 3-card metric row (90,000+ Projects completed · 750+ Clients · 210+ Languages served across projects) after "The difference", static text, localized in 5 languages, with the "availability confirmed per project" note.
 - 750+ and 210+ are marked `pending: true` in `js/config.js` (`stats`). Set `showPendingStats: false` to hide them until the owner approves.

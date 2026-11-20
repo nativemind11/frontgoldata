@@ -1,6 +1,6 @@
 {
-  "name": "GOLDATA",
-  "short_name": "GOLDATA",
+  "name": "Questverse",
+  "short_name": "Questverse",
   "description": "Multilingual human data for AI.",
   "start_url": "./",
   "display": "standalone",

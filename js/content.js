@@ -1,5 +1,5 @@
 /* =====================================================================
-   GOLDATA — CONTENT (original copy). Brand values live in js/config.js.
+   Questverse — CONTENT (original copy). Brand values live in js/config.js.
    ===================================================================== */
 (function () {
   const SERVICES = [
@@ -639,7 +639,7 @@
   const LEGAL = {
     updated: "2026-11-13",
     privacy: [
-      ["Who we are", "This website is operated by GOLDATA. Contact us at the email address shown on the Contact page for any privacy question."],
+      ["Who we are", "This website is operated by Questverse. Contact us at the email address shown on the Contact page for any privacy question."],
       ["What we collect", "Only what you send us through forms (such as your name, email, mobile number, company and project details) and the minimum technical data needed to deliver the site. We do not use advertising or tracking cookies."],
       ["Why we use it", "To reply to your request, prepare a scope or quote, assess contributor applications, and, if you subscribed, send updates you asked for."],
       ["Where it is stored", "Form submissions are stored in a database operated by our hosting providers, listed in the Trust Center when configured. Access is limited to people who need it."],
@@ -649,13 +649,13 @@
       ["Changes", "We may update this notice. The date at the top shows the latest version."],
     ],
     terms: [
-      ["Use of this site", "This website describes GOLDATA's services. You may browse and share links to it. Do not misuse the site, attempt to break its security, or submit false information."],
+      ["Use of this site", "This website describes Questverse's services. You may browse and share links to it. Do not misuse the site, attempt to break its security, or submit false information."],
       ["No offer", "Content on this site, including estimates, examples and sample material, is informational. Services are provided only under a signed agreement."],
       ["Illustrations and samples", "Anything marked as an illustration, sample or demo is not a description of real clients, results or data."],
-      ["Intellectual property", "Text, graphics and code on this site belong to GOLDATA or their licensors unless stated otherwise."],
+      ["Intellectual property", "Text, graphics and code on this site belong to Questverse or their licensors unless stated otherwise."],
       ["Third-party links", "Links to other websites are provided for convenience. We are not responsible for their content."],
       ["Liability", "The site is provided as is. To the extent allowed by law, we are not liable for losses arising from its use."],
-      ["Governing law", "These terms are governed by the law stated in your service agreement, or otherwise by the law of the place where GOLDATA is established."],
+      ["Governing law", "These terms are governed by the law stated in your service agreement, or otherwise by the law of the place where Questverse is established."],
     ],
   };
 

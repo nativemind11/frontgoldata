@@ -1,5 +1,5 @@
 /* =====================================================================
-   GOLDATA — design system
+   Questverse — design system
    Direction: "night observatory". Ink-black depth, huge Syne display type,
    hairline structure, one signal blue for action, aurora teal for life.
    Logical properties throughout so RTL can be enabled with dir="rtl".
@@ -513,7 +513,7 @@ html.q-tier-2 .fx-vignette { display: none; }
 .wordmark .wm-text, .intro__wm .wm-text { display: inline-flex; overflow: hidden; direction: ltr; unicode-bidi: isolate; }
 .wordmark { direction: ltr; }
 .wm-l { display: inline-block; }
-.wordmark:hover .lm-sat { transform: translate(-1px, -1px) scale(1.15); transform-origin: 51px 24px; transition: transform var(--t-med) var(--ease-out); }
+.wordmark:hover .lm-sat { transform: translate(1px, -1px) scale(1.25); transform-origin: 47px 13.5px; transition: transform var(--t-med) var(--ease-out); }
 .footer__brand .wordmark { font-size: 2rem; }
 
 /* preloader + intro */
@@ -1053,3 +1053,21 @@ html, body { overflow-x: clip; }
   .hero__inner .lead__more { display: none; }
   .hero__inner .lead { font-size: 1.05rem; }
 }
+
+/* ---------- Questverse mark: voice bars + preloader ---------- */
+.logo-mark .lm-bar, .preloader__mark .lm-bar { transform-box: fill-box; transform-origin: 50% 50%; }
+.logo-mark .lm-tail, .preloader__mark .lm-tail { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.wordmark:hover .lm-b1 { transform: scaleY(1.5); } .wordmark:hover .lm-b2 { transform: scaleY(0.7); } .wordmark:hover .lm-b3 { transform: scaleY(1.4); }
+.wordmark .lm-bar { transition: transform var(--t-med) var(--ease-out); }
+.preloader__mark { inline-size: clamp(96px, 14vw, 144px); }
+.preloader__mark .lm-tail { stroke-dashoffset: 1; filter: drop-shadow(0 0 8px rgba(46, 230, 197, 0.4)); }
+.preloader__mark .lm-node, .preloader__mark .lm-sat { transform-box: fill-box; transform-origin: 50% 50%; transform: scale(0); transition: transform .6s cubic-bezier(.34,1.56,.64,1); }
+.preloader__mark.is-lit .lm-node, .preloader__mark.is-lit .lm-sat { transform: scale(1); }
+.preloader__mark .lm-sat { transition-delay: .15s; }
+.preloader__mark .lm-bar { animation: qv-eq 1.1s ease-in-out infinite; }
+.preloader__mark .lm-b2 { animation-delay: -.35s; } .preloader__mark .lm-b3 { animation-delay: -.7s; }
+@keyframes qv-eq { 0%, 100% { transform: scaleY(.35); } 50% { transform: scaleY(1.15); } }
+.preloader__name { font-family: var(--f-display); font-size: clamp(1rem, 2.6vw, 1.35rem); letter-spacing: .42em; padding-inline-start: .42em; color: var(--mist); display: grid; justify-items: center; gap: .5rem; opacity: 0; animation: qv-rise .9s .25s cubic-bezier(.16,1,.3,1) forwards; }
+.preloader__name i { font-style: normal; font-family: var(--f-body, inherit); font-size: .5em; letter-spacing: .6em; padding-inline-start: .6em; color: var(--teal); }
+@keyframes qv-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .preloader__mark .lm-bar { animation: none; } .preloader__name { animation: none; opacity: 1; } .preloader__mark .lm-node, .preloader__mark .lm-sat { transition: none; } }

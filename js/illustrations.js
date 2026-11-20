@@ -1,6 +1,6 @@
 /* =====================================================================
-   GOLDATA — ILLUSTRATION KIT (all drawn in code, no files)
-   • logo(): original GOLDATA mark — a "G" ring with a data node and a
+   Questverse — ILLUSTRATION KIT (all drawn in code, no files)
+   • logo(): original Questverse mark — a "Q" ring with voice bars, a node and a
      satellite in the gap. Legible at 16px, scales to any size.
    • icon(): 18 line icons (24px grid). spot(): 8 spot illustrations.
      Every stroke uses pathLength="1" so CSS can draw it in (.draw → .is-drawn).
@@ -12,8 +12,8 @@
   const PL = 'pathLength="1"';
 
   /* ---------- logo ---------- */
-  // Ring: 320° arc from the upper-right gap round to the right-middle, then the crossbar into the node.
-  const MARK = `<path class="lm-ring" ${PL} d="M47.3 19.1A20 20 0 1 0 52 32H38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><circle class="lm-node" cx="33" cy="32" r="5" fill="var(--blue, #3D7BFF)"/><circle class="lm-sat" cx="51.2" cy="23.6" r="3.6" fill="var(--teal, #2EE6C5)"/>`;
+  // Questverse mark: a "Q" ring (quest loop) holding three voice bars, a tail ending in a node, and a quest-star.
+  const MARK = `<path class="lm-ring" ${PL} d="M40 47.32A20 20 0 1 1 47.32 40" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path class="lm-bar lm-b1" d="M23.5 26.5v7" fill="none" stroke="var(--blue, #3D7BFF)" stroke-width="4" stroke-linecap="round"/><path class="lm-bar lm-b2" d="M30 21v18" fill="none" stroke="var(--teal, #2EE6C5)" stroke-width="4" stroke-linecap="round"/><path class="lm-bar lm-b3" d="M36.5 25v10" fill="none" stroke="var(--blue, #3D7BFF)" stroke-width="4" stroke-linecap="round"/><path class="lm-tail" ${PL} d="M43 43L51 51" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle class="lm-node" cx="55" cy="55" r="4.6" fill="var(--teal, #2EE6C5)"/><circle class="lm-sat" cx="47" cy="13.5" r="3" fill="var(--blue, #3D7BFF)"/>`;
   function logo(o = {}) {
     const s = o.size || 28;
     return `<svg class="logo-mark ${o.cls || ""}" width="${s}" height="${s}" viewBox="0 0 64 64" aria-hidden="true" focusable="false">${o.bg ? '<rect width="64" height="64" rx="14" fill="#070B18"/>' : ""}${MARK}</svg>`;

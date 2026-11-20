@@ -1,5 +1,5 @@
 /* =====================================================================
-   GOLDATA — FEATURES (behaviour for pages.js + chrome extras)
+   Questverse — FEATURES (behaviour for pages.js + chrome extras)
    Command palette · consent banner + analytics hook · sticky contextual CTA
    · scroll rail · nav text-scramble · quote wizard · language explorer
    · join / newsletter forms · pilot planner · filters & search · count-up
@@ -306,7 +306,7 @@
       if (!GD.RX.email.test(email)) { inp.setAttribute("aria-invalid", "true"); st.textContent = t("err.email"); inp.focus(); return; }
       inp.setAttribute("aria-invalid", "false");
       if (f.elements.website.value) { f.reset(); st.textContent = t("nl.ok"); return; }
-      if (!GD.apiUrl("subscriber")) { GD.mailto("Newsletter subscription request", [`Please add ${email} to the GOLDATA newsletter (double opt-in).`]); st.textContent = t("nl.mail"); return; }
+      if (!GD.apiUrl("subscriber")) { GD.mailto("Newsletter subscription request", [`Please add ${email} to the Questverse newsletter (double opt-in).`]); st.textContent = t("nl.mail"); return; }
       st.textContent = t("st.sending");
       try { await GD.post("subscriber", { email, website: "" }); f.reset(); st.textContent = t("nl.ok"); } catch (er) { st.textContent = t("st.err", { msg: er.message, email: CFG.email }); }
     });
@@ -388,7 +388,7 @@
     let name = "goldata.pdf";
     if (kind === "security") {
       head("Security overview"); name = "goldata-security-overview.pdf";
-      h1("Security overview"); p("How GOLDATA protects client data, contributors and models. This overview describes practices; it does not claim certifications unless listed below.");
+      h1("Security overview"); p("How Questverse protects client data, contributors and models. This overview describes practices; it does not claim certifications unless listed below.");
       K.TRUST.forEach(([ti, d]) => { h2(ti); p(d); });
       h2("Certifications & audits"); certs ? certs.forEach((c) => li(`${c.name}${c.note ? ` — ${c.note}` : ""}`)) : p("Documentation available on request.");
       h2("Subprocessors"); subs.length ? subs.forEach((x) => li(`${x.name} — ${x.purpose} (${x.location})`)) : p("A current list is available on request.");
@@ -406,7 +406,7 @@
       h2("Contact"); li(`Email: ${CFG.email}`); li(`Phone: ${CFG.phone}`); if (live(CFG.address)) li(`Address: ${CFG.address}`);
     } else if (kind === "checklist") {
       const c = K.CHECKLISTS.find((x) => x.slug === slug) || K.CHECKLISTS[0]; head("Checklist"); name = `goldata-${c.slug}.pdf`;
-      h1(c.title); p("Tick each item before you move on. Original GOLDATA resource — free to use and share."); y += 6; c.items.forEach((i) => li(i, true));
+      h1(c.title); p("Tick each item before you move on. Original Questverse resource — free to use and share."); y += 6; c.items.forEach((i) => li(i, true));
     }
     foot(); doc.save(name);
     if (lab) lab.textContent = orig; btnEl && btnEl.removeAttribute("aria-busy");

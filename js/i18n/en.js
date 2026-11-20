@@ -1,8 +1,8 @@
-/* GOLDATA — English dictionary. SOURCE OF TRUTH for every interface string.
+/* Questverse — English dictionary. SOURCE OF TRUTH for every interface string.
    Other languages fall back to these values key by key. Plural entries are objects
    keyed by Intl.PluralRules categories (zero, one, two, few, many, other). */
 (window.I18N = window.I18N || {}).en = {
-  "meta.title": "GOLDATA — Multilingual AI data services",
+  "meta.title": "Questverse Solutions — Multilingual AI data services",
   "skip": "Skip to content",
   "brand.home": "{brand} home",
   "a11y.loading": "Loading {brand}",
@@ -176,7 +176,7 @@
   "j.lead": "Work from home on real AI data projects in your native language. Clear guidelines, training and support.",
   "j.roles": "Roles", "j.form": "Apply", "j.role": "Role", "j.country": "Country of residence", "j.langs": "Native language(s)",
   "j.other": "Other languages", "j.exp": "Relevant experience", "j.avail": "Hours per week",
-  "j.consent": "I agree that GOLDATA may store this application to assess my fit for projects, as described in the Privacy notice.",
+  "j.consent": "I agree that Questverse may store this application to assess my fit for projects, as described in the Privacy notice.",
   "j.send": "Send application", "j.ok": "Thank you — your application was received.", "j.note": "We never charge contributors a fee to apply or to work.",
 
   "tr.eyebrow": "Trust Center", "tr.t1": "Trust is", "tr.t2": "a practice.",
@@ -306,7 +306,7 @@
   "q.tools": "Existing tools or formats",
   "q.tools.ph": "e.g. your labelling tool, export schema, storage",
   "err.usecase": "Please describe the model or use case.",
-  "q.consent": "I agree that GOLDATA may use these details to reply to this request.",
+  "q.consent": "I agree that Questverse may use these details to reply to this request.",
   "q.consent.short": "Consent to be contacted",
   "motion.pause": "Pause motion",
   "motion.play": "Resume motion",

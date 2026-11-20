@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* =====================================================================
-   GOLDATA — tools/prerender.js  (Node 18+, NO dependencies)
+   Questverse — tools/prerender.js  (Node 18+, NO dependencies)
    Why: GitHub Pages serves one index.html and the site routes with #hash
    URLs. Search engines ignore everything after "#", so every page would
    share one URL, one title and one description.

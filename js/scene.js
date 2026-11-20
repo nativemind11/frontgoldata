@@ -1,5 +1,5 @@
 /* =====================================================================
-   GOLDATA — 3D WORLD (three.js r128)
+   Questverse — 3D WORLD (three.js r128)
    One fixed canvas. Procedural scenes are built lazily the first time
    they become visible and disposed when a page no longer uses them.
    All per-frame state lives in World.W, which the master GSAP timeline
