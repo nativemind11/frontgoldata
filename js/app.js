@@ -1006,7 +1006,7 @@
             ${langSwitcher("lang-foot")}
           </div>
         </div>
-        <div class="footer__bottom"><span>${esc(t("ft.rights", { year: CFG.year, brand: CFG.brand }))}</span>${GD.lang() !== "en" ? `<span>${esc(t("ft.machine"))}</span>` : ""}${CFG.demo ? `<span>${esc(t("demo.footer"))}</span>` : ""}${GD.osReduced ? "" : `<button type="button" class="linklike" data-motion-toggle aria-pressed="${GD.motionOff ? "true" : "false"}">${esc(t(GD.motionOff ? "motion.play" : "motion.pause"))}</button>`}</div>
+        <div class="footer__bottom">${GD.lang() !== "en" ? `<span>${esc(t("ft.machine"))}</span>` : ""}${CFG.demo ? `<span>${esc(t("demo.footer"))}</span>` : ""}${GD.osReduced ? "" : `<button type="button" class="linklike" data-motion-toggle aria-pressed="${GD.motionOff ? "true" : "false"}">${esc(t(GD.motionOff ? "motion.play" : "motion.pause"))}</button>`}</div>
       </div>`;
     const mt = $("[data-motion-toggle]", $("#footer"));
     if (mt) mt.addEventListener("click", () => { try { localStorage.setItem("gd-motion", GD.motionOff ? "on" : "off"); } catch (e) { /* storage blocked */ } location.reload(); });

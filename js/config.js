@@ -281,5 +281,5 @@ window.CFG = {
   },
 
   showSlotLabels: false,              // dev only: dashed "image slot" tag on empty frames
-  year: new Date().getFullYear(),
+  year: 2024,
 };
