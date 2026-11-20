@@ -1113,3 +1113,94 @@ html, body { overflow-x: clip; }
 .tm__stars { color: #f5b82e; letter-spacing: 0.12em; font-size: 1rem; }
 @media (prefers-reduced-motion: reduce) { .tm__track { scroll-behavior: auto; } }
 .tm .iso__review { margin-block-end: var(--s-3); }
+
+/* =====================================================================
+   Theme toggle + LIGHT theme (default). Dark = the original look.
+   html[data-theme="light"] re-points the colour tokens, then fixes the
+   few places that hard-coded a dark surface. Saved as localStorage "qv-theme".
+   ===================================================================== */
+.theme-btn { inline-size: 40px; block-size: 40px; flex: none; display: inline-grid; place-items: center; border-radius: 50%; border: 1px solid currentColor; opacity: 0.8; transition: opacity var(--t-fast), border-color var(--t-fast), background-color var(--t-fast), transform var(--t-med) var(--ease-out); }
+.theme-btn:hover { opacity: 1; border-color: var(--teal); }
+.theme-btn:active { transform: rotate(20deg) scale(0.94); }
+.theme-btn svg { inline-size: 18px; block-size: 18px; display: block; }
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --world-bg: #eaf0ff;
+  --mist: #0b1535;
+  --mist-72: rgba(11, 21, 53, 0.76);
+  --mist-56: rgba(11, 21, 53, 0.62);
+  --mist-16: rgba(11, 21, 53, 0.16);
+  --mist-08: rgba(11, 21, 53, 0.07);
+  --fg: #0b1535;
+  --fg-soft: rgba(11, 21, 53, 0.76);
+  --fg-faint: rgba(11, 21, 53, 0.62);
+  --line: rgba(11, 21, 53, 0.16);
+  --surface: rgba(255, 255, 255, 0.62);
+  --surface-strong: rgba(255, 255, 255, 0.88);
+  scrollbar-color: rgba(61, 123, 255, 0.6) #eaf0ff;
+}
+html[data-theme="light"] body { color: var(--fg); }
+html[data-theme="light"] ::-webkit-scrollbar-track { background: #eaf0ff; }
+html[data-theme="light"] ::-webkit-scrollbar-thumb { border-color: #eaf0ff; }
+html[data-theme="light"] :focus-visible { outline-color: var(--blue); }
+html[data-theme="light"] .accent { color: var(--blue-deep); }
+html[data-theme="light"] .eyebrow, html[data-theme="light"] .link-arrow { color: var(--fg-soft); }
+
+/* world layers */
+html[data-theme="light"] .fx-vignette { background: radial-gradient(120% 85% at 50% 45%, transparent 62%, rgba(120, 140, 205, 0.16) 100%); opacity: 1; }
+html[data-theme="light"] .fx-grain { opacity: 0.04; }
+html[data-theme="light"].no-webgl body::before { background: radial-gradient(60% 50% at 75% 30%, rgba(61, 123, 255, 0.18), transparent 70%), radial-gradient(50% 40% at 20% 80%, rgba(84, 200, 255, 0.2), transparent 70%), #eaf0ff; }
+html[data-theme="light"] .rail { background: var(--mist-08); }
+
+/* buttons */
+html[data-theme="light"] .btn--ghost { --bg: rgba(255, 255, 255, 0.55); }
+html[data-theme="light"] .btn--primary { --tx: #fff; }
+html[data-theme="light"] .btn--primary:hover, html[data-theme="light"] .btn--primary:focus-visible { --tx: var(--ink); }
+
+/* nav */
+html[data-theme="light"] .nav, html[data-theme="light"] body[data-tone] .nav { color: var(--fg); }
+html[data-theme="light"] .nav::before { background: linear-gradient(to bottom, rgba(234, 240, 255, 0.9), rgba(234, 240, 255, 0)); }
+html[data-theme="light"] .nav.is-scrolled::before, html[data-theme="light"] body[data-tone] .nav.is-scrolled::before { background: rgba(244, 246, 252, 0.84); box-shadow: inset 0 -1px 0 rgba(11, 21, 53, 0.08); }
+html[data-theme="light"] .dd__panel, html[data-theme="light"] .mega { color: var(--fg); background: rgba(248, 250, 255, 0.97); border-color: rgba(11, 21, 53, 0.12); box-shadow: 0 30px 70px -30px rgba(40, 62, 130, 0.35); }
+html[data-theme="light"] .menu { background: #eaf0ff; color: var(--fg); }
+html[data-theme="light"] .sticky { background: rgba(248, 250, 255, 0.94); color: var(--fg); border-color: rgba(11, 21, 53, 0.14); box-shadow: 0 20px 50px -20px rgba(40, 62, 130, 0.4); }
+html[data-theme="light"] .palette { background: rgba(190, 205, 245, 0.55); }
+html[data-theme="light"] .palette__box { color: var(--fg); background: rgba(250, 252, 255, 0.98); border-color: rgba(11, 21, 53, 0.12); box-shadow: 0 40px 100px -30px rgba(40, 62, 130, 0.45); }
+
+/* preloader, intro, page curtain */
+html[data-theme="light"] .preloader, html[data-theme="light"] .curtain { background: #eaf0ff; color: var(--fg); }
+html[data-theme="light"] .intro { background: radial-gradient(60% 50% at 50% 50%, rgba(255, 255, 255, 0.6), rgba(234, 240, 255, 0.96)); color: var(--fg); }
+html[data-theme="light"] .preloader__mark path[stroke="#EAF0FF"], html[data-theme="light"] .curtain__mark path[stroke="#EAF0FF"] { stroke: #0b1535; }
+html[data-theme="light"] .preloader__mark path[stroke="rgba(234,240,255,.12)"] { stroke: rgba(11, 21, 53, 0.12); }
+html[data-theme="light"] .preloader__mark .lm-ring, html[data-theme="light"] .preloader__mark .lm-tail { filter: drop-shadow(0 0 8px rgba(61, 123, 255, 0.3)); }
+
+/* surfaces and forms */
+html[data-theme="light"] .cert { background: rgba(255, 255, 255, 0.72); }
+html[data-theme="light"] .field input, html[data-theme="light"] .field textarea, html[data-theme="light"] .form select { background: rgba(255, 255, 255, 0.78); color: var(--fg); }
+html[data-theme="light"] .field input:focus, html[data-theme="light"] .field textarea:focus { background: #fff; border-color: var(--blue); }
+html[data-theme="light"] .field input::placeholder, html[data-theme="light"] .field textarea::placeholder { color: rgba(11, 21, 53, 0.42); }
+html[data-theme="light"] .nl__row input { color: var(--fg); background: rgba(255, 255, 255, 0.8); border-color: var(--line); }
+html[data-theme="light"] .chapter__text { background: rgba(255, 255, 255, 0.72); }
+html[data-theme="light"] .demo__stage { background: radial-gradient(80% 80% at 50% 40%, rgba(61, 123, 255, 0.1), rgba(255, 255, 255, 0.55)); }
+html[data-theme="light"] .orb__w i { background: rgba(255, 255, 255, 0.9); border-color: var(--line); }
+html[data-theme="light"] .flatmap__bg { fill: rgba(255, 255, 255, 0.55); }
+html[data-theme="light"] .fn-st { stroke: rgba(11, 21, 53, 0.25); }
+html[data-theme="light"] .timeline__n { background: #fff; }
+html[data-theme="light"] .trio__card:hover, html[data-theme="light"] .trio__card:focus-visible, html[data-theme="light"] .trio__card.is-pinned { background: rgba(255, 255, 255, 0.9); border-color: var(--blue); }
+html[data-theme="light"] .card:hover { border-color: var(--blue); }
+html[data-theme="light"] .bigword { -webkit-text-stroke: 1px rgba(11, 21, 53, 0.1); }
+
+/* selected states used a light fill + dark text: keep them readable */
+html[data-theme="light"] .skip-link, html[data-theme="light"] .noscript, html[data-theme="light"] .filters button[aria-pressed="true"], html[data-theme="light"] .demos__tabs [role="tab"][aria-selected="true"], html[data-theme="light"] .seg input:checked + span { background: #0b1535; color: #fff; border-color: #0b1535; }
+
+/* footer */
+html[data-theme="light"] .footer { background: linear-gradient(to bottom, rgba(234, 240, 255, 0.55), rgba(208, 220, 252, 0.95)); color: var(--fg); border-block-start-color: var(--line); }
+
+/* keep captions over photos dark-on-photo */
+html[data-theme="light"] .slot__cap { color: #eaf0ff; }
+
+@media (prefers-contrast: more) {
+  html[data-theme="light"] { --mist-72: rgba(11, 21, 53, 0.95); --mist-56: rgba(11, 21, 53, 0.85); --mist-16: rgba(11, 21, 53, 0.45); --fg-soft: #0b1535; --fg-faint: rgba(11, 21, 53, 0.85); --line: rgba(11, 21, 53, 0.5); }
+  html[data-theme="light"] .card, html[data-theme="light"] .trio__card, html[data-theme="light"] .lx, html[data-theme="light"] .role, html[data-theme="light"] .ds { background: #fff; }
+}

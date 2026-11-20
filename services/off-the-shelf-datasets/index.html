@@ -7,6 +7,15 @@
   <meta name="description" content="Licensable datasets for object detection, instruction tuning, speech recognition and image classification, documented so you know exactly what you are buying." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#070B18" />
+  <script>
+    /* Theme (light is the default). Runs before the CSS paints, so there is no flash. Choice is saved as "qv-theme". */
+    (function () {
+      var t = "light";
+      try { var v = localStorage.getItem("qv-theme"); if (v === "dark" || v === "light") t = v; } catch (e) { /* storage blocked */ }
+      var d = document.documentElement; d.setAttribute("data-theme", t); d.style.colorScheme = t;
+      var m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute("content", t === "light" ? "#EAF0FF" : "#070B18");
+    })();
+  </script>
   <link rel="canonical" id="canonical" href="https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/" />
   <link rel="alternate" hreflang="en" href="https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/" data-static-hreflang />
   <link rel="alternate" hreflang="x-default" href="https://nativemind11.github.io/frontgoldata/services/off-the-shelf-datasets/" data-static-hreflang />

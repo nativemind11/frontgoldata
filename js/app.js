@@ -634,7 +634,7 @@
   function readPreset(el, prev) {
     const p = prev ? JSON.parse(JSON.stringify(prev)) : { flow: 0 };
     const scene = el.dataset.scene || p.scene || "ambient";
-    const tone = (World.TONES && World.TONES[el.dataset.tone]) ? el.dataset.tone : p.tone || "ink";
+    const tone = html.dataset.theme === "light" ? "light" : (World.TONES && World.TONES[el.dataset.tone]) ? el.dataset.tone : p.tone || "ink";
     const anchor = (World.ANCHOR && World.ANCHOR[scene]) || 0;
     const c = (el.dataset.cam || "0,0,9").split(",").map(Number);
     const l = el.dataset.look ? el.dataset.look.split(",").map(Number) : [c[0], 0, 0];
@@ -749,9 +749,10 @@
 
   function toneTriggers(root) {
     const secs = $$("[data-world][data-tone]:not(.world-mark)", root);
-    if (secs[0]) body.dataset.tone = secs[0].dataset.tone;
+    const tn = (el) => (html.dataset.theme === "light" ? "light" : el.dataset.tone);
+    if (secs[0]) body.dataset.tone = tn(secs[0]);
     if (!hasGsap) return;
-    secs.forEach((el) => ScrollTrigger.create({ trigger: el, start: "top 55%", end: "bottom 55%", onToggle: (st) => st.isActive && (body.dataset.tone = el.dataset.tone) }));
+    secs.forEach((el) => ScrollTrigger.create({ trigger: el, start: "top 55%", end: "bottom 55%", onToggle: (st) => st.isActive && (body.dataset.tone = tn(el)) }));
   }
 
   function flowSteps(root) {
@@ -899,6 +900,30 @@
     return ""; /* only English is published: no language button */
     return `<div class="lang"><label class="sr-only" for="${id}">${esc(t("nav.lang"))}</label><span class="lang__ico" aria-hidden="true">${ICON.lang}</span><select id="${id}" data-lang-select>${GD.AVAIL.map((l) => `<option value="${l}" ${l === GD.lang() ? "selected" : ""} lang="${l}">${esc((GD.LANG_META[l] || { name: l }).name)}</option>`).join("")}</select></div>`;
   }
+  /* ---------- theme: light (default) / dark, button lives in the nav ---------- */
+  const THEME_ICON = {
+    moon: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg>',
+    sun: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>',
+  };
+  const themeNow = () => (html.dataset.theme === "dark" ? "dark" : "light");
+  const themeLabel = () => (themeNow() === "light" ? "Switch to dark mode" : "Switch to light mode");
+  function themeButton() {
+    return `<button class="theme-btn" type="button" data-theme-toggle aria-pressed="${themeNow() === "dark"}" aria-label="${themeLabel()}" title="${themeLabel()}">${themeNow() === "light" ? THEME_ICON.moon : THEME_ICON.sun}</button>`;
+  }
+  function applyTheme(th, persist) {
+    html.setAttribute("data-theme", th); html.style.colorScheme = th;
+    if (persist) { try { localStorage.setItem("qv-theme", th); } catch (e) { /* storage blocked */ } }
+    const m = document.querySelector('meta[name="theme-color"]'); if (m) m.setAttribute("content", th === "light" ? "#EAF0FF" : "#070B18");
+    World.setTheme && World.setTheme(th === "light");
+    $$("[data-theme-toggle]").forEach((b) => { b.setAttribute("aria-pressed", String(th === "dark")); b.setAttribute("aria-label", themeLabel()); b.setAttribute("title", themeLabel()); b.innerHTML = th === "light" ? THEME_ICON.moon : THEME_ICON.sun; });
+  }
+  async function toggleTheme() {
+    const y = window.scrollY;
+    applyTheme(themeNow() === "light" ? "dark" : "light", true);
+    firstNav = true; await go(); /* re-render so every section picks up the new world tone */
+    if (lenis) lenis.scrollTo(y, { immediate: true, force: true }); else window.scrollTo(0, y);
+    if (hasGsap && window.ScrollTrigger) ScrollTrigger.update();
+  }
   function renderNav() {
     const c = cases();
     $("#nav").innerHTML = `
@@ -925,6 +950,7 @@
         <div class="nav__tools">
           <button class="icon-btn" data-open-palette aria-label="${esc(t("nav.search"))}" aria-keyshortcuts="Control+K Meta+K">${ICON.search}<kbd>⌘K</kbd></button>
           ${langSwitcher("lang-nav")}
+          ${themeButton()}
           <a class="btn btn--primary btn--sm magnetic nav__cta" href="#/quote"><span class="btn__label">${esc(t("nav.quote"))}</span></a>
         </div>
         <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="menu" aria-label="${esc(t("nav.menu.open"))}"><span></span><span></span></button>
@@ -1020,6 +1046,7 @@
     if (GD.digits) { wa.href = GD.waLink(); wa.innerHTML = ICON.wa; wa.setAttribute("aria-label", t("cta.waAria", { brand: CFG.brand })); } else wa.hidden = true;
     $(".skip-link").textContent = t("skip");
     renderNav(); renderFooter();
+    document.addEventListener("click", (e) => { if (e.target.closest("[data-theme-toggle]")) toggleTheme(); });
     document.addEventListener("click", (e) => {
       const a = e.target.closest('a[href^="#/"]'); if (!a) return;
       GD.closeMenu && GD.closeMenu();

@@ -14,6 +14,19 @@
 
   const C = { ink: 0x070b18, navy: 0x0c1430, mist: 0xeaf0ff, blue: 0x3d7bff, teal: 0x54c8ff, sky: 0x9fc1ff };
   const ADD = T.AdditiveBlending;
+
+  /* Light theme: glowing additive layers disappear on a pale background, so every additive material is switched to normal
+     blending and a deeper ink-blue version of its colour. World.setTheme(true|false) re-themes live; new materials follow. */
+  let LIGHT = document.documentElement.getAttribute("data-theme") === "light";
+  const lift = (c) => { const h = {}; c.getHSL(h); if (h.l > 0.9) c.setHSL(0.62, 0.62, 0.3); else c.setHSL(h.h, Math.max(h.s, 0.7), Math.min(h.l, 0.42)); };
+  function themeMat(m) {
+    if (!m.userData) return;
+    if (!m.userData.t0) m.userData.t0 = { blend: m.blending, color: m.color ? m.color.clone() : null };
+    const o = m.userData.t0; if (o.blend !== ADD) return; /* only the glow materials change */
+    m.blending = LIGHT ? T.NormalBlending : o.blend;
+    if (m.color && o.color) { m.color.copy(o.color); if (LIGHT) lift(m.color); }
+    m.needsUpdate = true;
+  }
   const TAU = Math.PI * 2;
 
   /* Scene anchors along the journey (forward = -z). Services share one stage. */
@@ -122,7 +135,7 @@
   function Stage(name) {
     const s = {
       name, group: new T.Group(), mats: [], trash: [], alpha: 0, low,
-      m(mat, base) { mat.transparent = true; s.mats.push([mat, base == null ? mat.opacity : base]); s.trash.push(mat); return mat; },
+      m(mat, base) { mat.transparent = true; themeMat(mat); s.mats.push([mat, base == null ? mat.opacity : base]); s.trash.push(mat); return mat; },
       g(geo) { s.trash.push(geo); return geo; },
       t(tex) { s.trash.push(tex); return tex; },
       update() {},
@@ -792,6 +805,7 @@
   };
   World.pointer = (x, y) => { pointer.x = x; pointer.y = y; };
   World.setReduced = (v) => (reduced = v);
+  World.setTheme = (light) => { LIGHT = !!light; Object.keys(stages).forEach((n) => stages[n].mats.forEach(([m]) => themeMat(m))); };
   World.isLow = () => low;
 
   function resize() {
