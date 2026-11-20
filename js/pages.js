@@ -125,6 +125,7 @@
       ${hero("cubes", t(type === "pilot" ? "q.eyebrowPilot" : "q.eyebrow"), [t("q.t1"), t("q.t2")], t("q.lead"), "", slot("quote", "slot--frame"))}
       <section class="section section--tight" ${world("ambient", "ink", "0,0,9")}>
         <div class="container">
+          <div class="tabs2" role="navigation" aria-label="${esc(t("f.tabs"))}"><a href="#/contact">${esc(t("f.tab.quick"))}</a><a href="#/quote?detailed=1" aria-current="page">${esc(t("f.tab.detail"))}</a></div>
           <form class="wizard" data-wizard data-type="${type}" data-pre-q="${esc(JSON.stringify({ volume: q.get("volume") || "", langs: q.get("langs") || "", review: q.get("review") || "" }))}" novalidate>
             <ol class="wizard__steps" aria-label="${esc(t("q.step", { n: 1, total: 5 }))}">${steps.map((k, i) => `<li data-step-dot="${i}" ${i === 0 ? 'aria-current="step"' : ""}><span>${i + 1}</span>${esc(t(k))}</li>`).join("")}</ol>
             <div class="wizard__bar" aria-hidden="true"><i></i></div>

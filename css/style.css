@@ -1071,3 +1071,8 @@ html, body { overflow-x: clip; }
 .preloader__name i { font-style: normal; font-family: var(--f-body, inherit); font-size: .5em; letter-spacing: .6em; padding-inline-start: .6em; color: var(--teal); }
 @keyframes qv-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .preloader__mark .lm-bar { animation: none; } .preloader__name { animation: none; opacity: 1; } .preloader__mark .lm-node, .preloader__mark .lm-sat { transition: none; } }
+
+/* Form switcher: quick message / detailed brief */
+.tabs2 { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-end: 1.5rem; }
+.tabs2 a { padding: 0.6rem 1.1rem; border: 1px solid var(--line); border-radius: 999px; font-size: 0.92rem; }
+.tabs2 a[aria-current="page"] { background: var(--blue); border-color: var(--blue); color: #fff; }

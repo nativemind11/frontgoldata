@@ -494,7 +494,8 @@
     };
   }
 
-  function contact() {
+  function contact(q) {
+    const preService = (q && q.get && (q.get("service") || "").split(",")[0]) || "";
     const map = live(CFG.mapQ) ? `<div class="map" data-reveal><iframe title="Map: ${esc(CFG.mapQ)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${encodeURIComponent(CFG.mapQ)}&output=embed"></iframe></div>` : "";
     const opt = `<span class="opt">${esc(t("f.optional"))}</span>`;
     const err = '<span class="err" aria-live="polite"></span>';
@@ -520,20 +521,24 @@
             </div>
             <div class="cta-row">${waBtn(t("cta.waChat"))}${live(CFG.bookingUrl) ? `<a class="btn btn--ghost magnetic" href="${esc(CFG.bookingUrl)}" target="_blank" rel="noopener"><span class="btn__label">${esc(t("cta.book"))}</span></a>` : ""}</div>
             ${GD.reachWidget ? GD.reachWidget() : ""}
-            <p class="body-soft">${esc(t("ct.quoteHint"))} <a class="link-arrow" href="#/quote">${esc(t("cta.quote"))} ${ICON.arrow}</a></p>
           </div>
           <div class="contact__form" data-reveal>
+            <div class="tabs2" role="navigation" aria-label="${esc(t("f.tabs"))}"><a href="#/contact" aria-current="page">${esc(t("f.tab.quick"))}</a><a href="#/quote?detailed=1">${esc(t("f.tab.detail"))}</a></div>
             <form class="form" data-contact novalidate aria-describedby="form-note">
-              <div class="field"><label for="f-first">${esc(t("f.first"))}</label><input id="f-first" name="first_name" autocomplete="given-name" required maxlength="80" />${err}</div>
-              <div class="field"><label for="f-last">${esc(t("f.last"))}</label><input id="f-last" name="last_name" autocomplete="family-name" required maxlength="80" />${err}</div>
+              <div class="field"><label for="f-name">${esc(t("f.name"))}</label><input id="f-name" name="name" autocomplete="name" required maxlength="160" />${err}</div>
               <div class="field"><label for="f-email">${esc(t("f.email"))}</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="160" />${err}</div>
-              <div class="field"><label for="f-phone">${esc(t("f.mobile"))} ${opt}</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" dir="ltr" />${err}</div>
-              <div class="field"><label for="f-company">${esc(t("f.company"))} ${opt}</label><input id="f-company" name="company" autocomplete="organization" maxlength="120" />${err}</div>
-              <div class="field"><label for="f-service">${esc(t("f.service"))}</label><select id="f-service" name="service"><option value="">${esc(t("f.service.any"))}</option>${S.map((s) => `<option value="${s.slug}">${esc(label(s))}</option>`).join("")}</select>${err}</div>
-              <div class="field"><label for="f-langs">${esc(t("f.languages"))} ${opt}</label><input id="f-langs" name="languages" maxlength="300" placeholder="${esc(t("f.languages.ph"))}" />${err}</div>
-              <div class="field"><label for="f-volume">${esc(t("f.volume"))} ${opt}</label><input id="f-volume" name="volume" maxlength="120" placeholder="${esc(t("f.volume.ph"))}" />${err}</div>
-              <div class="field field--full"><label for="f-timeline">${esc(t("f.timeline"))}</label><select id="f-timeline" name="timeline"><option value="">—</option>${["asap", "1m", "3m", "later"].map((k) => `<option value="${k}">${esc(t(`f.tl.${k}`))}</option>`).join("")}</select>${err}</div>
               <div class="field field--full"><label for="f-msg">${esc(t("f.message"))}</label><textarea id="f-msg" name="message" required maxlength="4000" placeholder="${esc(t("f.message.ph"))}"></textarea>${err}</div>
+              <details class="field--full form__more" style="grid-column:1/-1">
+                <summary style="cursor:pointer;font-weight:600;padding-block:.5rem">${esc(t("f.more"))}</summary>
+                <div class="form" style="margin-block-start:1rem;padding:0;border:0;background:none">
+                  <div class="field"><label for="f-phone">${esc(t("f.mobile"))} ${opt}</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" dir="ltr" />${err}</div>
+                  <div class="field"><label for="f-company">${esc(t("f.company"))} ${opt}</label><input id="f-company" name="company" autocomplete="organization" maxlength="120" />${err}</div>
+                  <div class="field"><label for="f-service">${esc(t("f.service"))}</label><select id="f-service" name="service"><option value="">${esc(t("f.service.any"))}</option>${S.map((s) => `<option value="${s.slug}" ${s.slug === preService ? "selected" : ""}>${esc(label(s))}</option>`).join("")}</select>${err}</div>
+                  <div class="field"><label for="f-langs">${esc(t("f.languages"))} ${opt}</label><input id="f-langs" name="languages" maxlength="300" placeholder="${esc(t("f.languages.ph"))}" />${err}</div>
+                  <div class="field"><label for="f-volume">${esc(t("f.volume"))} ${opt}</label><input id="f-volume" name="volume" maxlength="120" placeholder="${esc(t("f.volume.ph"))}" />${err}</div>
+                  <div class="field"><label for="f-timeline">${esc(t("f.timeline"))}</label><select id="f-timeline" name="timeline"><option value="">—</option>${["asap", "1m", "3m", "later"].map((k) => `<option value="${k}">${esc(t(`f.tl.${k}`))}</option>`).join("")}</select>${err}</div>
+                </div>
+              </details>
               <div class="hp" aria-hidden="true"><label for="f-web">${esc(t("f.website"))}</label><input id="f-web" name="website" tabindex="-1" autocomplete="off" /></div>
               <div class="form__status" role="status" aria-live="polite"></div>
               <div class="form__foot">
@@ -564,6 +569,7 @@
     [/^\/case-studies$/, () => casesPage(), "case-studies"],
     [/^\/case-studies\/([\w-]+)$/, (m) => caseDetail(m[1]), "case-studies"],
     [/^\/contact$/, () => contact(), "contact"],
+    [/^\/quote$/, (m, q) => { if (q.get("detailed") || q.get("type") === "pilot") { const w = GD.routes.find((r) => String(r[0]) === String(/^\/quote$/) ); return w ? w[1](m, q) : contact(q); } return contact(q); }, "quote"],
   ];
   function parseHash() {
     const raw = location.hash.replace(/^#/, "") || "/home";
@@ -769,8 +775,7 @@
     const f = $("form[data-contact]", root); if (!f) return;
     const status = $(".form__status", f), submit = $("button[type=submit]", f);
     const RULES = {
-      first_name: (v) => (v.length >= 1 && v.length <= 80) || t("err.first"),
-      last_name: (v) => (v.length >= 1 && v.length <= 80) || t("err.last"),
+      name: (v) => (v.length >= 2 && v.length <= 160) || t("err.name"),
       email: (v) => (GD.RX.email.test(v) && v.length <= 160) || t("err.email"),
       phone: (v) => v === "" || GD.RX.phone.test(v) || t("err.phone"),
       message: (v) => (v.length >= 10 && v.length <= 4000) || t("err.message"),
@@ -786,7 +791,9 @@
         if (bad && !firstBad) firstBad = input;
       });
       if (firstBad) { firstBad.focus(); return; }
-      if (data.website) { f.reset(); setStatus("ok", esc(t("st.okHp"))); return; }
+      const parts = data.name.split(/\s+/); data.first_name = parts[0].slice(0, 80); data.last_name = (parts.slice(1).join(" ") || "-").slice(0, 80); delete data.name;
+      const thanks = () => { f.innerHTML = `<div class="thanks" role="status" style="padding:2rem 0;grid-column:1/-1"><h3 class="h3">${esc(t("st.thanksT"))}</h3><p class="lead" style="margin-block-start:1rem">${esc(t("st.thanksB"))}</p></div>`; };
+      if (data.website) { thanks(); return; }
       const mailA = `<a class="link-arrow" href="${GD.mailLink}">${esc(CFG.email)}</a>`;
       if (!GD.apiUrl("contact")) {
         const name = `${data.first_name} ${data.last_name}`;
@@ -797,7 +804,7 @@
       submit.setAttribute("aria-busy", "true"); GD.announce(t("st.sending"));
       try {
         const j = await GD.post("contact", data);
-        f.reset(); setStatus("ok", `${esc(t("st.ok"))}${j.ref ? ` <b>${esc(t("st.ref", { ref: j.ref }))}</b>` : ""}`);
+        thanks();
       } catch (er) {
         setStatus("err", t("st.err", { msg: esc(er.message), email: mailA }));
       } finally { submit.removeAttribute("aria-busy"); }
@@ -834,6 +841,7 @@
   const groups = () => K.SERVICE_GROUPS.map(([g, slugs], gi) => [GD.hasT(`group.${gi}`) ? t(`group.${gi}`) : g, slugs.map((sl) => S.find((x) => x.slug === sl)).filter(Boolean)]);
   const companyLinks = () => [["#/about", "nav.about", "about"], ["#/trust", "nav.trust", "trust"], ["#/rfp", "nav.enterprise", "rfp"], ["#/join", "nav.join", "join"], ["#/contact", "nav.contact", "contact"]];
   function langSwitcher(id) {
+    return ""; /* only English is published: no language button */
     return `<div class="lang"><label class="sr-only" for="${id}">${esc(t("nav.lang"))}</label><span class="lang__ico" aria-hidden="true">${ICON.lang}</span><select id="${id}" data-lang-select>${GD.AVAIL.map((l) => `<option value="${l}" ${l === GD.lang() ? "selected" : ""} lang="${l}">${esc((GD.LANG_META[l] || { name: l }).name)}</option>`).join("")}</select></div>`;
   }
   function renderNav() {

@@ -130,13 +130,13 @@
   "cd.notice": "Illustrative case study written to show structure — not a description of a real client engagement.",
 
   "ct.eyebrow": "Contact", "ct.t1": "Let's Talk.", "ct.sub": "Let's Build Better Data Together",
-  "ct.lead": "Share what you are building, the languages you need and your timeline. We reply with questions, a scope and a pilot plan.",
+  "ct.lead": "Send us a short message. We reply within 24 hours.",
   "ct.email": "Email", "ct.phone": "Phone", "ct.address": "Address", "ct.quoteHint": "Prefer a guided form?",
 
-  "f.first": "First name", "f.last": "Last name", "f.email": "Work email", "f.mobile": "Mobile Number", "f.optional": "(optional)", "f.company": "Company",
+  "f.name": "Your name", "f.tabs": "Choose a form", "f.tab.quick": "Quick message", "f.tab.detail": "Detailed brief (5 steps)", "f.more": "Add project details (optional)", "st.thanksT": "Thank you!", "st.thanksB": "We've received your message and will reply within 24 hours.", "f.first": "First name", "f.last": "Last name", "f.email": "Work email", "f.mobile": "Mobile Number", "f.optional": "(optional)", "f.company": "Company",
   "f.service": "Service", "f.service.any": "Not sure yet", "f.languages": "Languages", "f.languages.ph": "e.g. Arabic (Egyptian), French (Canada)",
   "f.volume": "Volume", "f.volume.ph": "e.g. 200 hours of audio", "f.timeline": "Timeline", "f.tl.asap": "As soon as possible", "f.tl.1m": "Within a month",
-  "f.tl.3m": "1–3 months", "f.tl.later": "Later / exploring", "f.message": "Project details", "f.message.ph": "Model, data type, goals, constraints…",
+  "f.tl.3m": "1–3 months", "f.tl.later": "Later / exploring", "f.message": "Your message", "f.message.ph": "Tell us briefly what you need…",
   "f.send": "Send message", "f.note.api": "We only use your details to reply to this request.", "f.note.mail": "Sending opens your email app with the message ready to go.",
   "f.website": "Website",
   "err.first": "Please enter your first name.", "err.last": "Please enter your last name.", "err.name": "Please enter your name.",
