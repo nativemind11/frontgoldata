@@ -1,8 +1,8 @@
-/* MACHINE-DRAFT: needs native review — GOLDATA German dictionary.
+/* MACHINE-DRAFT: needs native review — RESONARA German dictionary.
    Generated as a draft from en.js. Do not present as professional translation.
    Missing keys fall back to English automatically. See js/i18n/REVIEW.md. */
 (window.I18N = window.I18N || {}).de = {
-  "meta.title": "GOLDATA — Mehrsprachige KI-Datendienste",
+  "meta.title": "RESONARA — Mehrsprachige KI-Datendienste",
   "skip": "Zum Inhalt springen", "brand.home": "{brand} Startseite", "a11y.loading": "{brand} wird geladen", "a11y.progress": "Lesefortschritt", "a11y.newTab": "(öffnet in neuem Tab)",
   "i18n.enNotice": "Einige ausführliche Abschnitte werden auf Englisch angezeigt, solange ihre Übersetzung geprüft wird.",
   "ft.machine": "Diese Übersetzung ist ein maschineller Entwurf und wartet auf muttersprachliche Prüfung.",
@@ -110,7 +110,7 @@
   "region.MENA": "Naher Osten & Nordafrika", "region.Europe": "Europa", "region.Asia": "Asien", "region.Africa": "Afrika", "region.Americas": "Amerika",
   "j.eyebrow": "Als Mitwirkende*r bewerben", "j.t1": "Ihre Sprache", "j.t2": "ist eine Fähigkeit.", "j.lead": "Arbeiten Sie von zu Hause an echten KI-Datenprojekten in Ihrer Muttersprache. Klare Richtlinien, Schulung und Unterstützung.",
   "j.roles": "Rollen", "j.form": "Bewerben", "j.role": "Rolle", "j.country": "Wohnsitzland", "j.langs": "Muttersprache(n)", "j.other": "Weitere Sprachen", "j.exp": "Relevante Erfahrung", "j.avail": "Stunden pro Woche",
-  "j.consent": "Ich bin einverstanden, dass GOLDATA diese Bewerbung speichert, um meine Eignung für Projekte zu prüfen, wie im Datenschutzhinweis beschrieben.", "j.send": "Bewerbung senden", "j.ok": "Danke – Ihre Bewerbung ist eingegangen.", "j.note": "Wir verlangen von Mitwirkenden niemals Gebühren für Bewerbung oder Arbeit.",
+  "j.consent": "Ich bin einverstanden, dass RESONARA diese Bewerbung speichert, um meine Eignung für Projekte zu prüfen, wie im Datenschutzhinweis beschrieben.", "j.send": "Bewerbung senden", "j.ok": "Danke – Ihre Bewerbung ist eingegangen.", "j.note": "Wir verlangen von Mitwirkenden niemals Gebühren für Bewerbung oder Arbeit.",
   "tr.eyebrow": "Trust Center", "tr.t1": "Vertrauen ist", "tr.t2": "gelebte Praxis.", "tr.lead": "Wie wir Ihre Daten, Ihre Mitwirkenden und Ihre Modelle schützen – klar formuliert, ohne etwas zu behaupten, das wir nicht belegen können.",
   "tr.certs": "Zertifizierungen & Audits", "tr.certsNone": "Dokumentation auf Anfrage verfügbar.", "tr.sub": "Unterauftragsverarbeiter", "tr.subNone": "Noch keine Unterauftragsverarbeiter gelistet. Eine aktuelle Liste ist auf Anfrage erhältlich.",
   "tr.sub.name": "Name", "tr.sub.purpose": "Zweck", "tr.sub.loc": "Standort", "tr.incident": "Kontakt für Sicherheitsvorfälle", "tr.incidentBody": "Melden Sie vermutete Sicherheitsprobleme an {email}. Wir bestätigen Meldungen so schnell wie möglich.",
@@ -198,7 +198,7 @@
   "q.tools": "Vorhandene Tools oder Formate",
   "q.tools.ph": "z. B. Ihr Labeling-Tool, Exportschema, Speicher",
   "err.usecase": "Bitte beschreiben Sie das Modell oder den Anwendungsfall.",
-  "q.consent": "Ich bin einverstanden, dass GOLDATA diese Angaben nutzt, um auf diese Anfrage zu antworten.",
+  "q.consent": "Ich bin einverstanden, dass RESONARA diese Angaben nutzt, um auf diese Anfrage zu antworten.",
   "q.consent.short": "Einwilligung zur Kontaktaufnahme",
   "motion.pause": "Bewegung pausieren",
   "motion.play": "Bewegung fortsetzen",

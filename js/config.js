@@ -1,25 +1,25 @@
 /* =====================================================================
-   GOLDATA — SITE CONFIG (CFG)
+   RESONARA — SITE CONFIG (CFG)
    Every brand value lives here. Edit this block, save, redeploy.
    NO-FAKE-PROOF: only put real, publishable facts in the proof fields.
    Anything left null/empty is either hidden or shown as SAMPLE content
    under a yellow DEMO ribbon while `demo` is true.
    ===================================================================== */
 window.CFG = {
-  brand: "GOLDATA",
-  tagline: "Human fluency, engineered into AI data.",
+  brand: "RESONARA",
+  tagline: "Arabic voice and language data for AI teams.",
   story: "Human expertise in every language, turned into the data that trains better AI.",
-  hero: { lines: ["Fluent humans.", "Smarter machines."] },
+  hero: { lines: ["Arabic voice data,", "built for voice AI."] },
 
   /* Absolute public URL of the site, WITH trailing slash (live reference: https://nativemind11.github.io/frontgoldata/).
      Used for canonical links, hreflang, sitemap, OG image and PDFs.
-     e.g. "https://USER.github.io/goldata-site/" — empty = current location. */
+     e.g. "https://USER.github.io/resonara-site/" — empty = current location. */
   siteUrl: "https://nativemind11.github.io/frontgoldata/",
 
   email: "nativemind.contact@gmail.com",
   phone: "+201558126147",
   whatsapp: "201558126147",          // digits only, no + or spaces
-  whatsappText: "Hi GOLDATA, I'd like to talk about a data project.",
+  whatsappText: "Hi RESONARA, I'd like to talk about a data project.",
   address: "",                        // shown in contact details when filled
   mapQ: "",                           // Google Maps search text; empty = map hidden
   incidentEmail: "",                  // security incident contact; empty = uses `email`
@@ -33,7 +33,7 @@ window.CFG = {
   },
 
   /* Back end. After deploying back/ on Vercel set e.g.
-     apiBase: "https://goldata-back.vercel.app/api"
+     apiBase: "https://resonara-back.vercel.app/api"
      → forms post to /contact, /quote, /pilot, /contributor, /subscriber.
      Empty = mailto fallback (newsletter + contributor forms then open email). */
   apiBase: "",
@@ -52,23 +52,10 @@ window.CFG = {
      datasets:     [{ id, title, modality: "text|audio|image|video", task, languages, volume, license, url }] */
   /* Metric row (Home, after "The difference"). Static text — no counters. Items marked pending:true are the owner's
      proposed figures: they show while showPendingStats is true (review build); set it to false to hide them until approved. */
-  stats: [
-    { value: "90,000+", labelKey: "stats.projects", label: "Projects completed" },
-    { value: "750+", labelKey: "stats.clients", label: "Clients", pending: true },
-    { value: "210+", labelKey: "stats.languages", label: "Languages served across projects", pending: true },
-  ],
-  showPendingStats: true,
+  stats: [],
+  showPendingStats: false,
   /* Testimonials supplied by the owner. */
-  testimonials: [
-    { quote: "GOLDATA helped us collect and label multilingual speech data across different accents while keeping the workflow organized and easy to audit.", name: "Isabella Grant", role: "Speech Data Program Manager · Conversational AI", stars: 5 },
-    { quote: "The annotation team understood the edge cases in our image and video datasets and delivered consistent labels across every batch.", name: "Marcus Ellis", role: "Computer Vision Product Lead · Retail Technology", stars: 5 },
-    { quote: "Their native-language evaluators gave us useful feedback on fluency, cultural fit, and safety before we launched our multilingual assistant.", name: "Nora Haddad", role: "AI Evaluation Manager · Customer Experience", stars: 5 },
-    { quote: "GOLDATA made the localization process much more reliable. Terminology, tone, and regional language differences were handled with care.", name: "Julian Moretti", role: "Localization Operations Director · SaaS", stars: 5 },
-    { quote: "The transcription workflow was accurate, speaker-aware, and structured in a format our research team could use immediately.", name: "Elena Brooks", role: "Research Operations Lead · Healthcare Technology", stars: 5 },
-    { quote: "From contributor recruitment to quality review, the project had clear acceptance criteria and transparent reporting at every stage.", name: "Theo Morgan", role: "Data Quality Manager · Automotive AI", stars: 5 },
-    { quote: "Their preference data and prompt evaluation support helped our team identify where the model was helpful, vague, or culturally inappropriate.", name: "Amira Collins", role: "Generative AI Product Manager · Enterprise Software", stars: 5 },
-    { quote: "The pilot gave us a practical way to validate our data requirements before scaling the full multilingual program.", name: "Daniel Rivera", role: "Machine Learning Program Director · Financial Services", stars: 5 },
-  ],
+  testimonials: null,
   rating: null,                       // keep hidden until a current, verifiable review source exists (never raise the 4.9)
   certs: null,
   team: null,
@@ -80,7 +67,7 @@ window.CFG = {
      (marked "internal preview"). The image is a badge row, not a certificate: fill issuer/certId/scope/expires/verifyUrl. */
   iso: {
     image: "images/legacy_iso_badge_trio.png", w: 2508, h: 355,
-    ownerApproved: true,   // owner chose to show the badges; set false to hide them until each standard is verified below
+    ownerApproved: false,   // owner chose to show the badges; set false to hide them until each standard is verified below
     standards: [
       { name: "ISO 18587:2017", issuer: "", certId: "", scope: "", expires: "", verifyUrl: "", verified: false },
       { name: "ISO 9001:2015",  issuer: "", certId: "", scope: "", expires: "", verifyUrl: "", verified: false },
@@ -200,7 +187,7 @@ window.CFG = {
      opts in on the consent banner. e.g. { src: "https://cloud.umami.is/script.js", attrs: { "data-website-id": "..." } } */
   analytics: null,
 
-  i18n: { default: "en", available: ["en", "ar", "fr", "es", "de"] },
+  i18n: { default: "en", available: ["en"] },
 
   /* Image formats you have uploaded for EVERY slot. ["avif","webp"] adds AVIF with WebP fallback. */
   imageFormats: ["webp"],
@@ -275,7 +262,7 @@ window.CFG = {
     "art-3": { asset: "case_voice_collection", ar: "16/9", w: 1920, h: 1280 },
     "art-4": { asset: "service_genai_safety", ar: "16/9", w: 1920, h: 1280 },
     "notfound": { ar: "1/1", w: 1200, h: 1200, alt: "" },
-    "og": { ar: "1200/630", w: 1200, h: 630, alt: "GOLDATA logo and tagline on a dark background" },
+    "og": { ar: "1200/630", w: 1200, h: 630, alt: "RESONARA logo and tagline on a dark background" },
   },
 
   showSlotLabels: false,              // dev only: dashed "image slot" tag on empty frames

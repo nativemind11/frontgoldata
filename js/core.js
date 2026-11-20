@@ -1,5 +1,5 @@
 /* =====================================================================
-   GOLDATA — CORE: shared helpers, i18n engine (t, plurals, Intl), image
+   RESONARA — CORE: shared helpers, i18n engine (t, plurals, Intl), image
    slots, API posting, reference IDs, live announcements. Exposed as
    window.GD so app.js, pages.js and features.js share one toolbox.
    ===================================================================== */

@@ -1,6 +1,6 @@
 /* =====================================================================
-   GOLDATA — ILLUSTRATION KIT (all drawn in code, no files)
-   • logo(): original GOLDATA mark — a "G" ring with a data node and a
+   RESONARA — ILLUSTRATION KIT (all drawn in code, no files)
+   • logo(): original RESONARA mark — a "G" ring with a data node and a
      satellite in the gap. Legible at 16px, scales to any size.
    • icon(): 18 line icons (24px grid). spot(): 8 spot illustrations.
      Every stroke uses pathLength="1" so CSS can draw it in (.draw → .is-drawn).
@@ -13,7 +13,7 @@
 
   /* ---------- logo ---------- */
   // Ring: 320° arc from the upper-right gap round to the right-middle, then the crossbar into the node.
-  const MARK = `<path class="lm-ring" ${PL} d="M47.3 19.1A20 20 0 1 0 52 32H38" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><circle class="lm-node" cx="33" cy="32" r="5" fill="var(--blue, #3D7BFF)"/><circle class="lm-sat" cx="51.2" cy="23.6" r="3.6" fill="var(--teal, #2EE6C5)"/>`;
+  const MARK = `<path class=\"lm-ring\" ${PL} d=\"M33 22A14 14 0 0 1 33 42M43 13A26 26 0 0 1 43 51\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"6.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"lm-node\" cx=\"20\" cy=\"32\" r=\"5.5\" fill=\"var(--blue, #3D7BFF)\"/><circle class=\"lm-sat\" cx=\"58\" cy=\"32\" r=\"3.6\" fill=\"var(--teal, #2EE6C5)\"/>`;
   function logo(o = {}) {
     const s = o.size || 28;
     return `<svg class="logo-mark ${o.cls || ""}" width="${s}" height="${s}" viewBox="0 0 64 64" aria-hidden="true" focusable="false">${o.bg ? '<rect width="64" height="64" rx="14" fill="#070B18"/>' : ""}${MARK}</svg>`;

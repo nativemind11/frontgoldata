@@ -1,8 +1,8 @@
-/* GOLDATA — English dictionary. SOURCE OF TRUTH for every interface string.
+/* RESONARA — English dictionary. SOURCE OF TRUTH for every interface string.
    Other languages fall back to these values key by key. Plural entries are objects
    keyed by Intl.PluralRules categories (zero, one, two, few, many, other). */
 (window.I18N = window.I18N || {}).en = {
-  "meta.title": "GOLDATA — Multilingual AI data services",
+  "meta.title": "RESONARA — Arabic voice and language data for AI teams",
   "skip": "Skip to content",
   "brand.home": "{brand} home",
   "a11y.loading": "Loading {brand}",
@@ -14,7 +14,7 @@
   "nav.home": "Home", "nav.services": "Services", "nav.allServices": "All services", "nav.languages": "Languages",
   "nav.cases": "Case Studies", "nav.resources": "Resources", "nav.company": "Company", "nav.about": "About",
   "nav.trust": "Trust Center", "nav.enterprise": "Enterprise", "nav.join": "Join as a Contributor", "nav.contact": "Contact",
-  "nav.quote": "Get a quote", "nav.search": "Search", "nav.menu.open": "Open menu", "nav.menu.close": "Close menu", "nav.lang": "Language",
+  "nav.quote": "Request a pilot", "nav.search": "Search", "nav.menu.open": "Open menu", "nav.menu.close": "Close menu", "nav.lang": "Language",
   "nav.primary": "Primary", "nav.mobile": "Mobile",
 
   "cta.talk": "Talk to Us", "cta.explore": "Explore Services", "cta.quote": "Request a quote", "cta.pilot": "Plan a pilot",
@@ -176,7 +176,7 @@
   "j.lead": "Work from home on real AI data projects in your native language. Clear guidelines, training and support.",
   "j.roles": "Roles", "j.form": "Apply", "j.role": "Role", "j.country": "Country of residence", "j.langs": "Native language(s)",
   "j.other": "Other languages", "j.exp": "Relevant experience", "j.avail": "Hours per week",
-  "j.consent": "I agree that GOLDATA may store this application to assess my fit for projects, as described in the Privacy notice.",
+  "j.consent": "I agree that RESONARA may store this application to assess my fit for projects, as described in the Privacy notice.",
   "j.send": "Send application", "j.ok": "Thank you — your application was received.", "j.note": "We never charge contributors a fee to apply or to work.",
 
   "tr.eyebrow": "Trust Center", "tr.t1": "Trust is", "tr.t2": "a practice.",
@@ -224,7 +224,7 @@
   "nf.eyebrow": "Error 404", "nf.t1": "Lost in", "nf.t2": "translation.", "nf.lead": "This page slipped through the portal. Let's get you somewhere useful.",
   "sticky.close": "Hide", "slot.label": "Image slot",
 
-  "svc.speech-voice.label": "Speech & Voice", "svc.speech-voice.headline": "Voices with context. Accents with nuance.",
+  "svc.speech-voice.label": "Speech & Voice", "svc.speech-voice.headline": "Wake words and commands, in real Arabic.",
   "svc.speech-voice.line": "Scripted and spontaneous speech, recorded and labeled by native speakers in the rooms, cars and streets your users actually live in.",
   "svc.data-collection.label": "Data Collection", "svc.data-collection.headline": "Fresh data, gathered with intent.",
   "svc.data-collection.line": "Text, audio, image and video captured to your specification by vetted contributors, with consent and metadata attached to every file.",
@@ -265,7 +265,7 @@
   "res.count": { "one": "{n} resource", "other": "{n} resources" },
   "group.0": "Create data", "group.1": "Label & adapt", "group.2": "Evaluate & align",
   /* ---- production upgrade: evidence states, service brief, brief form, languages ---- */
-  "hero.eyebrow": "Multilingual AI data operations",
+  "hero.eyebrow": "Wake word · Voice commands · Annotation",
   "hero.photo": "Multilingual AI data specialists at work",
   "home.trio.lead": "A language is not a checkbox. We staff each program around the locale, dialect, domain and user behaviour the model is expected to meet.",
   "home.tm.lead": "Verified client evidence will appear here after written approval. Until then, this block remains a content slot and is not presented as a customer endorsement.",
@@ -306,12 +306,12 @@
   "q.tools": "Existing tools or formats",
   "q.tools.ph": "e.g. your labelling tool, export schema, storage",
   "err.usecase": "Please describe the model or use case.",
-  "q.consent": "I agree that GOLDATA may use these details to reply to this request.",
+  "q.consent": "I agree that RESONARA may use these details to reply to this request.",
   "q.consent.short": "Consent to be contacted",
   "motion.pause": "Pause motion",
   "motion.play": "Resume motion",
   /* — update: hero body, metric row, certifications — */
-  "hero.body": "Human expertise in every language, turned into the data that trains better AI. We scope each program around your use case, target locales and acceptance criteria, then bring human review into the workflow from the start.",
+  "hero.body": "Native speakers across Arabic dialects record, transcribe and label the data behind voice assistants and speech models. Start with a small pilot.",
   "cta.startPilot": "Start with a pilot",
   "stats.projects": "Projects completed",
   "stats.clients": "Clients",

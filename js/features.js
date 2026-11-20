@@ -1,5 +1,5 @@
 /* =====================================================================
-   GOLDATA — FEATURES (behaviour for pages.js + chrome extras)
+   RESONARA — FEATURES (behaviour for pages.js + chrome extras)
    Command palette · consent banner + analytics hook · sticky contextual CTA
    · scroll rail · nav text-scramble · quote wizard · language explorer
    · join / newsletter forms · pilot planner · filters & search · count-up
@@ -306,7 +306,7 @@
       if (!GD.RX.email.test(email)) { inp.setAttribute("aria-invalid", "true"); st.textContent = t("err.email"); inp.focus(); return; }
       inp.setAttribute("aria-invalid", "false");
       if (f.elements.website.value) { f.reset(); st.textContent = t("nl.ok"); return; }
-      if (!GD.apiUrl("subscriber")) { GD.mailto("Newsletter subscription request", [`Please add ${email} to the GOLDATA newsletter (double opt-in).`]); st.textContent = t("nl.mail"); return; }
+      if (!GD.apiUrl("subscriber")) { GD.mailto("Newsletter subscription request", [`Please add ${email} to the RESONARA newsletter (double opt-in).`]); st.textContent = t("nl.mail"); return; }
       st.textContent = t("st.sending");
       try { await GD.post("subscriber", { email, website: "" }); f.reset(); st.textContent = t("nl.ok"); } catch (er) { st.textContent = t("st.err", { msg: er.message, email: CFG.email }); }
     });
@@ -385,16 +385,16 @@
     const p = (s, size = 10.5) => { doc.setFont("helvetica", "normal"); doc.setFontSize(size); doc.splitTextToSize(String(s), W - 2 * M).forEach((l) => { ensure(15); doc.text(l, M, y); y += 15; }); y += 6; };
     const li = (s, box) => { doc.setFont("helvetica", "normal"); doc.setFontSize(10.5); const ls = doc.splitTextToSize(String(s), W - 2 * M - 20); ensure(ls.length * 15 + 4); if (box) doc.rect(M, y - 9, 10, 10, "S"); else doc.circle(M + 4, y - 4, 1.8, "F"); ls.forEach((l) => { doc.text(l, M + 20, y); y += 15; }); y += 3; };
     const certs = Array.isArray(CFG.certs) && CFG.certs.length ? CFG.certs : null, subs = CFG.subprocessors || [];
-    let name = "goldata.pdf";
+    let name = "resonara.pdf";
     if (kind === "security") {
-      head("Security overview"); name = "goldata-security-overview.pdf";
-      h1("Security overview"); p("How GOLDATA protects client data, contributors and models. This overview describes practices; it does not claim certifications unless listed below.");
+      head("Security overview"); name = "resonara-security-overview.pdf";
+      h1("Security overview"); p("How RESONARA protects client data, contributors and models. This overview describes practices; it does not claim certifications unless listed below.");
       K.TRUST.forEach(([ti, d]) => { h2(ti); p(d); });
       h2("Certifications & audits"); certs ? certs.forEach((c) => li(`${c.name}${c.note ? ` — ${c.note}` : ""}`)) : p("Documentation available on request.");
       h2("Subprocessors"); subs.length ? subs.forEach((x) => li(`${x.name} — ${x.purpose} (${x.location})`)) : p("A current list is available on request.");
       h2("Security incident contact"); p(live(CFG.incidentEmail) ? CFG.incidentEmail : CFG.email);
     } else if (kind === "capability") {
-      head("Capability statement"); name = "goldata-capability-statement.pdf";
+      head("Capability statement"); name = "resonara-capability-statement.pdf";
       h1(`${CFG.brand} — Capability statement`); p(CFG.tagline, 12); p(CFG.story);
       h2("Core services"); S.forEach((s) => li(`${s.label}: ${s.line}`));
       h2("How we work"); K.PROCESS.forEach(([ti, d]) => li(`${ti} — ${d}`));
@@ -405,8 +405,8 @@
       h2("Company & invoicing"); const C = CFG.contract || {}; Object.keys(C).forEach((k) => li(`${GD.t(`rfp.c.${k}`)}: ${live(C[k]) ? C[k] : "Provided during onboarding"}`));
       h2("Contact"); li(`Email: ${CFG.email}`); li(`Phone: ${CFG.phone}`); if (live(CFG.address)) li(`Address: ${CFG.address}`);
     } else if (kind === "checklist") {
-      const c = K.CHECKLISTS.find((x) => x.slug === slug) || K.CHECKLISTS[0]; head("Checklist"); name = `goldata-${c.slug}.pdf`;
-      h1(c.title); p("Tick each item before you move on. Original GOLDATA resource — free to use and share."); y += 6; c.items.forEach((i) => li(i, true));
+      const c = K.CHECKLISTS.find((x) => x.slug === slug) || K.CHECKLISTS[0]; head("Checklist"); name = `resonara-${c.slug}.pdf`;
+      h1(c.title); p("Tick each item before you move on. Original RESONARA resource — free to use and share."); y += 6; c.items.forEach((i) => li(i, true));
     }
     foot(); doc.save(name);
     if (lab) lab.textContent = orig; btnEl && btnEl.removeAttribute("aria-busy");
