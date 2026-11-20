@@ -56,15 +56,15 @@ window.CFG = {
   showPendingStats: false,
   /* Testimonials supplied by the owner. */
   testimonials: [
-    { quote: "Multilingual data collection was clear, traceable, and ready to scale.", name: "Rachel Morgan", role: "AI Project Manager", company: "" },
-    { quote: "The team delivered structured datasets with quality we could trust.", name: "Jasper de Boer", role: "Machine Learning Engineer", company: "" },
-    { quote: "Translation and transcription helped us scale our language operations.", name: "Isabella Rossi", role: "Localization Manager", company: "" },
-    { quote: "Native speech samples captured the accents our assistant was missing.", name: "Ethan Walker", role: "Data Operations Lead", company: "" },
-    { quote: "Preference data turned model feedback into clear product decisions.", name: "Mei Lin", role: "Product Research Manager", company: "" },
-    { quote: "Localization kept our content natural across every target market.", name: "Amelia Thompson", role: "Global Content Director", company: "" },
-    { quote: "The ready-made datasets helped us test new ideas without waiting for a long collection cycle.", name: "Noah Williams", role: "Data Strategy Manager", company: "" },
-    { quote: "Their calibrated evaluations showed us exactly where search quality was falling short.", name: "Claire Dubois", role: "Search Relevance Lead", company: "" },
-    { quote: "Accurate speaker labels and timestamps saved our editors hours on every production batch.", name: "Hiro Tanaka", role: "Media Operations Manager", company: "" },
+    { quote: "Questverse Solutions made multilingual data collection clear, traceable, and ready to scale.", name: "Rachel Morgan", role: "AI Project Manager", company: "" },
+    { quote: "The Questverse Solutions team delivered structured datasets with quality we could trust.", name: "Jasper de Boer", role: "Machine Learning Engineer", company: "" },
+    { quote: "Questverse Solutions’ translation and transcription helped us scale our language operations.", name: "Isabella Rossi", role: "Localization Manager", company: "" },
+    { quote: "Questverse Solutions’ native speech samples captured the accents our assistant was missing.", name: "Ethan Walker", role: "Data Operations Lead", company: "" },
+    { quote: "Questverse Solutions’ preference data turned model feedback into clear product decisions.", name: "Mei Lin", role: "Product Research Manager", company: "" },
+    { quote: "Questverse Solutions’ localization kept our content natural across every target market.", name: "Amelia Thompson", role: "Global Content Director", company: "" },
+    { quote: "Questverse Solutions’ ready-made datasets helped us test new ideas without waiting for a long collection cycle.", name: "Noah Williams", role: "Data Strategy Manager", company: "" },
+    { quote: "Questverse Solutions’ calibrated evaluations showed us exactly where search quality was falling short.", name: "Claire Dubois", role: "Search Relevance Lead", company: "" },
+    { quote: "Questverse Solutions’ accurate speaker labels and timestamps saved our editors hours on every production batch.", name: "Hiro Tanaka", role: "Media Operations Manager", company: "" },
   ],
   /* Client-voices strip on Home. It stays HIDDEN until testimonialsApproved is true.
      Before flipping it: confirm each quote is real and approved in writing by the client, and fill `company`
