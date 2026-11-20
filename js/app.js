@@ -1111,7 +1111,7 @@
     const ok = !!(World.init && World.init($("#world")));
     if (!ok) html.classList.add("no-webgl"); else { World.setReduced(reduced); World.setDir(GD.isRTL() ? -1 : 1); World.onQuality = () => html.classList.add("q-low"); }
     bump(45);
-    chrome(); cursor();
+    chrome();
     window.addEventListener("hashchange", go);
     go().then(() => bump(80));
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleRebuild);
