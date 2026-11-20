@@ -1,4 +1,4 @@
-# RESONARA — image shot list (44 slots)
+# GOLDATA — image shot list (44 slots)
 
 Drop each final image into `front/images/` named exactly as in **File**. Formats: the site requests `webp` (set `CFG.imageFormats`; e.g. `["avif","webp"]` adds AVIF with WebP fallback — then upload BOTH files per slot). Missing files fall back to the procedural 3D scene / blur placeholder, so add them one at a time.
 
@@ -532,14 +532,14 @@ Alt text and aspect ratio below are read from `CFG.images` in `js/config.js` —
 
 ### `og` — Social sharing card (images/og.png ships as a brand-only placeholder)
 
-- **Subject:** The RESONARA mark and wordmark on the left, a glowing wireframe globe on the right, generous negative space
+- **Subject:** The GOLDATA mark and wordmark on the left, a glowing wireframe globe on the right, generous negative space
 - **Lens:** flat graphic / 50 mm render
 - **Lighting:** soft blue glow behind the globe
 - **Palette:** ink background, mist type, teal underline
 - **Mood:** premium, recognisable
 - **Aspect ratio / size:** 1200:630 · 1200×630 px
 - **File:** `images/og.png` (Open Graph needs PNG or JPG; keep 1200×630)
-- **Alt text:** RESONARA logo and tagline on a dark background
+- **Alt text:** GOLDATA logo and tagline on a dark background
 - **Negative prompt:** text, letters, watermark, logo, brand marks, licence plates, readable screens, stock-photo clichés (handshakes, pointing at holograms), identifiable faces without a model release, extra fingers, oversaturated neon, purple cast, no extra text beyond brand + tagline
 
 ## Shared style line — append to EVERY prompt

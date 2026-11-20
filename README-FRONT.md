@@ -1,4 +1,4 @@
-# RESONARA — front end (static site)
+# GOLDATA — front end (static site)
 
 A cinematic, scroll-driven 3D website. Plain HTML/CSS/JS — **no build step**.
 Works on any static host, including a GitHub Pages project URL such as
@@ -53,10 +53,10 @@ python3 -m http.server 5500     # open http://localhost:5500
 
 ## Deploy on GitHub Pages (free)
 
-1. Create a **public** repository, e.g. `resonara-site`.
+1. Create a **public** repository, e.g. `goldata-site`.
 2. Upload the **contents** of `front/` to the repo root (`index.html` at the top level).
 3. **Settings → Pages** → *Deploy from a branch* → `main` / `(root)` → Save.
-4. Live in 1–2 minutes at `https://USER.github.io/resonara-site/`.
+4. Live in 1–2 minutes at `https://USER.github.io/goldata-site/`.
 5. Set `CFG.siteUrl` to that URL, run `node tools/prerender.js`, commit the generated folders (see **SEO**).
 
 ## Filling CFG (`js/config.js`) — every field
@@ -70,7 +70,7 @@ python3 -m http.server 5500     # open http://localhost:5500
 | `address`, `mapQ` | Address text; Google Maps search text | Hidden |
 | `incidentEmail` | Security-incident inbox (Trust Center) | Uses `email` |
 | `socials` | Full profile URLs | Any `"#"` is hidden; all `"#"` hides the row |
-| `apiBase` | Your Vercel base, e.g. `https://resonara-back.vercel.app/api` | Forms fall back to opening the visitor's email app |
+| `apiBase` | Your Vercel base, e.g. `https://goldata-back.vercel.app/api` | Forms fall back to opening the visitor's email app |
 | `demo` | `true` shows SAMPLE blocks under a yellow **DEMO** ribbon | `false` hides every block with no real data |
 | `stats` | `[{ value: "40+", label: "…" }]` — numbers count up. Add `key: "locales"` to the entry that should show on Transcription | Hidden (demo: ribboned sample) |
 | `testimonials`, `rating`, `certs`, `team`, `cases` | Real, permitted proof only (shapes in config comments) | Hidden / ribboned samples. Trust Center shows "Documentation available on request" when `certs` is empty |
