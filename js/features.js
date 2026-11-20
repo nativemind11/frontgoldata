@@ -373,7 +373,7 @@
     let y = 0;
     const head = (title) => {
       doc.setFillColor(7, 11, 24); doc.rect(0, 0, W, 96, "F");
-      doc.setDrawColor(234, 240, 255); doc.setLineWidth(3); doc.circle(M + 12, 48, 12, "S"); doc.setFillColor(61, 123, 255); doc.circle(M + 12, 48, 4, "F"); doc.setFillColor(46, 230, 197); doc.circle(M + 22, 40, 3, "F");
+      doc.setDrawColor(234, 240, 255); doc.setLineWidth(3); doc.circle(M + 12, 48, 12, "S"); doc.setFillColor(61, 123, 255); doc.circle(M + 12, 48, 4, "F"); doc.setFillColor(84,200,255); doc.circle(M + 22, 40, 3, "F");
       doc.setTextColor(234, 240, 255); doc.setFont("helvetica", "bold"); doc.setFontSize(18); doc.text(CFG.brand, M + 34, 54);
       doc.setFont("helvetica", "normal"); doc.setFontSize(10); doc.text(title, W - M, 54, { align: "right" });
       doc.setTextColor(20, 24, 40); y = 136;

@@ -13,7 +13,7 @@
 
   /* ---------- logo ---------- */
   // Questverse mark: a "Q" ring (quest loop) holding three voice bars, a tail ending in a node, and a quest-star.
-  const MARK = `<path class="lm-ring" ${PL} d="M40 47.32A20 20 0 1 1 47.32 40" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path class="lm-bar lm-b1" d="M23.5 26.5v7" fill="none" stroke="var(--blue, #3D7BFF)" stroke-width="4" stroke-linecap="round"/><path class="lm-bar lm-b2" d="M30 21v18" fill="none" stroke="var(--teal, #2EE6C5)" stroke-width="4" stroke-linecap="round"/><path class="lm-bar lm-b3" d="M36.5 25v10" fill="none" stroke="var(--blue, #3D7BFF)" stroke-width="4" stroke-linecap="round"/><path class="lm-tail" ${PL} d="M43 43L51 51" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle class="lm-node" cx="55" cy="55" r="4.6" fill="var(--teal, #2EE6C5)"/><circle class="lm-sat" cx="47" cy="13.5" r="3" fill="var(--blue, #3D7BFF)"/>`;
+  const MARK = `<path class="lm-ring" ${PL} d="M40 47.32A20 20 0 1 1 47.32 40" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path class="lm-bar lm-b1" d="M23.5 26.5v7" fill="none" stroke="var(--blue, #3D7BFF)" stroke-width="4" stroke-linecap="round"/><path class="lm-bar lm-b2" d="M30 21v18" fill="none" stroke="var(--teal, #54c8ff)" stroke-width="4" stroke-linecap="round"/><path class="lm-bar lm-b3" d="M36.5 25v10" fill="none" stroke="var(--blue, #3D7BFF)" stroke-width="4" stroke-linecap="round"/><path class="lm-tail" ${PL} d="M43 43L51 51" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle class="lm-node" cx="55" cy="55" r="4.6" fill="var(--teal, #54c8ff)"/><circle class="lm-sat" cx="47" cy="13.5" r="3" fill="var(--blue, #3D7BFF)"/>`;
   function logo(o = {}) {
     const s = o.size || 28;
     return `<svg class="logo-mark ${o.cls || ""}" width="${s}" height="${s}" viewBox="0 0 64 64" aria-hidden="true" focusable="false">${o.bg ? '<rect width="64" height="64" rx="14" fill="#070B18"/>' : ""}${MARK}</svg>`;
@@ -84,9 +84,9 @@
         <g fill="#3d7bff"><rect x="62" y="182" width="86" height="30" rx="9"/><rect x="78" y="166" width="52" height="22" rx="7"/></g>
         <g fill="#9fc1ff"><rect x="236" y="156" width="56" height="20" rx="6"/><rect x="246" y="146" width="34" height="14" rx="5"/></g>
         <g fill="#eaf0ff"><circle cx="338" cy="160" r="6"/><rect x="331" y="168" width="14" height="34" rx="5"/></g>
-        <g class="boxes" fill="none" stroke-width="2"><rect ${PL} class="bx" style="--d:0s" x="56" y="160" width="98" height="58" stroke="#2ee6c5"/><rect ${PL} class="bx" style="--d:.6s" x="230" y="140" width="68" height="40" stroke="#3d7bff"/><rect ${PL} class="bx" style="--d:1.2s" x="324" y="148" width="28" height="58" stroke="#eaf0ff"/></g>
-        <g class="tags" font-size="10" font-family="inherit" font-weight="600"><g class="tg" style="--d:.5s"><rect x="56" y="146" width="44" height="14" fill="#2ee6c5"/><text x="60" y="156" fill="#070b18">vehicle</text></g><g class="tg" style="--d:1.1s"><rect x="230" y="126" width="44" height="14" fill="#3d7bff"/><text x="234" y="136" fill="#fff">vehicle</text></g><g class="tg" style="--d:1.7s"><rect x="324" y="134" width="40" height="14" fill="#eaf0ff"/><text x="328" y="144" fill="#070b18">person</text></g></g>
-        <rect class="scan" x="0" y="0" width="3" height="250" fill="#2ee6c5" opacity=".8"/></svg></div>${cap("annotate")}</figure>`;
+        <g class="boxes" fill="none" stroke-width="2"><rect ${PL} class="bx" style="--d:0s" x="56" y="160" width="98" height="58" stroke="#54c8ff"/><rect ${PL} class="bx" style="--d:.6s" x="230" y="140" width="68" height="40" stroke="#3d7bff"/><rect ${PL} class="bx" style="--d:1.2s" x="324" y="148" width="28" height="58" stroke="#eaf0ff"/></g>
+        <g class="tags" font-size="10" font-family="inherit" font-weight="600"><g class="tg" style="--d:.5s"><rect x="56" y="146" width="44" height="14" fill="#54c8ff"/><text x="60" y="156" fill="#070b18">vehicle</text></g><g class="tg" style="--d:1.1s"><rect x="230" y="126" width="44" height="14" fill="#3d7bff"/><text x="234" y="136" fill="#fff">vehicle</text></g><g class="tg" style="--d:1.7s"><rect x="324" y="134" width="40" height="14" fill="#eaf0ff"/><text x="328" y="144" fill="#070b18">person</text></g></g>
+        <rect class="scan" x="0" y="0" width="3" height="250" fill="#54c8ff" opacity=".8"/></svg></div>${cap("annotate")}</figure>`;
     if (name === "typewriter") return `<figure class="demo demo--type" data-demo="typewriter"><div class="demo__stage"><ol class="tw" aria-hidden="true">${TRANSCRIPT.map(([ts, sp]) => `<li><span class="tw__ts">${ts}</span><span class="tw__sp tw__sp--${sp.toLowerCase()}">${sp}</span><span class="tw__tx"></span></li>`).join("")}</ol><p class="sr-only">${esc(TRANSCRIPT.map((l) => `${l[1]} ${l[0]}: ${l[2]}`).join(" "))}</p></div>${cap("typewriter")}</figure>`;
     if (name === "funnel") {
       const st = [1, 2, 3, 4, 5].map((i) => t(`demo.funnel.s${i}`));
@@ -106,7 +106,7 @@
     waveform(el) {
       const c = el.querySelector("canvas"), g = c.getContext("2d"); let raf = 0, on = false, px = 0.5, py = 0.5, energy = 0.2, lastY = window.scrollY, tt = 0;
       const css = getComputedStyle(document.documentElement);
-      const blue = css.getPropertyValue("--blue").trim() || "#3d7bff", teal = css.getPropertyValue("--teal").trim() || "#2ee6c5";
+      const blue = css.getPropertyValue("--blue").trim() || "#3d7bff", teal = css.getPropertyValue("--teal").trim() || "#54c8ff";
       const move = (e) => { const r = c.getBoundingClientRect(); px = (e.clientX - r.left) / r.width; py = (e.clientY - r.top) / r.height; energy = Math.min(1, energy + 0.08); };
       const scroll = () => { energy = Math.min(1, energy + Math.abs(window.scrollY - lastY) / 600); lastY = window.scrollY; };
       const draw = () => {

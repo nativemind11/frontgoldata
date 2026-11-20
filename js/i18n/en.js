@@ -34,7 +34,7 @@
   "intro.body": "Trained native speakers and clear workflows, so your model learns from accurate data.",
 
   "home.cap.eyebrow": "Capabilities", "home.cap.t1": "Powering better AI", "home.cap.t2": "with better data.",
-  "home.cap.lead": "Collection, annotation, evaluation, speech and more.",
+  "home.cap.lead": "Collection, annotation, evaluation, localization and more.",
   "home.diff.eyebrow": "The difference", "home.diff.t1": "Human data", "home.diff.t2": "that powers AI.",
   "home.diff.lead": "The right people, and work that holds up.",
   "home.trio.eyebrow": "Global Data Expertise", "home.trio.t1": "Three promises,", "home.trio.t2": "kept on every batch.",
@@ -265,7 +265,7 @@
   "res.count": { "one": "{n} resource", "other": "{n} resources" },
   "group.0": "Create data", "group.1": "Label & adapt", "group.2": "Evaluate & align",
   /* ---- production upgrade: evidence states, service brief, brief form, languages ---- */
-  "hero.eyebrow": "Multilingual AI data operations",
+  "hero.eyebrow": "Multilingual data solutions for smarter, more dependable AI",
   "hero.photo": "Multilingual AI data specialists at work",
   "home.trio.lead": "A language is not a checkbox. We staff each program around the locale, dialect, domain and user behaviour the model is expected to meet.",
   "home.tm.lead": "Verified client evidence will appear here after written approval. Until then, this block remains a content slot and is not presented as a customer endorsement.",
@@ -311,8 +311,8 @@
   "motion.pause": "Pause motion",
   "motion.play": "Resume motion",
   /* — update: hero body, metric row, certifications — */
-  "hero.body": "Native-speaking experts turn every language into the data that trains better AI.",
-  "cta.startPilot": "Start with a pilot",
+  "hero.body": "Skilled people across text, audio, image and video, in every language, building the data that trains better AI.",
+  "cta.startPilot": "Start with a pilot", "cta.contactUs": "Contact us",
   "stats.projects": "Projects completed",
   "stats.clients": "Clients",
   "stats.languages": "Languages served across projects",

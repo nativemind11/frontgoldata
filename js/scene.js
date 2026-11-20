@@ -12,7 +12,7 @@
   window.World = World;
   if (!T) return;
 
-  const C = { ink: 0x070b18, navy: 0x0c1430, mist: 0xeaf0ff, blue: 0x3d7bff, teal: 0x2ee6c5, sky: 0x9fc1ff };
+  const C = { ink: 0x070b18, navy: 0x0c1430, mist: 0xeaf0ff, blue: 0x3d7bff, teal: 0x54c8ff, sky: 0x9fc1ff };
   const ADD = T.AdditiveBlending;
   const TAU = Math.PI * 2;
 
@@ -369,7 +369,7 @@
       g.fillStyle = "#0a1230"; g.beginPath(); g.moveTo(0, h); g.lineTo(420, 360); g.lineTo(604, 360); g.lineTo(w, h); g.fill();
       g.strokeStyle = "rgba(234,240,255,.35)"; g.lineWidth = 4; g.setLineDash([28, 26]); g.beginPath(); g.moveTo(512, 362); g.lineTo(512, h); g.stroke(); g.setLineDash([]);
       const car = (x, y, s2, col) => { g.fillStyle = col; roundRect(g, x, y, 170 * s2, 62 * s2, 18 * s2); g.fill(); roundRect(g, x + 32 * s2, y - 34 * s2, 100 * s2, 44 * s2, 14 * s2); g.fill(); g.fillStyle = "#05070f"; [x + 36 * s2, x + 134 * s2].forEach((cx) => { g.beginPath(); g.arc(cx, y + 62 * s2, 18 * s2, 0, TAU); g.fill(); }); };
-      car(170, 470, 1.25, "#3d7bff"); car(640, 410, 0.9, "#9fc1ff"); car(470, 380, 0.55, "#2ee6c5");
+      car(170, 470, 1.25, "#3d7bff"); car(640, 410, 0.9, "#9fc1ff"); car(470, 380, 0.55, "#54c8ff");
       const person = (x, y, s2) => { g.fillStyle = "#eaf0ff"; g.beginPath(); g.arc(x, y, 14 * s2, 0, TAU); g.fill(); roundRect(g, x - 16 * s2, y + 18 * s2, 32 * s2, 76 * s2, 12 * s2); g.fill(); };
       person(880, 420, 1.15); person(930, 436, 1);
     }));
@@ -414,7 +414,7 @@
       for (let r = 0; r < 5; r++) {
         const y = 140 + r * 52, len = 70 + ((seed * 37 + r * 53) % 150);
         g.fillStyle = "rgba(234,240,255,.14)"; roundRect(g, 32, y, w - 64, 14, 7); g.fill();
-        g.fillStyle = r % 2 ? "#2ee6c5" : "#3d7bff"; roundRect(g, 32, y, len, 14, 7); g.fill();
+        g.fillStyle = r % 2 ? "#54c8ff" : "#3d7bff"; roundRect(g, 32, y, len, 14, 7); g.fill();
         g.fillStyle = "rgba(234,240,255,.35)"; roundRect(g, 32, y - 18, 60 + ((seed + r) * 17) % 60, 8, 4); g.fill();
       }
     });
@@ -528,7 +528,7 @@
     return canvasTex(256, 160, (g) => {
       g.fillStyle = "rgba(14,24,58,.9)"; roundRect(g, 8, 8, 240, 112, 26); g.fill();
       g.beginPath(); g.moveTo(52, 118); g.lineTo(40, 150); g.lineTo(84, 118); g.fill();
-      g.strokeStyle = "rgba(46,230,197,.7)"; g.lineWidth = 3; roundRect(g, 8, 8, 240, 112, 26); g.stroke();
+      g.strokeStyle = "rgba(84,200,255,.7)"; g.lineWidth = 3; roundRect(g, 8, 8, 240, 112, 26); g.stroke();
       [[30, 36, 150 + (seed * 23) % 60], [30, 62, 120 + (seed * 41) % 70], [30, 88, 70 + (seed * 13) % 60]].forEach(([x, y, w], i) => { g.fillStyle = i ? "rgba(234,240,255,.45)" : "rgba(234,240,255,.85)"; roundRect(g, x, y, w, 12, 6); g.fill(); });
     });
   }
@@ -670,7 +670,7 @@
   /* 9 — TRANSCRIPT: a waveform is scanned and becomes lines of timed text */
   function lineTex(seed) {
     return canvasTex(512, 64, (g) => {
-      g.fillStyle = "rgba(46,230,197,.95)"; roundRect(g, 4, 18, 64, 28, 8); g.fill();
+      g.fillStyle = "rgba(84,200,255,.95)"; roundRect(g, 4, 18, 64, 28, 8); g.fill();
       let x = 84; for (let k = 0; k < 6; k++) { const w = 30 + ((seed * 31 + k * 47) % 70); g.fillStyle = k % 3 ? "rgba(234,240,255,.55)" : "rgba(234,240,255,.9)"; roundRect(g, x, 22, w, 20, 10); g.fill(); x += w + 12; if (x > 480) break; }
     });
   }

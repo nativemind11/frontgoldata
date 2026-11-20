@@ -118,7 +118,7 @@
             <div class="hero__meta">
               <div class="hero__inner">
                 <p class="lead">${(() => { const b = t("hero.body"), i = b.indexOf(". "); return i > 0 ? `${esc(b.slice(0, i + 1))}<span class="lead__more"> ${esc(b.slice(i + 2))}</span>` : esc(b); })()}</p>
-                <div class="cta-row">${btn(t("cta.startPilot"), "#/quote?type=pilot")}${btn(t("cta.explore"), "#/services", "ghost")}</div>
+                <div class="cta-row">${btn(t("cta.contactUs"), "#/contact")}${btn(t("cta.explore"), "#/services", "ghost")}</div>
               </div>
               <span class="hero__scroll"><i></i>${esc(t("hero.scroll"))}</span>
             </div>
@@ -322,7 +322,7 @@
     const locales = Array.isArray(CFG.stats) ? CFG.stats.find((x) => x.key === "locales") : null;
     return {
       title: `${label(s)} — ${CFG.brand}`, desc: sv(s, "line"), print: true,
-      sticky: { label: t("cta.pilot"), href: `#/quote?type=pilot&service=${s.slug}` },
+      sticky: { label: t("cta.contactUs"), href: `#/contact?service=${s.slug}` },
       jsonld: { "@context": "https://schema.org", "@type": "Service", name: s.label, description: s.line, serviceType: s.label, provider: { "@type": "Organization", name: CFG.brand }, areaServed: "Worldwide" },
       html: `
       <section class="page-hero" ${world(s.scene, "ink", "-2.7,0,9", "-2.7,0,0")}>
@@ -333,7 +333,7 @@
             <h1 class="display-2" data-split style="margin-block-start:1.25rem">${lines([sv(s, "headline")])}</h1>
             <p class="lead" data-reveal>${esc(sv(s, "line"))}</p>
             ${locales ? `<p class="badge-line" data-reveal>${esc(t("sd.locales", { v: locales.value }))}</p>` : ""}
-            <div class="cta-row" data-reveal style="margin-block-start:2rem">${btn(t("cta.quote"), `#/quote?service=${s.slug}`)}${btn(t("cta.pilot"), `#/quote?type=pilot&service=${s.slug}`, "ghost")}${waBtn()}</div>
+            <div class="cta-row" data-reveal style="margin-block-start:2rem">${btn(t("cta.contactUs"), `#/contact?service=${s.slug}`)}${waBtn()}</div>
           </div>
           <div class="page-hero__media" style="grid-column:7 / span 6">${slot(s.slot, "", undefined, t("ev.representative"))}</div>
         </div>
@@ -409,7 +409,7 @@
             <article class="brief__card" data-reveal><h3 class="h3">${esc(t("sb.gates"))}</h3><ul class="ticks"${en}>${b.gates.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>
             <article class="brief__card" data-reveal><h3 class="h3">${esc(t("sb.limits"))}</h3><ul class="ticks"${en}>${b.limits.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></article>
           </div>
-          <div class="cta-row" data-reveal style="margin-block-start:2.5rem">${btn(t("sb.cta", { x: label(s) }), `#/quote?service=${s.slug}`)}${btn(t("cta.pilot"), `#/quote?type=pilot&service=${s.slug}`, "ghost")}</div>
+          <div class="cta-row" data-reveal style="margin-block-start:2.5rem">${btn(t("cta.contactUs"), `#/contact?service=${s.slug}`)}</div>
         </div>
       </section>`;
   }
@@ -568,7 +568,7 @@
     [/^\/services\/([\w-]+)$/, (m) => serviceDetail(m[1]), "services"],
     [/^\/case-studies$/, () => casesPage(), "case-studies"],
     [/^\/case-studies\/([\w-]+)$/, (m) => caseDetail(m[1]), "case-studies"],
-    [/^\/contact$/, () => contact(), "contact"],
+    [/^\/contact$/, (m, q) => contact(q), "contact"],
     [/^\/quote$/, (m, q) => { if (q.get("detailed") || q.get("type") === "pilot") { const w = GD.routes.find((r) => String(r[0]) === String(/^\/quote$/) ); return w ? w[1](m, q) : contact(q); } return contact(q); }, "quote"],
   ];
   function parseHash() {

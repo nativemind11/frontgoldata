@@ -544,4 +544,4 @@ Alt text and aspect ratio below are read from `CFG.images` in `js/config.js` —
 
 ## Shared style line — append to EVERY prompt
 
-> cinematic editorial photography, deep ink-navy shadows (#070B18, #0C1430), cool mist highlights (#EAF0FF), accents of signal blue (#3D7BFF) and aurora teal (#2EE6C5) from practical light sources only, soft volumetric haze, gentle film grain, calm and premium, shallow depth of field, no text, no logos, no watermarks
+> cinematic editorial photography, deep ink-navy shadows (#070B18, #0C1430), cool mist highlights (#EAF0FF), accents of signal blue (#3D7BFF) and aurora teal (#54c8ff) from practical light sources only, soft volumetric haze, gentle film grain, calm and premium, shallow depth of field, no text, no logos, no watermarks
