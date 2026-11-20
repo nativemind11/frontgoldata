@@ -132,6 +132,7 @@
   "ct.eyebrow": "Contact", "ct.t1": "Let's Talk.", "ct.sub": "Let's Build Better Data Together",
   "ct.lead": "Send us a short message. We reply within 24 hours.",
   "ct.email": "Email", "ct.phone": "Phone", "ct.address": "Address", "ct.quoteHint": "Prefer a guided form?",
+  "ct.global": "Supporting multilingual AI teams worldwide.", "tm.eyebrow": "Client voices", "tm.title": "What our clients say", "tm.prev": "Previous testimonials", "tm.next": "Next testimonials", "tm.region": "Client testimonials", "tm.review": "Internal preview — testimonials not yet approved. Not shown publicly.",
 
   "f.name": "Your name", "f.tabs": "Choose a form", "f.tab.quick": "Quick message", "f.tab.detail": "Detailed brief (5 steps)", "f.more": "Add project details (optional)", "st.thanksT": "Thank you!", "st.thanksB": "We've received your message and will reply within 24 hours.", "f.first": "First name", "f.last": "Last name", "f.email": "Work email", "f.mobile": "Mobile Number", "f.optional": "(optional)", "f.company": "Company",
   "f.service": "Service", "f.service.any": "Not sure yet", "f.languages": "Languages", "f.languages.ph": "e.g. Arabic (Egyptian), French (Canada)",

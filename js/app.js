@@ -25,6 +25,9 @@
     search: svg('<circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/>', { s: 18 }),
     lang: svg('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3Z"/>', { s: 18 }),
     close: svg('<path d="M6 6l12 12M18 6 6 18"/>', { s: 18 }),
+    phone: svg('<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/>', { s: 18 }),
+    mail: svg('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>', { s: 18 }),
+    pin: svg('<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 1 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.4"/>', { s: 18 }),
     wa: svg('<path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3 1 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.3Z"/>', { fill: true, s: 28 }),
     facebook: svg('<path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8.5c0-.3.2-.5.5-.5Z"/>', { fill: true, s: 18 }),
     x: svg('<path d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2L5 21H1.8l7.5-8.6L1.4 3H8l4.6 5.7L17.5 3Zm-1.1 16h1.8L7.7 4.9H5.8L16.4 19Z"/>', { fill: true, s: 18 }),
@@ -98,6 +101,30 @@
           </div>
           <div class="demos__tabs" role="tablist" aria-label="${esc(t("demo.tabs"))}" data-reveal>${ds.map((d, i) => `<button role="tab" id="dt-${d}" aria-controls="dp-${d}" aria-selected="${i === 0}" tabindex="${i ? -1 : 0}">${esc(t(`demo.${d}`))}</button>`).join("")}</div>
           <div class="demos__panels" data-reveal>${ds.map((d, i) => `<div role="tabpanel" id="dp-${d}" aria-labelledby="dt-${d}" ${i ? "hidden" : ""} data-cursor="explore">${ILLO.demo(d)}</div>`).join("")}</div>
+        </div>
+      </section>`;
+  }
+
+  /* Client-voices strip (Home). Compact, horizontally scrolling. NO-FAKE-PROOF: shown only when CFG.testimonials has entries AND
+     CFG.testimonialsApproved === true (or ?review=1 for an internal preview with a visible tag). */
+  function testimonialStrip() {
+    const items = (Array.isArray(CFG.testimonials) ? CFG.testimonials : []).filter((x) => x && x.quote && x.name);
+    if (!items.length) return "";
+    const approved = CFG.testimonialsApproved === true;
+    if (!approved && !GD.REVIEW) return "";
+    const tag = approved ? "" : `<p class="iso__review" lang="en" dir="ltr">${esc(t("tm.review"))}</p>`;
+    const stars = (n) => (Number.isInteger(n) && n >= 1 && n <= 5 ? `<span class="tm__stars" role="img" aria-label="${n}/5">${"★".repeat(n)}</span>` : "");
+    return `
+      <section class="section tm" ${world("ambient", "ink", "0,0,9")} aria-labelledby="tm-title">
+        <div class="container">
+          <div class="tm__head" data-reveal>
+            <div><p class="eyebrow">${esc(t("tm.eyebrow"))}</p><h2 id="tm-title" class="tm__title">${esc(t("tm.title"))}</h2></div>
+            <div class="tm__ctrl"><button class="icon-btn" type="button" data-tm-prev aria-label="${esc(t("tm.prev"))}">${ICON.back}</button><button class="icon-btn" type="button" data-tm-next aria-label="${esc(t("tm.next"))}">${ICON.next}</button></div>
+          </div>
+          ${tag}
+          <div class="tm__track" data-tm tabindex="0" role="region" aria-roledescription="carousel" aria-label="${esc(t("tm.region"))}">
+            ${items.map((x) => `<figure class="tm__card">${stars(x.stars)}<blockquote>\u201C${esc(x.quote)}\u201D</blockquote><figcaption><b>${esc(x.name)}</b><span>${esc([x.role, x.company].filter(Boolean).join(" · "))}</span></figcaption></figure>`).join("")}
+          </div>
         </div>
       </section>`;
   }
@@ -184,6 +211,8 @@
           </div>
         </div>
       </section>
+
+      ${testimonialStrip()}
 
       <section class="section" ${world("ambient", "ink", "0,0,9")} aria-labelledby="faq-title">
         <div class="container grid faq__grid">
@@ -514,10 +543,13 @@
         </div>
         <div class="container grid contact__grid" style="margin-block-start:clamp(3rem,8vw,6rem)">
           <div class="contact__info" data-reveal>
-            <div class="info-list">
-              <a href="${GD.mailLink}"><small>${esc(t("ct.email"))}</small><span>${esc(CFG.email)}</span></a>
-              <a href="${GD.telLink}"><small>${esc(t("ct.phone"))}</small><span dir="ltr">${esc(CFG.phone)}</span></a>
-              ${live(CFG.address) ? `<div><small>${esc(t("ct.address"))}</small><span>${esc(CFG.address)}</span></div>` : ""}
+            <div class="contact__card">
+              <div class="contact__pair">
+                <a class="contact__item" href="${GD.telLink}"><small>${esc(t("ct.phone"))}</small><span dir="ltr">${ICON.phone}<b>${esc(CFG.phone)}</b></span></a>
+                <a class="contact__item" href="${GD.mailLink}"><small>${esc(t("ct.email"))}</small><span>${ICON.mail}<b>${esc(CFG.email)}</b></span></a>
+              </div>
+              <p class="contact__line">${live(CFG.address) ? ICON.pin : ICON.lang}<span>${esc(live(CFG.address) ? CFG.address : t("ct.global"))}</span></p>
+              ${(() => { const so = Object.entries(CFG.socials || {}).filter(([, u]) => live(u)); return so.length ? `<div class="socials socials--brand">${so.map(([k, u]) => `<a class="soc-${k}" href="${esc(u)}" target="_blank" rel="noopener" aria-label="${SOCIAL_NAMES[k] || k}">${ICON[k] || ""}</a>`).join("")}</div>` : ""; })()}
             </div>
             <div class="cta-row">${waBtn(t("cta.waChat"))}${live(CFG.bookingUrl) ? `<a class="btn btn--ghost magnetic" href="${esc(CFG.bookingUrl)}" target="_blank" rel="noopener"><span class="btn__label">${esc(t("cta.book"))}</span></a>` : ""}</div>
             ${GD.reachWidget ? GD.reachWidget() : ""}
@@ -768,6 +800,29 @@
     const pause = () => clearInterval(timer);
     el.addEventListener("pointerenter", pause); el.addEventListener("pointerleave", play);
     el.addEventListener("focusin", pause); el.addEventListener("focusout", play);
+    play(); cleanups.push(pause);
+  }
+
+  function tmStrip(root) {
+    const track = $("[data-tm]", root); if (!track) return;
+    const prev = $("[data-tm-prev]", root), next = $("[data-tm-next]", root);
+    const rtl = () => getComputedStyle(track).direction === "rtl";
+    const step = () => { const c = track.querySelector(".tm__card"); return c ? c.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 16) : track.clientWidth * 0.8; };
+    const atEnd = () => Math.abs(track.scrollLeft) + track.clientWidth >= track.scrollWidth - 4;
+    const atStart = () => Math.abs(track.scrollLeft) <= 4;
+    const go = (dir) => {
+      const behavior = reduced ? "auto" : "smooth", sign = rtl() ? -1 : 1;
+      if (dir > 0 && atEnd()) track.scrollTo({ left: 0, behavior });
+      else if (dir < 0 && atStart()) track.scrollTo({ left: sign * (track.scrollWidth - track.clientWidth), behavior });
+      else track.scrollBy({ left: sign * dir * step(), behavior });
+    };
+    prev.addEventListener("click", () => go(-1)); next.addEventListener("click", () => go(1));
+    track.addEventListener("keydown", (e) => { if (e.key === "ArrowRight") { e.preventDefault(); go(rtl() ? -1 : 1); } else if (e.key === "ArrowLeft") { e.preventDefault(); go(rtl() ? 1 : -1); } });
+    let timer = 0;
+    const pause = () => clearInterval(timer);
+    const play = () => { if (reduced) return; clearInterval(timer); timer = setInterval(() => go(1), 4500); };
+    ["pointerenter", "focusin", "touchstart"].forEach((ev) => track.addEventListener(ev, pause, { passive: true }));
+    ["pointerleave", "focusout"].forEach((ev) => track.addEventListener(ev, play));
     play(); cleanups.push(pause);
   }
 
@@ -1030,7 +1085,7 @@
 
   function mount(r) {
     const root = view;
-    slots(root); accordion(root); slider(root); contactForm(root); magnetic(root);
+    slots(root); accordion(root); slider(root); tmStrip(root); contactForm(root); magnetic(root);
     cleanups.push(...ILLO.initDemos(root), ILLO.observeDraw(root));
     GD.mounters.forEach((m) => { if (m.page) { const c = m.page(root, r); if (typeof c === "function") cleanups.push(c); } });
     const scenes = Array.from(new Set($$("[data-world]", root).map((e) => e.dataset.scene)));
